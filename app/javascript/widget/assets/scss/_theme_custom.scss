@@ -1,0 +1,138 @@
+// app/javascript/widget/assets/scss/_theme_custom.scss
+
+@layer base {
+  /* 浅色模式整体色板（widget 内部） */
+  :root {
+    /* 背景基色改暗一点 */
+    --background-color: 10 12 24;
+
+    /* 主品牌色：紫 + 少量绿色做点缀 */
+    --iris-9: 129 140 248;   /* 主按钮/主高亮 */
+    --iris-10: 109 120 245;
+    --iris-11: 165 180 252;
+
+    /* 文字层级 */
+    --slate-1: 248 250 252;
+    --slate-12: 15 23 42;
+
+    /* 容器 & 边框 */
+    --solid-1: 15 23 42;     /* 面板背景 */
+    --solid-2: 17 24 39;
+    --border-container: 30 41 59;
+    --border-weak: 30 41 59;
+    --border-strong: 51 65 85;
+
+    /* 轻量色块 */
+    --solid-iris: 76 29 149;
+    --solid-blue: 37 99 235;
+    --solid-amber: 245 158 11;
+  }
+
+  /* 暗色模式下的重写（widget 内部暗黑） */
+  .dark {
+    --background-color: 3 7 18;
+
+    --slate-1: 15 23 42;
+    --slate-2: 15 23 42;
+    --slate-3: 30 64 175;
+    --slate-11: 226 232 240;
+    --slate-12: 248 250 252;
+
+    --iris-9: 129 140 248;
+    --iris-10: 165 180 252;
+    --iris-11: 196 181 253;
+    --iris-12: 233 213 255;
+
+    --solid-1: 15 23 42;
+    --solid-2: 17 24 39;
+    --solid-3: 24 35 68;
+    --solid-active: 30 64 175;
+    --solid-iris: 88 28 135;
+    --solid-blue: 23 37 84;
+
+    --border-weak: 30 41 59;
+    --border-strong: 51 65 85;
+  }
+}
+
+/* ========== 布局 & 间距 ========== */
+
+/* 整个 widget 内背景、圆角 */
+.woot-widget-holder {
+  background: radial-gradient(circle at 0% 0%, rgba(129, 140, 248, 0.2), rgba(15, 23, 42, 1));
+  border-radius: 24px;
+}
+
+/* 对话容器 */
+.woot-widget-holder .conversation-wrap,
+.woot-widget-holder .conversation {
+  padding: 12px 16px 14px;
+}
+
+/* 消息列表 */
+.woot-widget-holder .messages-wrap,
+.woot-widget-holder .messages-list {
+  row-gap: 6px;
+}
+
+/* ========== 消息气泡风格 ========== */
+
+.chat-bubble {
+  border-radius: 18px;
+  padding: 7px 11px;
+  max-width: 80%;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, .5);
+}
+
+/* 访客消息 */
+.chat-bubble.visitor,
+.chat-bubble--visitor {
+  background: rgba(15, 23, 42, 0.94);
+  color: rgb(226, 232, 240);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+}
+
+/* 你的回复 */
+.chat-bubble.agent,
+.chat-bubble--agent {
+  background: rgba(129, 140, 248, 0.16);
+  color: rgb(248, 250, 252);
+  border: 1px solid rgba(129, 140, 248, 0.9);
+}
+
+/* 上下间距 */
+.chat-bubble + .chat-bubble {
+  margin-top: 3px;
+}
+
+.message-group + .message-group {
+  margin-top: 8px;
+}
+
+/* ========== 输入框和底部区域 ========== */
+
+.chat-message--input {
+  border-radius: 16px !important;
+  padding: 8px 10px !important;
+  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.6);
+}
+
+.chat-message--input.is-focused {
+  box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.9), 0 0 0 1px rgba(15, 23, 42, 0.9);
+}
+
+/* 发送按钮 */
+.chat-footer .button,
+button.send-button {
+  border-radius: 999px;
+  padding: 0 14px;
+  background: linear-gradient(135deg, #22c55e, #a855f7);
+  border-color: transparent;
+}
+
+/* 顶部 header 高度和内边距（类名示意，按实际 DOM 调整） */
+.widget-header,
+.header-wrap {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.7);
+}
