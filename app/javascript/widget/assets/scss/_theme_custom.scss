@@ -1,18 +1,18 @@
 // app/javascript/widget/assets/scss/_theme_custom.scss
 
   /* 浅色模式整体色板（widget 内部） */
- .woot-widget-holder {
+html:root {
     /* 背景基色改暗一点 */
     --background-color: 10 12 24;
 
     /* 主品牌色：紫 + 少量绿色做点缀 */
     --iris-9: 129 140 248;   /* 主按钮/主高亮 */
     --iris-10: 109 120 245;
+    --iris-11: 165 180 252;
 
     /* 文字层级 */
     --slate-1: 248 250 252;
     --slate-12: 15 23 42;
-    --slate-11: 30 41 59;
 
     /* 最外层背景 */
     --slate-2: 255 244 254;
@@ -33,7 +33,7 @@
   }
 
   /* 暗色模式下的重写（widget 内部暗黑） */
-  body.dark-theme .woot-widget-holder{
+  body.dark.dark-theme  {
     --background-color: 3 7 18;
 
     --slate-1: 15 23 42;
@@ -60,6 +60,23 @@
 
 /* ========== 布局 & 间距 ========== */
 
+
+.woot-widget-holder p {
+  margin-top: 0.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.woot-widget-holder ol p,
+.woot-widget-holder ul p {
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+ol, ul {
+  list-style: none;
+  margin: .2rem 0 .5rem;
+}
+
 /* 整个 widget 内背景、圆角 */
 .woot-widget-holder {
   background: radial-gradient(circle at 0% 0%, rgba(129, 140, 248, 0.2), rgba(15, 23, 42, 1));
@@ -78,13 +95,24 @@
   row-gap: 6px;
 }
 
+.conversation-wrap .agent-message .message-wrap {
+  margin-top: .3rem;
+  max-width: 95%;
+}
+.conversation-wrap .user-message {
+    max-width: 90%;
+
+}
+.message-content ul:where([dir=ltr],[dir=ltr] *) {
+    padding-left: .75rem;
+}
 /* ========== 消息气泡风格 ========== */
 
 .chat-bubble {
   border-radius: 18px;
   padding: 7px 11px;
   max-width: 80%;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, .5);
+  box-shadow: 0 10px 30px rgba(101, 114, 145, 0.184);
 }
 
 /* 访客消息 */
@@ -92,15 +120,18 @@
 .chat-bubble--visitor {
   background: rgba(15, 23, 42, 0.94);
   color: rgb(226, 232, 240);
-  border: 1px solid rgba(148, 163, 184, 0.6);
+  border: 1px solid rgba(63, 68, 121, 0.6);
 }
 
 /* 你的回复 */
 .chat-bubble.agent,
 .chat-bubble--agent {
-  background: rgba(129, 140, 248, 0.16);
-  color: rgb(248, 250, 252);
-  border: 1px solid rgba(129, 140, 248, 0.9);
+  background: #f3f2fb;
+  color: #272627;
+  border: 1px solid #d6d0e1;
+}
+.message-content {
+  font-size: 14px;
 }
 
 /* 上下间距 */
@@ -124,6 +155,13 @@
   box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.9), 0 0 0 1px rgba(15, 23, 42, 0.9);
 }
 
+.ltr\:pr-2:where([dir=ltr],[dir=ltr] *) {
+    padding-right: .2rem;
+}
+.ltr\:pl-3:where([dir=ltr],[dir=ltr] *) {
+    padding-left: .5rem;
+}
+
 /* 发送按钮 */
 .chat-footer .button,
 button.send-button {
@@ -138,4 +176,9 @@ button.send-button {
 .header-wrap {
   padding: 12px 16px;
   border-bottom: 1px solid rgba(51, 65, 85, 0.7);
+}
+/* 底部logo */
+.opacity-90 {
+    opacity: 0.1;
+    font-size: 0.5rem;
 }

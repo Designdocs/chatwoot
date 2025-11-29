@@ -249,6 +249,10 @@ textarea {
   margin: 0; /* 2 */
 }
 
+
+.conversation-wrap p:not(:last-child) {
+    margin-bottom: .7rem;
+}
 /**
  * Show the overflow in IE.
  * 1. Show the overflow in Edge.
