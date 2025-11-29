@@ -1,19 +1,21 @@
 // app/javascript/widget/assets/scss/_theme_custom.scss
 
-@layer base {
   /* 浅色模式整体色板（widget 内部） */
-  :root {
+ .woot-widget-holder {
     /* 背景基色改暗一点 */
     --background-color: 10 12 24;
 
     /* 主品牌色：紫 + 少量绿色做点缀 */
     --iris-9: 129 140 248;   /* 主按钮/主高亮 */
     --iris-10: 109 120 245;
-    --iris-11: 165 180 252;
 
     /* 文字层级 */
     --slate-1: 248 250 252;
     --slate-12: 15 23 42;
+    --slate-11: 30 41 59;
+
+    /* 最外层背景 */
+    --slate-2: 255 244 254;
 
     /* 容器 & 边框 */
     --solid-1: 15 23 42;     /* 面板背景 */
@@ -22,6 +24,8 @@
     --border-weak: 30 41 59;
     --border-strong: 51 65 85;
 
+
+
     /* 轻量色块 */
     --solid-iris: 76 29 149;
     --solid-blue: 37 99 235;
@@ -29,7 +33,7 @@
   }
 
   /* 暗色模式下的重写（widget 内部暗黑） */
-  .dark {
+  body.dark-theme .woot-widget-holder{
     --background-color: 3 7 18;
 
     --slate-1: 15 23 42;
@@ -53,7 +57,6 @@
     --border-weak: 30 41 59;
     --border-strong: 51 65 85;
   }
-}
 
 /* ========== 布局 & 间距 ========== */
 
