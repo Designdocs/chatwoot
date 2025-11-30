@@ -122,10 +122,13 @@ export default {
 
 <template>
   <div
-    class="items-center flex ltr:pl-3 rtl:pr-3 ltr:pr-2 rtl:pl-2 rounded-[7px] transition-all duration-200 bg-n-background shadow-md border border-x-gray-600 dark:shadow-md border-slate-400"
-    :class="{
-      '!shadow-lg border border-x-violet-500 dark:!shadow-lg border-violet-700': isFocused
-    }"
+    class="
+    items-center flex ltr:pl-3 rtl:pr-3 ltr:pr-2 rtl:pl-2
+    rounded-[7px] transition-all duration-200
+    bg-n-background shadow-md dark:shadow-md
+    !border !border-slate-400
+    focus-within:!border-slate-700
+  "
     @keydown.esc="hideEmojiPicker"
   >
     <ResizableTextArea

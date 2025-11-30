@@ -34,8 +34,8 @@ html:root {
   }
 
   /* 暗色模式下的重写（widget 内部暗黑） */
-  body.dark.dark-theme  {
-    --background-color: 3 7 18;
+  body.dark  {
+    --background-color: 37 35 49;
 
     --slate-1: 15 23 42;
     --slate-2: 15 23 42;
@@ -49,7 +49,7 @@ html:root {
     --iris-12: 233 213 255;
 
     --solid-1: 15 23 42;
-    --solid-2: 17 24 39;
+    --solid-2: 37 35 49;
     --solid-3: 24 35 68;
     --solid-active: 30 64 175;
     --solid-iris: 88 28 135;
@@ -126,7 +126,9 @@ button, input, optgroup, select, textarea {
   padding: 9px 11px;
   box-shadow: 0 10px 30px rgba(101, 114, 145, 0.184);
 }
-
+.dark .chat-bubble {
+  box-shadow: 0 10px 30px rgba(25, 32, 48, 0.184);
+}
 /* 气泡里的文本行为，关键在这里 */
 .chat-bubble p {
   margin: 0;                    /* 去掉默认上下 margin，避免额外高度 */
@@ -149,6 +151,12 @@ button, input, optgroup, select, textarea {
   background: #f6f6fa;
   color: #272627;
   border: 1px solid #e9e9ee;
+}
+.dark .chat-bubble.agent,
+.dark .chat-bubble--agent {
+  background: #2a2933;
+  color: rgb(226, 232, 240);
+  border: 1px solid #2c2c3e;
 }
 .message-content {
   font-size: 14px;
@@ -201,4 +209,20 @@ button.send-button {
 .opacity-90 {
     opacity: 0.1;
     font-size: 0.5rem;
+}
+@media only screen and (min-width: 667px) {
+  .woot-widget-holder {
+      max-height: 670px !important;
+      min-height: 250px !important;
+      width: 430px !important;
+      border: 1px solid #cdcddb !important;
+  }
+}
+@media only screen and (min-width: 667px) {
+  .dark .woot-widget-holder {
+      max-height: 670px !important;
+      min-height: 250px !important;
+      width: 430px !important;
+      border: 1px solid #2f2f34 !important;
+  }
 }
