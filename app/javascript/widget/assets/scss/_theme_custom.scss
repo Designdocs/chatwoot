@@ -3,7 +3,7 @@
   /* 浅色模式整体色板（widget 内部） */
 html:root {
     /* 背景基色改暗一点 */
-    --background-color: 240 240 240;
+    --background-color: 230 230 250;
 
     /* 主品牌色：紫 + 少量绿色做点缀 */
     --iris-9: 129 140 248;   /* 主按钮/主高亮 */
@@ -20,7 +20,7 @@ html:root {
     /* 容器 & 边框 */
     --solid-1: 15 23 42;     /* 面板背景 */
     --solid-2: 17 24 39;
-    --border-container: 203 203 203;
+    --border-container: 249 246 252;
     --border-weak: 30 41 59;
     --border-strong: 138 151 164;
     --tw-shadow-colored: 0 1px 1px 0 var(--tw-shadow-color);
@@ -75,6 +75,12 @@ ol, ul {
   margin-bottom: 0.4rem;
 }
 
+button, input, optgroup, select, textarea {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
 
 /* 整个 widget 内背景、圆角 */
 .woot-widget-holder {

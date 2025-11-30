@@ -122,10 +122,9 @@ export default {
 
 <template>
   <div
-    class="items-center flex ltr:pl-3 rtl:pr-3 ltr:pr-2 rtl:pl-2 rounded-[7px] transition-all duration-200 bg-n-background !shadow-[0_0_0_1px,0_0_2px_3px] border border-black dark:border-slate-200"
+    class="items-center flex ltr:pl-3 rtl:pr-3 ltr:pr-2 rtl:pl-2 rounded-[7px] transition-all duration-200 bg-n-background shadow-md border border-x-gray-600 dark:shadow-md border-slate-400"
     :class="{
-      '!shadow-n-brand dark:!shadow-n-brand': isFocused,
-      '!shadow-n-strong dark:!shadow-n-strong': !isFocused,
+      '!shadow-lg border border-x-violet-500 dark:!shadow-lg border-violet-700': isFocused
     }"
     @keydown.esc="hideEmojiPicker"
   >
