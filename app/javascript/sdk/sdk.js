@@ -13,6 +13,7 @@ export const SDK_CSS = `
   position: fixed !important;
   transition: opacity 0.2s linear, transform 0.25s linear;
   z-index: 2147483000 !important;
+  border: 1px solid #7d7d7e33 !important;
 }
 
 .woot-widget-holder.woot-widget-holder--flat {
@@ -286,6 +287,7 @@ export const SDK_CSS = `
     max-height: 670px !important;
     min-height: 250px !important;
     width: 430px !important;
+    border: 1px solid #7d7d7e33 !important;
  }
 }
 
