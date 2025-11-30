@@ -34,7 +34,7 @@ html:root {
   }
 
   /* 暗色模式下的重写（widget 内部暗黑） */
-  body.dark  {
+  .dark  {
     --background-color: 37 35 49;
 
     --slate-1: 15 23 42;
