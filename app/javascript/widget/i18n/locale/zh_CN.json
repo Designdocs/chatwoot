@@ -19,7 +19,7 @@
   },
   "TEAM_AVAILABILITY": {
     "ONLINE": "在线",
-    "OFFLINE": "当前已离线",
+    "OFFLINE": "暂时离线",
     "BACK_AS_SOON_AS_POSSIBLE": "We will be back as soon as possible"
   },
   "REPLY_TIME": {
@@ -57,8 +57,8 @@
   "BUBBLE": {
     "LABEL": "联系我们"
   },
-  "POWERED_BY": "由 Chatwoot 支持",
-  "EMAIL_PLACEHOLDER": "请输入您的电子邮件",
+  "POWERED_BY": "由 ArtstationX 支持",
+  "EMAIL_PLACEHOLDER": "请输入您的邮件地址",
   "CHAT_PLACEHOLDER": "输入您的消息",
   "TODAY": "今天",
   "YESTERDAY": "昨天",
@@ -86,7 +86,7 @@
       },
       "MESSAGE": {
         "LABEL": "消息",
-        "PLACEHOLDER": "请输入您的消息",
+        "PLACEHOLDER": "请输入您的详细消息...",
         "ERROR": "消息太短了"
       }
     },

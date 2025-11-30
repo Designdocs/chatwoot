@@ -39,7 +39,7 @@ zh_CN:
     templates:
       greeting_message_body: "%{account_name} 通常在几小时内回复。"
       ways_to_reach_you_message_body: "给团队一个联系您的方法。"
-      email_input_box_message_body: "通过电子邮件得到通知"
+      email_input_box_message_body: "邮箱地址一定准确，以便我们回复您"
     reply:
       email_subject: "此对话中的新消息"
       transcript_subject: "Conversation Transcript"

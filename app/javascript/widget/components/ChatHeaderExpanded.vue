@@ -36,7 +36,7 @@ const containerClasses = computed(() => [
     <div class="flex items-start" :class="containerClasses">
       <img
         v-if="avatarUrl"
-        class="h-12 rounded-full"
+        class="h-12 rounded-sm"
         :src="avatarUrl"
         alt="Avatar"
       />

@@ -970,7 +970,7 @@
       "BODY": {
         "TEAM_AVAILABILITY": {
           "ONLINE": "我们在线",
-          "OFFLINE": "当前已离线"
+          "OFFLINE": "暂时离线"
         },
         "USER_MESSAGE": "嗨",
         "AGENT_MESSAGE": "您好"

@@ -36,7 +36,7 @@ const onBackButtonClick = () => {
       </button>
       <img
         v-if="avatarUrl"
-        class="w-8 h-8 ltr:mr-3 rtl:ml-3 rounded-full"
+        class="w-8 h-8 ltr:mr-3 rtl:ml-3 rounded-sm"
         :src="avatarUrl"
         alt="avatar"
       />
