@@ -279,7 +279,7 @@ export default {
         <div class="min-h-full py-4 overflow-y-scroll px-px">
           <form @submit.prevent="updateWidget">
             <div class="flex flex-col mb-4 items-start gap-1 w-full">
-              <label class="mb-0.5 text-sm font-medium text-n-slate-12">
+              <label class="mb-0.5 text-sm font-semibold text-n-slate-12">
                 {{
                   $t('INBOX_MGMT.WIDGET_BUILDER.WIDGET_OPTIONS.AVATAR.LABEL')
                 }}

@@ -119,7 +119,7 @@ const hasNoUsedAttributes = computed(() => usedAttributes.value.length === 0);
     </div>
     <div v-if="!hasNoUnusedAttributes" class="flex items-center gap-3">
       <div class="flex-1 h-[1px] bg-n-slate-5" />
-      <span class="text-sm font-medium text-n-slate-10">{{
+      <span class="text-sm font-semibold text-n-slate-10">{{
         t('CONTACTS_LAYOUT.SIDEBAR.ATTRIBUTES.UNUSED_ATTRIBUTES', {
           count: unusedAttributesCount,
         })

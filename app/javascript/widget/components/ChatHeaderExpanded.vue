@@ -47,7 +47,7 @@ const containerClasses = computed(() => [
     </div>
     <h2
       v-dompurify-html="introHeading"
-      class="mt-4 text-4xl mb-1.5 font-medium text-n-slate-12 line-clamp-4"
+      class="mt-6 text-4xl mb-1.5 font-semibold text-n-slate-12 line-clamp-4"
     />
     <p
       v-dompurify-html="formatMessage(introBody)"

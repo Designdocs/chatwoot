@@ -132,7 +132,7 @@ export default {
   </footer>
   <div v-else>
     <CustomButton
-      class="font-medium"
+      class="font-semibold"
       block
       :bg-color="widgetColor"
       :text-color="textColor"

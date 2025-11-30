@@ -64,7 +64,7 @@ const openInNewTab = url => {
             />
           </div>
         </div>
-        <h1 class="text-xl font-medium tracking-tight text-n-slate-12">
+        <h1 class="text-xl font-semibold tracking-tight text-n-slate-12">
           {{ title }}
         </h1>
       </div>
@@ -85,7 +85,7 @@ const openInNewTab = url => {
           :href="helpURL"
           target="_blank"
           rel="noopener noreferrer"
-          class="items-center hidden gap-1 text-sm font-medium sm:inline-flex w-fit text-n-blue-text hover:underline"
+          class="items-center hidden gap-1 text-sm font-semibold sm:inline-flex w-fit text-n-blue-text hover:underline"
         >
           {{ linkText }}
           <Icon

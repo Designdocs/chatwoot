@@ -28,6 +28,7 @@ export const SDK_CSS = `
   height: 100% !important;
   width: 100% !important;
   max-height: 100vh !important;
+  border: 1px solid #7d7d7e33 !important;
 }
 
 .woot-widget-holder.has-unread-view {

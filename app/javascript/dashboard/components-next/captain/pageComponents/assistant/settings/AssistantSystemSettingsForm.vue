@@ -129,7 +129,7 @@ watch(
     />
 
     <div class="flex flex-col gap-2">
-      <label class="text-sm font-medium text-n-slate-12">
+      <label class="text-sm font-semibold text-n-slate-12">
         {{ t('CAPTAIN.ASSISTANTS.FORM.TEMPERATURE.LABEL') }}
       </label>
       <div class="flex items-center gap-4">

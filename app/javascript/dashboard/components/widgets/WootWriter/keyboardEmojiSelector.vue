@@ -52,7 +52,7 @@ onMounted(() => {
   >
     <template #default="{ item, selected }">
       <span
-        class="max-w-full inline-flex items-center gap-0.5 min-w-0 mb-0 text-sm font-medium text-n-slate-12 group-hover:text-n-brand truncate"
+        class="max-w-full inline-flex items-center gap-0.5 min-w-0 mb-0 text-sm font-semibold text-n-slate-12 group-hover:text-n-brand truncate"
       >
         {{ item.emoji }}
         <p

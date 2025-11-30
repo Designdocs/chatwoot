@@ -83,7 +83,7 @@ onMounted(async () => {
         :alt="globalConfig.installationName"
         class="hidden w-auto h-8 mx-auto dark:block"
       />
-      <h2 class="mt-6 text-3xl font-medium text-center text-n-slate-12">
+      <h2 class="mt-6 text-3xl font-semibold text-center text-n-slate-12">
         {{ t('LOGIN.SAML.TITLE') }}
       </h2>
     </section>

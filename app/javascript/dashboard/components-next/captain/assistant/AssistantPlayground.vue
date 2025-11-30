@@ -79,7 +79,7 @@ const sendMessage = async () => {
   >
     <div class="mb-8 px-6">
       <div class="flex justify-between items-center mb-1">
-        <h3 class="text-lg font-medium">
+        <h3 class="text-lg font-semibold">
           {{ t('CAPTAIN.PLAYGROUND.HEADER') }}
         </h3>
         <NextButton

@@ -16,7 +16,7 @@ defineProps({
     <span class="text-n-slate-11 text-xs">
       {{ label }}
     </span>
-    <div class="mt-2 text-xl font-medium text-n-slate-12">
+    <div class="mt-2 text-xl font-semibold text-n-slate-12">
       {{ value }}
     </div>
   </div>

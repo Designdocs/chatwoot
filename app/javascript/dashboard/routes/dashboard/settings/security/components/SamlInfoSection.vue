@@ -62,7 +62,7 @@ const handleCopy = async text => {
 <template>
   <div class="space-y-4">
     <div class="flex items-center gap-2">
-      <h3 class="text-sm font-medium text-n-slate-12">
+      <h3 class="text-sm font-semibold text-n-slate-12">
         {{ t('SECURITY_SETTINGS.SAML.INFO_SECTION.TITLE') }}
       </h3>
       <i

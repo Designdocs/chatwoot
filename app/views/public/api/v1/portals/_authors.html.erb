@@ -12,7 +12,7 @@
     <% other_authors_count = author_count - 1 %>
     <% other_authors_text = other_authors_count > 1 ? I18n.t('public_portal.common.others') : I18n.t('public_portal.common.other') %>
 
-    <span class="<%= show_expanded ? 'text-base' : 'text-sm' %> font-medium text-slate-600 dark:text-slate-400">
+    <span class="<%= show_expanded ? 'text-base' : 'text-sm' %> font-semibold text-slate-600 dark:text-slate-400">
     <% if show_expanded %>
         <%= "#{I18n.t('public_portal.common.by')} #{first_author}" %>
         <%= other_authors_count.positive? ? " and #{other_authors_count} #{other_authors_text}" : '' %>

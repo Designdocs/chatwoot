@@ -34,7 +34,7 @@ const colorClass = computed(() => {
   <div
     class="flex gap-5 items-center justify-between text-xs uppercase text-n-slate-10"
   >
-    <div class="font-medium tracking-wider">
+    <div class="font-semibold tracking-wider">
       {{ title }}
     </div>
     <div class="tabular-nums">{{ consumed }} / {{ totalCount }}</div>

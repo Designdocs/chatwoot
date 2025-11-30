@@ -23,7 +23,7 @@ const onClick = name => {
     @click="onClick(controlItem.routeName)"
   >
     <div class="flex items-center justify-between w-full gap-1 h-8">
-      <span class="text-sm font-medium text-n-slate-12 line-clamp-1">
+      <span class="text-sm font-semibold text-n-slate-12 line-clamp-1">
         {{ controlItem.name }}
       </span>
       <div class="flex items-center gap-2">

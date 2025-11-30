@@ -79,7 +79,7 @@ const onClickTabChange = index => {
     </template>
     <template #preBody>
       <woot-tabs
-        class="font-medium [&_ul]:p-0 mb-4"
+        class="font-semibold [&_ul]:p-0 mb-4"
         :index="selectedTabIndex"
         @change="onClickTabChange"
       >

@@ -76,7 +76,7 @@ const getInboxName = inboxId => {
 <template>
   <div class="py-4 flex-col flex gap-3">
     <div class="flex items-center w-full gap-8 justify-between pt-1 pb-3">
-      <label class="text-sm font-medium text-n-slate-12">
+      <label class="text-sm font-semibold text-n-slate-12">
         {{ t(`${BASE_KEY}.FORM.INBOX_CAPACITY_LIMIT.LABEL`) }}
       </label>
 

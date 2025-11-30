@@ -118,14 +118,14 @@ onUnmounted(() => {
         />
         <span
           v-if="showExtendedInfo && parentWidth > 650"
-          class="text-xs font-medium"
+          class="text-xs font-semibold"
           :class="slaTextStyles"
         >
           {{ slaStatusText }}
         </span>
       </div>
       <span
-        class="text-xs font-medium"
+        class="text-xs font-semibold"
         :class="[slaTextStyles, showExtendedInfo && 'ltr:pl-1.5 rtl:pr-1.5']"
       >
         {{ slaStatus.threshold }}

@@ -70,7 +70,7 @@ body {
 }
 
 label {
-  @apply block font-medium py-1 px-0 capitalize;
+  @apply block font-semibold py-1 px-0 capitalize;
 }
 
 input:not(.reset-base),

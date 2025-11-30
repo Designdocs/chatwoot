@@ -235,14 +235,14 @@ useKeyboardEvents(keyboardEvents);
         variant="faded"
         color="slate"
         size="sm"
-        class="!text-xs font-medium"
+        class="!text-xs font-semibold"
         @click="emit('discard')"
       />
       <Button
         v-if="isRegularMessageMode"
         :label="sendButtonLabel"
         size="sm"
-        class="!text-xs font-medium"
+        class="!text-xs font-semibold"
         :disabled="isLoading || disableSendButton"
         :is-loading="isLoading"
         @click="emit('sendMessage')"

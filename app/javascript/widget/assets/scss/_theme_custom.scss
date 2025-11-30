@@ -35,7 +35,7 @@ html:root {
 
   /* 暗色模式下的重写（widget 内部暗黑） */
   .dark  {
-    --background-color: 37 35 49;
+    --background-color: 59 55 78;
 
     --slate-1: 25 24 30;
     --slate-2: 15 23 42;
@@ -63,13 +63,16 @@ html:root {
 
 .dark\:bg-n-solid-1:is(.dark *) {
     --tw-bg-opacity: 1;
-    background-color: #fff;
     background-color: rgb(25 24 30 / var(--tw-bg-opacity));
 }
 
 ol, ul {
   list-style: none;
-  margin: .2rem 0 .5rem;
+  margin: .5rem 0 .7rem .3rem;
+}
+::marker {
+    color: #454595;
+    font-weight: 500;
 }
 .conversation-wrap p:not(:last-child) {
     margin-bottom: 0.8rem;
@@ -99,6 +102,7 @@ button, input, optgroup, select, textarea {
 .woot-widget-holder {
   background: radial-gradient(circle at 0% 0%, rgba(129, 140, 248, 0.2), rgba(15, 23, 42, 1));
   border-radius: 24px;
+  border: 1px solid #7d7d7e33 !important;
 }
 
 /* 对话容器 */
@@ -220,7 +224,7 @@ button.send-button {
       max-height: 670px !important;
       min-height: 250px !important;
       width: 430px !important;
-      border: 1px solid #7d7d7e33 !important;
+      border: 1px solid #a6a6a633 !important;
   }
 }
 @media only screen and (min-width: 667px) {

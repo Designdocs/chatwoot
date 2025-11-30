@@ -34,7 +34,7 @@ const containerRingClass = computed(() => {
         </div>
 
         <div class="flex overflow-hidden flex-col flex-grow">
-          <span class="text-base font-medium truncate">{{ $t(labelKey) }}</span>
+          <span class="text-base font-semibold truncate">{{ $t(labelKey) }}</span>
           <span class="text-xs text-slate-500">{{ $t(subtextKey) }}</span>
         </div>
       </div>

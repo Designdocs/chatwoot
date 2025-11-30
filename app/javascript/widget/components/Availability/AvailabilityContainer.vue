@@ -64,7 +64,7 @@ const headerText = computed(() =>
 <template>
   <div class="flex items-center justify-between gap-2">
     <div class="flex flex-col gap-1">
-      <div v-if="showHeader" class="font-medium text-n-slate-12">
+      <div v-if="showHeader" class="font-semibold text-n-slate-12">
         {{ headerText }}
       </div>
 

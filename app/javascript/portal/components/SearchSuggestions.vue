@@ -87,7 +87,7 @@ export default {
   >
     <div
       v-if="isLoading"
-      class="text-sm font-medium text-slate-400 dark:text-slate-700"
+      class="text-sm font-semibold text-slate-400 dark:text-slate-700"
     >
       {{ loadingPlaceholder }}
     </div>
@@ -125,7 +125,7 @@ export default {
 
     <div
       v-if="showEmptyResults"
-      class="text-sm font-medium text-slate-400 dark:text-slate-700"
+      class="text-sm font-semibold text-slate-400 dark:text-slate-700"
     >
       {{ emptyPlaceholder }}
     </div>

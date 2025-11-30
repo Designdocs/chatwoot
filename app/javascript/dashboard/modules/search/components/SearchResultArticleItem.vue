@@ -48,12 +48,12 @@ const truncatedContent = computed(() => {
     </div>
     <div class="ltr:ml-2 rtl:mr-2 min-w-0 flex-1">
       <div class="flex items-center gap-2">
-        <h5 class="text-sm font-medium truncate min-w-0 text-n-slate-12">
+        <h5 class="text-sm font-semibold truncate min-w-0 text-n-slate-12">
           {{ title }}
         </h5>
         <span
           v-if="category"
-          class="text-xs font-medium whitespace-nowrap capitalize bg-n-slate-3 px-1 py-0.5 rounded text-n-slate-10"
+          class="text-xs font-semibold whitespace-nowrap capitalize bg-n-slate-3 px-1 py-0.5 rounded text-n-slate-10"
         >
           {{ category }}
         </span>

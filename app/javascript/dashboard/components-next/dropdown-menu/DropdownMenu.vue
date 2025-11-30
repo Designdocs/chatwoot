@@ -141,7 +141,7 @@ onMounted(() => {
       >
         <p
           v-if="section.title"
-          class="px-2 pt-2 text-xs font-medium text-n-slate-11 uppercase tracking-wide"
+          class="px-2 pt-2 text-xs font-semibold text-n-slate-11 uppercase tracking-wide"
         >
           {{ section.title }}
         </p>

@@ -120,7 +120,7 @@ export default {
     <div class="flex items-center gap-2 justify-between p-3 rounded-t-lg h-11">
       <div class="flex gap-1.5 min-w-0">
         <span class="i-lucide-arrow-down-up size-3.5 text-n-slate-12" />
-        <span class="text-xs font-medium text-n-slate-12 truncate min-w-0">
+        <span class="text-xs font-semibold text-n-slate-12 truncate min-w-0">
           {{ $t('INBOX.DISPLAY_MENU.SORT') }}
         </span>
       </div>
@@ -150,7 +150,7 @@ export default {
             @click.stop="onSortOptionClick(option)"
           >
             <span
-              class="text-xs font-medium hover:text-n-brand truncate min-w-0 dark:hover:text-n-brand"
+              class="text-xs font-semibold hover:text-n-brand truncate min-w-0 dark:hover:text-n-brand"
               :class="{
                 'text-n-blue-text dark:text-n-blue-text':
                   activeSort === option.key,
@@ -168,7 +168,7 @@ export default {
       </div>
     </div>
     <div>
-      <span class="px-3 py-4 text-xs font-medium text-n-slate-11">
+      <span class="px-3 py-4 text-xs font-semibold text-n-slate-11">
         {{ $t('INBOX.DISPLAY_MENU.DISPLAY') }}
       </span>
       <div class="flex flex-col divide-y divide-n-weak dark:divide-n-strong">
@@ -187,7 +187,7 @@ export default {
           />
           <label
             :for="option.key"
-            class="text-xs font-medium text-n-slate-12 !ml-0 !mr-0 dark:text-n-slate-12"
+            class="text-xs font-semibold text-n-slate-12 !ml-0 !mr-0 dark:text-n-slate-12"
           >
             {{ option.name }}
           </label>
