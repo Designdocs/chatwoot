@@ -61,6 +61,11 @@ html:root {
 
 /* ========== 布局 & 间距 ========== */
 
+.dark\:bg-n-solid-1:is(.dark *) {
+    --tw-bg-opacity: 1;
+    background-color: #fff;
+    background-color: rgb(25 24 30 / var(--tw-bg-opacity));
+}
 
 ol, ul {
   list-style: none;
