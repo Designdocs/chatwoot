@@ -82,13 +82,13 @@ button, input, optgroup, select, textarea {
     padding: 0;
 }
 .user-message-input{
-    outline: 1px solid transparent;
-    min-height: 2.1rem;
+    outline: 1px solid transparent !important;
+    min-height: 2.1rem !important;
 }
-.user-message-input textarea{
-    font-size: 14px;
-    font-weight: 500;
-    min-height: 2.1rem;
+.user-message-input{
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    min-height: 2.1rem !important;
 }
 /* 整个 widget 内背景、圆角 */
 .woot-widget-holder {
