@@ -3,7 +3,7 @@
   /* 浅色模式整体色板（widget 内部） */
 html:root {
     /* 背景基色改暗一点 */
-    --background-color: 10 12 24;
+    --background-color: 240 240 240;
 
     /* 主品牌色：紫 + 少量绿色做点缀 */
     --iris-9: 129 140 248;   /* 主按钮/主高亮 */
@@ -15,14 +15,15 @@ html:root {
     --slate-12: 15 23 42;
 
     /* 最外层背景 */
-    --slate-2: 255 244 254;
+    --slate-2: 249 249 251;
 
     /* 容器 & 边框 */
     --solid-1: 15 23 42;     /* 面板背景 */
     --solid-2: 17 24 39;
-    --border-container: 30 41 59;
+    --border-container: 203 203 203;
     --border-weak: 30 41 59;
-    --border-strong: 51 65 85;
+    --border-strong: 138 151 164;
+    --tw-shadow-colored: 0 1px 1px 0 var(--tw-shadow-color);
 
 
 
@@ -61,21 +62,19 @@ html:root {
 /* ========== 布局 & 间距 ========== */
 
 
-.woot-widget-holder p {
-  margin-top: 0.1rem;
-  margin-bottom: 0.8rem;
-}
-
-.woot-widget-holder ol p,
-.woot-widget-holder ul p {
-  margin-top: 0.2rem;
-  margin-bottom: 0.5rem;
-}
-
 ol, ul {
   list-style: none;
   margin: .2rem 0 .5rem;
 }
+.conversation-wrap p:not(:last-child) {
+    margin-bottom: 0.8rem;
+}
+/* 列表里的 p 下边距 0.4rem，覆盖通用的 0.8rem */
+.conversation-wrap ol p:not(:last-child),
+.conversation-wrap ul p:not(:last-child) {
+  margin-bottom: 0.4rem;
+}
+
 
 /* 整个 widget 内背景、圆角 */
 .woot-widget-holder {
@@ -110,7 +109,7 @@ ol, ul {
 
 .chat-bubble {
   border-radius: 18px;
-  padding: 7px 11px;
+  padding: 9px 11px;
   max-width: 80%;
   box-shadow: 0 10px 30px rgba(101, 114, 145, 0.184);
 }
@@ -126,9 +125,9 @@ ol, ul {
 /* 你的回复 */
 .chat-bubble.agent,
 .chat-bubble--agent {
-  background: #f3f2fb;
+  background: #f6f6fa;
   color: #272627;
-  border: 1px solid #d6d0e1;
+  border: 1px solid #e9e9ee;
 }
 .message-content {
   font-size: 14px;
