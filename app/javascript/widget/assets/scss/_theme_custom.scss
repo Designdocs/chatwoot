@@ -35,11 +35,11 @@ html:root {
 
   /* 暗色模式下的重写（widget 内部暗黑） */
   .dark  {
-    --background-color: 59 55 78;
+    --background-color: 64 61 77;
 
     --slate-1: 25 24 30;
     --slate-2: 15 23 42;
-    --slate-3: 30 64 175;
+    --slate-3: 61 58 114;
     --slate-11: 226 232 240;
     --slate-12: 248 250 252;
 
@@ -50,7 +50,7 @@ html:root {
 
     --solid-1: 15 23 42;
     --solid-2: 37 35 49;
-    --solid-3: 24 35 68;
+    --solid-3: 0 38 52;
     --solid-active: 30 64 175;
     --solid-iris: 88 28 135;
     --solid-blue: 23 37 84;
@@ -80,13 +80,13 @@ html:root {
 }
 .dark .diy-bg {
     --tw-bg-opacity: 1;
-    background-color: rgb(20 19 24 / var(--tw-bg-opacity));
+    background-color: rgb(27 26 33 / var(--tw-bg-opacity));
 }
 .diy-border {
     border: 1px solid #dadadc;
 }
 .dark .diy-border {
-    border: 1px solid #3b3b3c;
+    border: 1px solid #28282a;
 }
 ol, ul {
   list-style: none;
@@ -128,7 +128,13 @@ button, input, optgroup, select, textarea {
 .woot-widget-holder {
   background: radial-gradient(circle at 0% 0%, rgba(129, 140, 248, 0.2), rgba(15, 23, 42, 1));
   border-radius: 24px;
-  border: 1px solid #7d7d7e33 !important;
+  border: 1px solid #dadadc !important;
+  /* Soft, wide shadow to visually lift the expanded window off the page */
+  box-shadow: 0 28px 80px rgba(124, 124, 124, 0.28), 0 12px 36px rgba(90, 90, 90, 0.1);
+}
+.dark .woot-widget-holder {
+  box-shadow: 0 28px 80px rgba(15, 16, 23, 0.36), 0 12px 36px rgba(0, 0, 0, 0.24);
+  border: 1px solid #28282a !important;
 }
 
 /* 对话容器 */
@@ -162,7 +168,7 @@ button, input, optgroup, select, textarea {
   box-shadow: 0 6px 15px #b2b2b22f;
 }
 .dark .chat-bubble {
-  box-shadow: 0 6px 15px #e7e7e72f;
+  box-shadow: 0 0px 8px #7b7e8a2f;
 }
 /* 气泡里的文本行为，关键在这里 */
 .chat-bubble p {
@@ -223,6 +229,24 @@ button, input, optgroup, select, textarea {
 }
 .ltr\:pl-3:where([dir=ltr],[dir=ltr] *) {
     padding-left: .5rem;
+}
+/* ========== 输入框边框 ========== */
+.chat-input-wrapper {
+  border: 1px solid #d1d5db;           /* 默认边框：浅灰 */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chat-input-wrapper:focus-within {
+  border-color: #111827;               /* 亮色模式下，聚焦颜色加深 */
+}
+
+/* 暗黑模式下的边框颜色 */
+.dark .chat-input-wrapper {
+  border-color: #4b5563;               /* 默认暗色边框 */
+}
+
+.dark .chat-input-wrapper:focus-within {
+  border-color: #e5e7eb;               /* 聚焦时更亮一点，方便看 */
 }
 
 /* 发送按钮 */

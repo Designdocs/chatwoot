@@ -123,11 +123,12 @@ export default {
 <template>
   <div
     class="
+    chat-input-wrapper
     items-center flex ltr:pl-3 rtl:pr-3 ltr:pr-2 rtl:pl-2
     rounded-[7px] transition-all duration-200
     bg-n-background shadow-md dark:shadow-md
-    !border !border-slate-400
-    focus-within:!border-slate-700
+    border border-slate-300 focus-within:border-slate-700
+    dark:border-slate-500 dark:focus-within:border-slate-200
   "
     @keydown.esc="hideEmojiPicker"
   >
