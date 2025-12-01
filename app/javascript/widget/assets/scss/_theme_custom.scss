@@ -69,7 +69,15 @@ html:root {
     --tw-bg-opacity: 1;
     background-color: rgb(249 249 251 / var(--tw-bg-opacity));
 }
-.dark .bg-neutral-800 {
+.dark\:bg-neutral-800:is(.dark *) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 35 49 / var(--tw-bg-opacity));
+}
+.diy-bg {
+    --tw-bg-opacity: 1;
+    background-color: rgb(249 249 251 / var(--tw-bg-opacity));
+}
+.dark .diy-bg {
     --tw-bg-opacity: 1;
     background-color: rgb(37 35 49 / var(--tw-bg-opacity));
 }
