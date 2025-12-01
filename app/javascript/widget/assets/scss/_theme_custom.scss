@@ -65,7 +65,14 @@ html:root {
     --tw-bg-opacity: 1;
     background-color: rgb(25 24 30 / var(--tw-bg-opacity));
 }
-
+.bg-neutral-50 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(249 249 251 / var(--tw-bg-opacity));
+}
+.bg-neutral-800 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(37 35 49 / var(--tw-bg-opacity));
+}
 ol, ul {
   list-style: none;
   margin: .5rem 0 .7rem .3rem;
