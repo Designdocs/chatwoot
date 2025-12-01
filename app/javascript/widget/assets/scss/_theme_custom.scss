@@ -20,7 +20,7 @@ html:root {
     /* 容器 & 边框 */
     --solid-1: 15 23 42;     /* 面板背景 */
     --solid-2: 17 24 39;
-    --border-container: 249 246 252;
+    --border-container: 240 236 244;
     --border-weak: 30 41 59;
     --border-strong: 138 151 164;
     --tw-shadow-colored: 0 1px 1px 0 var(--tw-shadow-color);
@@ -55,6 +55,7 @@ html:root {
     --solid-iris: 88 28 135;
     --solid-blue: 23 37 84;
 
+    --border-container: 30 30 33;
     --border-weak: 30 41 59;
     --border-strong: 51 65 85;
   }
@@ -71,7 +72,7 @@ html:root {
 }
 .dark\:bg-neutral-800:is(.dark *) {
   --tw-bg-opacity: 1;
-  background-color: rgb(37 35 49 / var(--tw-bg-opacity));
+  background-color: rgb(20 19 24 / var(--tw-bg-opacity));
 }
 .diy-bg {
     --tw-bg-opacity: 1;
@@ -79,18 +80,24 @@ html:root {
 }
 .dark .diy-bg {
     --tw-bg-opacity: 1;
-    background-color: rgb(37 35 49 / var(--tw-bg-opacity));
+    background-color: rgb(20 19 24 / var(--tw-bg-opacity));
+}
+.diy-border {
+    border: 1px solid #dadadc;
+}
+.dark .diy-border {
+    border: 1px solid #3b3b3c;
 }
 ol, ul {
   list-style: none;
   margin: .5rem 0 .7rem .3rem;
 }
 ::marker {
-    color: #4a4a63;
+    color: #272738;
     font-weight: 500;
 }
 .dark ::marker {
-    color: #ccccf2;
+    color: #d6d6f8;
     font-weight: 500;
 }
 .conversation-wrap p:not(:last-child) {
@@ -152,10 +159,10 @@ button, input, optgroup, select, textarea {
 .chat-bubble {
   border-radius: 18px;
   padding: 9px 11px;
-  box-shadow: 0 10px 30px rgba(101, 114, 145, 0.184);
+  box-shadow: 0 6px 15px #b2b2b22f;
 }
 .dark .chat-bubble {
-  box-shadow: 0 10px 30px rgba(25, 32, 48, 0.184);
+  box-shadow: 0 6px 15px #e7e7e72f;
 }
 /* 气泡里的文本行为，关键在这里 */
 .chat-bubble p {
