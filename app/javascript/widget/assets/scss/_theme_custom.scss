@@ -69,7 +69,7 @@ html:root {
     --tw-bg-opacity: 1;
     background-color: rgb(249 249 251 / var(--tw-bg-opacity));
 }
-.bg-neutral-800 {
+.dark .bg-neutral-800 {
     --tw-bg-opacity: 1;
     background-color: rgb(37 35 49 / var(--tw-bg-opacity));
 }
@@ -78,7 +78,11 @@ ol, ul {
   margin: .5rem 0 .7rem .3rem;
 }
 ::marker {
-    color: #454595;
+    color: #4a4a63;
+    font-weight: 500;
+}
+.dark ::marker {
+    color: #ccccf2;
     font-weight: 500;
 }
 .conversation-wrap p:not(:last-child) {
