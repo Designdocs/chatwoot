@@ -106,12 +106,12 @@ ol, ul {
     font-weight: 500;
 }
 .conversation-wrap p:not(:last-child) {
-    margin-bottom: 0.8rem;
+    margin-bottom: .9rem;
 }
 /* 列表里的 p 下边距 0.4rem，覆盖通用的 0.8rem */
 .conversation-wrap ol p:not(:last-child),
 .conversation-wrap ul p:not(:last-child) {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.45rem;
 }
 
 button, input, optgroup, select, textarea {
@@ -292,8 +292,8 @@ button.send-button {
 }
 /* ========== 代码格式 ========== */
 pre {
-    margin-top: .25rem;
-    margin-bottom: .5rem;
+    margin-top: .35rem;
+    margin-bottom: .625rem;
     display: block;
     overflow-y: auto;
     white-space: pre-wrap;
@@ -309,7 +309,7 @@ pre {
 }
 pre:is(.dark *) {
     background-color: #c9cacf26;
-    background-color: rgb(155 167 219 / 22%) !important;
+    background-color: rgb(179 185 211 / 18%) !important
 }
 pre code {
     background-color: transparent;
