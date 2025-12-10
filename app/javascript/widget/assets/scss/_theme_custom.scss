@@ -6,7 +6,7 @@ html:root {
     --background-color: 230 230 250;
 
      /* 代码片段背景 */
-    --alpha-2: 201, 202, 207, .15;
+    --alpha-2: 201 202 207 .15;
 
     /* 主品牌色：紫 + 少量绿色做点缀 */
     --iris-9: 129 140 248;   /* 主按钮/主高亮 */
@@ -16,7 +16,6 @@ html:root {
     /* 文字层级 */
     --slate-1: 248 250 252;
     --slate-12: 15 23 42;
-    --slate-11: 34 36 58;
 
     /* 最外层背景 */
     --slate-2: 249 249 251;
@@ -42,12 +41,11 @@ html:root {
     --background-color: 64 61 77;
 
     /* 代码片段背景 */
-    --alpha-2: 155 167 219, .19;
+    --alpha-2: 155 167 219 .19;
 
     --slate-1: 25 24 30;
     --slate-2: 15 23 42;
     --slate-3: 61 58 114;
-    --slate-11: 181 191 246;
     --slate-12: 248 250 252;
 
     --iris-9: 129 140 248;
@@ -311,7 +309,7 @@ pre {
 }
 pre:is(.dark *) {
     background-color: #c9cacf26;
-    background-color: rgb(155 167 219 / 22%);
+    background-color: rgb(155 167 219 / 22%) !important;
 }
 pre code {
     background-color: transparent;
@@ -320,7 +318,11 @@ pre code {
     line-height: 1.25rem;
     --tw-text-opacity: 1;
     color: #60646c;
-    color: rgb(var(--slate-11) / var(--tw-text-opacity));
+    color: rgb(34 36 58 / var(--tw-text-opacity));
+}
+pre:is(.dark *) code {
+    --tw-text-opacity: 1;
+    color: rgb(181 191 246 / var(--tw-text-opacity));
 }
 @supports (color: rgb(0 0 0 / 0)) and (top: var(--f)) {
     .chat-bubble.agent .link {
@@ -341,9 +343,5 @@ pre code {
     word-break: break-word;
 }
 .chat-bubble .link {
-    text-decoration: none !important;
-}
-a {
-    color: inherit;
     text-decoration: none !important;
 }
