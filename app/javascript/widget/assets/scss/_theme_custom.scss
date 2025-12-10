@@ -5,6 +5,9 @@ html:root {
     /* 背景基色改暗一点 */
     --background-color: 230 230 250;
 
+     /* 代码片段背景 */
+    --alpha-2: 201, 202, 207, .15;
+
     /* 主品牌色：紫 + 少量绿色做点缀 */
     --iris-9: 129 140 248;   /* 主按钮/主高亮 */
     --iris-10: 109 120 245;
@@ -13,6 +16,7 @@ html:root {
     /* 文字层级 */
     --slate-1: 248 250 252;
     --slate-12: 15 23 42;
+    --slate-11: 34 36 58;
 
     /* 最外层背景 */
     --slate-2: 249 249 251;
@@ -37,10 +41,13 @@ html:root {
   .dark  {
     --background-color: 64 61 77;
 
+    /* 代码片段背景 */
+    --alpha-2: 155 167 219, .19;
+
     --slate-1: 25 24 30;
     --slate-2: 15 23 42;
     --slate-3: 61 58 114;
-    --slate-11: 226 232 240;
+    --slate-11: 181 191 246;
     --slate-12: 248 250 252;
 
     --iris-9: 129 140 248;
@@ -284,4 +291,59 @@ button.send-button {
       width: 430px !important;
       border: 1px solid #7d7d7e33 !important;
   }
+}
+/* ========== 代码格式 ========== */
+pre {
+    margin-top: .25rem;
+    margin-bottom: .5rem;
+    display: block;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    border-radius: .375rem;
+    --tw-bg-opacity: 1;
+    background-color: #f0f0f3;
+    background-color: rgb(var(--slate-3) / var(--tw-bg-opacity));
+    padding: .5rem;
+    line-height: 1.5;
+    --tw-text-opacity: 1;
+    color: #60646c;
+    color: rgb(var(--slate-11) / var(--tw-text-opacity));
+}
+pre:is(.dark *) {
+    background-color: #c9cacf26;
+    background-color: rgb(155 167 219 / 22%);
+}
+pre code {
+    background-color: transparent;
+    padding: 0;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    --tw-text-opacity: 1;
+    color: #60646c;
+    color: rgb(var(--slate-11) / var(--tw-text-opacity));
+}
+@supports (color: rgb(0 0 0 / 0)) and (top: var(--f)) {
+    .chat-bubble.agent .link {
+        color: rgb(92, 92, 240) !important;
+    }
+    .dark .chat-bubble.agent .link {
+        color: rgb(147, 147, 244) !important;
+    }
+}
+.chat-bubble.agent .link {
+    --tw-text-opacity: 1;
+    color: rgb(92, 92, 240);
+    word-break: break-word;
+}
+.dark .chat-bubble.agent .link {
+    --tw-text-opacity: 1;
+    color: rgb(147, 147, 244);
+    word-break: break-word;
+}
+.chat-bubble .link {
+    text-decoration: none !important;
+}
+a {
+    color: inherit;
+    text-decoration: none !important;
 }
