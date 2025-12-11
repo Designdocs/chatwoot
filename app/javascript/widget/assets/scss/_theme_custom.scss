@@ -326,12 +326,12 @@ pre:is(.dark *) code {
 }
 code {
     color: rgb(95 100 159 / var(--tw-text-opacity)) !important;
-    background-color: rgb(179 185 211 / 18%) !important;
+    background-color: rgb(179 185 211 / 18%);
 }
 code:is(.dark *) {
     --tw-text-opacity: 1;
     color: rgb(181 191 246 / var(--tw-text-opacity)) !important;
-    background-color: rgb(179 185 211 / 18%) !important;
+    background-color: rgb(179 185 211 / 18%);
 }
 
 p code {
