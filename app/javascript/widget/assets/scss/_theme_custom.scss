@@ -299,8 +299,8 @@ pre {
     white-space: pre-wrap;
     border-radius: .375rem;
     --tw-bg-opacity: 1;
-    background-color: #f0f0f3;
-    background-color: rgb(var(--slate-3) / var(--tw-bg-opacity));
+    background-color: #eeeefe;
+    background-color: rgb(238 238 254 / var(--tw-bg-opacity)) !important;
     padding: .5rem;
     line-height: 1.5;
     --tw-text-opacity: 1;
@@ -309,7 +309,7 @@ pre {
 }
 pre:is(.dark *) {
     background-color: #c9cacf26;
-    background-color: rgb(179 185 211 / 18%) !important
+    background-color: rgb(179 185 211 / 18%) !important;
 }
 pre code {
     background-color: transparent;
@@ -318,18 +318,18 @@ pre code {
     line-height: 1.25rem;
     --tw-text-opacity: 1;
     color: #60646c;
-    color: rgb(34 36 58 / var(--tw-text-opacity));
+    color: rgb(95 100 159 / var(--tw-text-opacity)) !important;
 }
 pre:is(.dark *) code {
     --tw-text-opacity: 1;
-    color: rgb(181 191 246 / var(--tw-text-opacity));
+    color: rgb(181 191 246 / var(--tw-text-opacity)) !important;
 }
 @supports (color: rgb(0 0 0 / 0)) and (top: var(--f)) {
     .chat-bubble.agent .link {
-        color: rgb(92, 92, 240) !important;
+        color: rgb(94 94 212) !important;
     }
     .dark .chat-bubble.agent .link {
-        color: rgb(147, 147, 244) !important;
+        color: rgb(144, 144, 231) !important;
     }
 }
 .chat-bubble.agent .link {
