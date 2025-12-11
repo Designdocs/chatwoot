@@ -56,23 +56,6 @@ export const SDK_CSS = `
   overflow: hidden;
 }
 
-.woot-widget-bubble:not(.woot--close) {
-  position: relative;
-}
-
-.woot-widget-bubble:not(.woot--close)::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url('https://cdns.aiooos.com/chater/avatar_circle_transparent-300_1765415908286.png') center/cover no-repeat;
-  border-radius: inherit;
-  pointer-events: none;
-}
-
-.woot-widget-bubble:not(.woot--close) #woot-widget-bubble-icon {
-  opacity: 0;
-}
-
 .woot-widget-bubble.woot-widget-bubble--flat {
   border-radius: 0;
 }

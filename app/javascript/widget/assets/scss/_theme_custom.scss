@@ -324,6 +324,27 @@ pre:is(.dark *) code {
     --tw-text-opacity: 1;
     color: rgb(181 191 246 / var(--tw-text-opacity)) !important;
 }
+code {
+    color: rgb(95 100 159 / var(--tw-text-opacity)) !important;
+    background-color: rgb(179 185 211 / 18%) !important;
+}
+code:is(.dark *) {
+    --tw-text-opacity: 1;
+    color: rgb(181 191 246 / var(--tw-text-opacity)) !important;
+    background-color: rgb(179 185 211 / 18%) !important;
+}
+
+p code {
+    color: rgb(95 100 159 / var(--tw-text-opacity)) !important;
+    background-color: rgb(179 185 211 / 18%) !important;
+    font-weight: 600;
+}
+p code:is(.dark *) {
+    --tw-text-opacity: 1;
+    color: rgb(181 191 246 / var(--tw-text-opacity)) !important;
+    background-color: rgb(179 185 211 / 18%) !important;
+}
+/* ========== 链接样式 ========== */
 @supports (color: rgb(0 0 0 / 0)) and (top: var(--f)) {
     .chat-bubble.agent .link {
         color: rgb(94 94 212) !important;
