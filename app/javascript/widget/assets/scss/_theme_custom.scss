@@ -114,10 +114,16 @@ ol, ul {
   margin-bottom: 0.45rem;
 }
 
-button, input, optgroup, select, textarea {
+input, optgroup, select, textarea {
     font-size: 14px;
     font-weight: 600;
     margin: 0;
+    padding: 0;
+}
+button {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+     margin: 0;
     padding: 0;
 }
 .user-message-input{
@@ -312,7 +318,7 @@ pre:is(.dark *) {
     background-color: rgb(179 185 211 / 18%) !important;
 }
 pre code {
-    background-color: transparent;
+    background-color: transparent !important;
     padding: 0;
     font-size: .875rem;
     line-height: 1.25rem;
@@ -326,23 +332,23 @@ pre:is(.dark *) code {
 }
 code {
     color: rgb(95 100 159 / var(--tw-text-opacity)) !important;
-    background-color: rgb(179 185 211 / 18%);
+    background-color: rgb(179 185 211 / 10%);
 }
 code:is(.dark *) {
     --tw-text-opacity: 1;
     color: rgb(181 191 246 / var(--tw-text-opacity)) !important;
-    background-color: rgb(179 185 211 / 18%);
+    background-color: rgb(179 185 211 / 10%);
 }
 
 p code {
     color: rgb(95 100 159 / var(--tw-text-opacity)) !important;
-    background-color: rgb(179 185 211 / 18%) !important;
+    background-color: rgb(179 185 211 / 10%) !important;
     font-weight: 600;
 }
 p code:is(.dark *) {
     --tw-text-opacity: 1;
     color: rgb(181 191 246 / var(--tw-text-opacity)) !important;
-    background-color: rgb(179 185 211 / 18%) !important;
+    background-color: rgb(179 185 211 / 10%) !important;
 }
 /* ========== 链接样式 ========== */
 @supports (color: rgb(0 0 0 / 0)) and (top: var(--f)) {
