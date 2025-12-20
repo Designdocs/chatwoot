@@ -103,3 +103,4 @@ CLAUDE.local.md
 .pnpm-store/*
 local/
 Procfile.worktree
+widget_diff_patch.txt
