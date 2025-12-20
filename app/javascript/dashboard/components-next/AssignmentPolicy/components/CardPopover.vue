@@ -66,7 +66,7 @@ const handleClickOutside = () => {
     >
       <div class="flex items-center gap-2.5 pb-2">
         <Icon :icon="icon" class="size-3.5" />
-        <span class="text-sm text-n-slate-12 font-medium">{{ title }}</span>
+        <span class="text-sm text-n-slate-12 font-semibold">{{ title }}</span>
       </div>
 
       <div

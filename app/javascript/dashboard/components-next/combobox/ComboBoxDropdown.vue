@@ -91,7 +91,7 @@ defineExpose({
       >
         <span
           :class="{
-            'font-medium': isSelected(option),
+            'font-semibold': isSelected(option),
           }"
           class="text-n-slate-12"
         >

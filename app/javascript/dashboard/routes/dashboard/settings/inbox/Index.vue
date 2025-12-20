@@ -119,7 +119,7 @@ const openDelete = inbox => {
                   <ChannelIcon class="size-5 text-n-slate-10" :inbox="inbox" />
                 </div>
                 <div>
-                  <span class="block font-medium capitalize">
+                  <span class="block font-semibold capitalize">
                     {{ inbox.name }}
                   </span>
                   <ChannelName

@@ -104,7 +104,7 @@ const handleDeletePortal = () => {
         <div class="w-full h-px bg-n-weak" />
         <div class="flex items-end justify-between w-full gap-4">
           <div class="flex flex-col gap-2">
-            <h6 class="text-base font-medium text-n-slate-12">
+            <h6 class="text-base font-semibold text-n-slate-12">
               {{
                 t(
                   'HELP_CENTER.PORTAL_SETTINGS.CONFIGURATION_FORM.DELETE_PORTAL.HEADER'

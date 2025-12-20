@@ -13,8 +13,6 @@ import InboxPageEmptyState from 'dashboard/components-next/captain/pageComponent
 const store = useStore();
 const dialogType = ref('');
 const route = useRoute();
-
-const assistantId = computed(() => route.params.assistantId);
 const assistantUiFlags = useMapGetter('captainAssistants/getUIFlags');
 const uiFlags = useMapGetter('captainInboxes/getUIFlags');
 const isFetchingAssistant = computed(() => assistantUiFlags.value.fetchingItem);
@@ -49,9 +47,10 @@ const handleCreateClose = () => {
   selectedInbox.value = null;
 };
 
+const assistantId = Number(route.params.assistantId);
 onMounted(() =>
   store.dispatch('captainInboxes/get', {
-    assistantId: assistantId.value,
+    assistantId: assistantId,
   })
 );
 </script>

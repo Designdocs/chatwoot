@@ -113,7 +113,7 @@ export default {
 
 <style scoped lang="scss">
 .label {
-  @apply items-center font-medium text-xs rounded-[4px] gap-1 p-1 bg-n-slate-3 text-n-slate-12 border border-solid border-n-strong h-6;
+  @apply items-center font-semibold text-xs rounded-[4px] gap-1 p-1 bg-n-slate-3 text-n-slate-12 border border-solid border-n-strong h-6;
 
   &.small {
     @apply text-xs py-0.5 px-1 leading-tight h-5;

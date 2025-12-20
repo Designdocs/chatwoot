@@ -149,7 +149,7 @@ const dayClasses = day => ({
       <div
         v-for="day in week"
         :key="day.getTime()"
-        class="flex relative items-center justify-center w-9 h-8 py-1.5 px-2 font-medium text-sm rounded-lg cursor-pointer"
+        class="flex relative items-center justify-center w-9 h-8 py-1.5 px-2 font-semibold text-sm rounded-lg cursor-pointer"
         :class="dayClasses(day)"
         @mouseenter="emitHoveredEndDate(day)"
         @mouseleave="emitHoveredEndDate(null)"

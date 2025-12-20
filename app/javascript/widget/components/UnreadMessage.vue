@@ -122,7 +122,7 @@ export default {
   @apply items-center flex text-left pb-2 text-xs;
 
   .agent--name {
-    @apply font-medium ml-1;
+    @apply font-semibold ml-1;
   }
 
   .company--name {

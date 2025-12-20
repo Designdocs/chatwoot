@@ -122,7 +122,7 @@ onMounted(() => {
                   rounded-full
                 />
                 <div>
-                  <span class="block font-medium break-words">
+                  <span class="block font-semibold break-words">
                     {{ bot.name }}
                     <span
                       v-if="bot.system_bot"

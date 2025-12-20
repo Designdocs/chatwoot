@@ -117,7 +117,7 @@ onBeforeMount(() => {
         <tbody class="flex-1 divide-y divide-n-weak text-n-slate-12">
           <tr v-for="(label, index) in records" :key="label.title">
             <td class="py-4 ltr:pr-4 rtl:pl-4">
-              <span class="mb-1 font-medium break-words text-n-slate-12">
+              <span class="mb-1 font-semibold break-words text-n-slate-12">
                 {{ label.title }}
               </span>
             </td>

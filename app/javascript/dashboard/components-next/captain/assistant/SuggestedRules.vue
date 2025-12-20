@@ -32,7 +32,7 @@ const onClickClose = () => {
   >
     <div class="flex items-center justify-between w-full gap-3 px-4 pb-1 pt-4">
       <div class="flex items-center gap-3">
-        <h5 class="text-sm font-medium text-n-slate-11">{{ title }}</h5>
+        <h5 class="text-sm font-semibold text-n-slate-11">{{ title }}</h5>
         <span class="h-3 w-px bg-n-weak" />
         <Button
           :label="t('CAPTAIN.ASSISTANTS.GUARDRAILS.ADD.SUGGESTED.ADD')"

@@ -58,7 +58,7 @@ export default {
     </div>
     <div class="ltr:pr-1 rtl:pl-1">
       <div
-        class="m-0 font-medium text-sm"
+        class="m-0 font-semibold text-sm"
         :class="{ 'text-n-slate-12': !isUserBubble }"
         :style="{ color: textColor }"
       >
@@ -86,7 +86,7 @@ export default {
   }
 
   .download {
-    @apply text-n-brand font-medium p-0 m-0 text-xs no-underline;
+    @apply text-n-brand font-semibold p-0 m-0 text-xs no-underline;
   }
 }
 </style>

@@ -114,7 +114,7 @@ export default {
       class="w-full md:w-1/2 md:max-w-[50%] flex-1 rtl:[direction:initial]"
     >
       <h3
-        class="flex items-center m-0 text-xs font-medium md:text-sm text-n-slate-12"
+        class="flex items-center m-0 text-xs font-semibold md:text-sm text-n-slate-12"
       >
         <div class="flex flex-row-reverse justify-end">
           <div

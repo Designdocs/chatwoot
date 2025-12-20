@@ -76,7 +76,7 @@ const authTypeLabel = computed(() => {
 <template>
   <CardLayout class="relative">
     <div class="flex relative justify-between w-full gap-1">
-      <span class="text-base text-n-slate-12 line-clamp-1 font-medium">
+      <span class="text-base text-n-slate-12 line-clamp-1 font-semibold">
         {{ title }}
       </span>
       <div class="flex items-center gap-2">

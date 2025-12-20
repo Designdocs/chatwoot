@@ -97,7 +97,7 @@ const handleDelete = id => {
           @delete="handleDelete"
         />
         <div class="mt-4 p-4 bg-n-alpha-2 rounded-lg">
-          <h4 class="text-sm font-medium mb-2">Current Limits:</h4>
+          <h4 class="text-sm font-semibold mb-2">Current Limits:</h4>
           <pre class="text-xs">{{
             JSON.stringify(inboxCapacityLimitsEmpty, null, 2)
           }}</pre>

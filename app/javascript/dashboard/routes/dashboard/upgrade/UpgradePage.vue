@@ -129,7 +129,7 @@ defineExpose({ shouldShowUpgradePage });
               icon="i-lucide-lock-keyhole"
             />
           </span>
-          <span class="text-base font-medium text-n-slate-12">
+          <span class="text-base font-semibold text-n-slate-12">
             {{ $t('GENERAL_SETTINGS.UPGRADE') }}
           </span>
         </div>

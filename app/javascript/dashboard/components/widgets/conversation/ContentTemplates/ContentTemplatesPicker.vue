@@ -118,7 +118,7 @@ const refreshTemplates = async () => {
 
             <!-- Body -->
             <div>
-              <p class="text-xs font-medium text-n-slate-11">
+              <p class="text-xs font-semibold text-n-slate-11">
                 {{ t('CONTENT_TEMPLATES.PICKER.BODY') }}
               </p>
               <p class="text-sm label-body">
@@ -128,7 +128,7 @@ const refreshTemplates = async () => {
 
             <div class="flex justify-between items-center mt-3">
               <div>
-                <p class="text-xs font-medium text-n-slate-11">
+                <p class="text-xs font-semibold text-n-slate-11">
                   {{ t('CONTENT_TEMPLATES.PICKER.LABELS.CATEGORY') }}
                 </p>
                 <p class="text-sm">{{ template.category || 'utility' }}</p>

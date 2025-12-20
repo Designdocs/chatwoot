@@ -100,7 +100,7 @@ const confirmPlaceHolderText = computed(() =>
         <tbody class="divide-y divide-n-weak">
           <tr v-for="team in teamsList" :key="team.id">
             <td class="py-4 ltr:pr-4 rtl:pl-4">
-              <span class="block font-medium capitalize">{{ team.name }}</span>
+              <span class="block font-semibold capitalize">{{ team.name }}</span>
               <p class="mb-0">{{ team.description }}</p>
             </td>
 

@@ -177,7 +177,7 @@ const STYLE_CONFIG = {
   fontSize: {
     xs: 'text-xs',
     sm: 'text-sm',
-    md: 'text-sm font-medium',
+    md: 'text-sm font-semibold',
     lg: 'text-base',
   },
   clickAnimation: {
@@ -197,7 +197,7 @@ const STYLE_CONFIG = {
 const variantClasses = computed(() => {
   const variantMap = {
     ghost: `${STYLE_CONFIG.colors[computedColor.value].ghost}`,
-    link: `${STYLE_CONFIG.colors[computedColor.value].link} p-0 font-medium underline-offset-2`,
+    link: `${STYLE_CONFIG.colors[computedColor.value].link} p-0 font-semibold underline-offset-2`,
     outline: STYLE_CONFIG.colors[computedColor.value].outline,
     faded: STYLE_CONFIG.colors[computedColor.value].faded,
     solid: STYLE_CONFIG.colors[computedColor.value].solid,

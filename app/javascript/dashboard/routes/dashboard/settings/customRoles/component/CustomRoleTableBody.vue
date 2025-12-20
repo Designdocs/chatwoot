@@ -30,7 +30,7 @@ const getFormattedPermissions = role => {
   <tbody class="divide-y divide-n-weak text-n-slate-11">
     <tr v-for="(customRole, index) in roles" :key="index">
       <td
-        class="max-w-xs py-4 ltr:pr-4 rtl:pl-4 font-medium truncate align-baseline"
+        class="max-w-xs py-4 ltr:pr-4 rtl:pl-4 font-semibold truncate align-baseline"
         :title="customRole.name"
       >
         {{ customRole.name }}

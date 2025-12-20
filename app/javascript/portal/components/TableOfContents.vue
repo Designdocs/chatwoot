@@ -113,7 +113,7 @@ export default {
               <a
                 :href="`#${element.slug}`"
                 data-turbolinks="false"
-                class="font-medium text-sm tracking-[0.28px] cursor-pointer"
+                class="font-semibold text-sm tracking-[0.28px] cursor-pointer"
                 :class="elementTextStyles(element)"
               >
                 {{ element.title }}

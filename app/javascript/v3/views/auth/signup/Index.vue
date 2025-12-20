@@ -55,7 +55,7 @@ export default {
               class="hidden w-auto h-8 dark:block"
             />
             <h2
-              class="mt-6 text-3xl font-medium text-left mb-7 text-n-slate-12"
+              class="mt-6 text-3xl font-semibold text-left mb-7 text-n-slate-12"
             >
               {{ $t('REGISTER.TRY_WOOT') }}
             </h2>

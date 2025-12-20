@@ -15,7 +15,7 @@ defineProps({
     <div class="p-3">
       <span
         v-dompurify-html="message.content"
-        class="prose prose-bubble font-medium text-sm"
+        class="prose prose-bubble font-semibold text-sm"
       />
     </div>
     <div class="p-3 flex items-center justify-center">

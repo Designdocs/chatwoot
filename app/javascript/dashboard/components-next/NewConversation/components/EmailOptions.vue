@@ -83,7 +83,7 @@ const inputClass = computed(() => {
     </div>
     <div class="flex items-baseline flex-1 w-full gap-3 px-4 py-3 min-h-8">
       <label
-        class="mb-0.5 text-sm font-medium whitespace-nowrap text-n-slate-11"
+        class="mb-0.5 text-sm font-semibold whitespace-nowrap text-n-slate-11"
       >
         {{ t(`${i18nPrefix}.CC_LABEL`) }}
       </label>
@@ -116,7 +116,7 @@ const inputClass = computed(() => {
       class="flex items-baseline flex-1 w-full gap-3 px-4 py-3 min-h-8"
     >
       <label
-        class="mb-0.5 text-sm font-medium whitespace-nowrap text-n-slate-11"
+        class="mb-0.5 text-sm font-semibold whitespace-nowrap text-n-slate-11"
       >
         {{ t(`${i18nPrefix}.BCC_LABEL`) }}
       </label>

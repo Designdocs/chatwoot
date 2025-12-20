@@ -36,7 +36,7 @@ watch(
       <span class="flex items-center gap-2">
         {{ t('CAPTAIN.COPILOT.SHOW_STEPS') }}
         <span
-          class="inline-flex items-center justify-center h-4 min-w-4 px-1 text-xs font-medium rounded-full bg-n-solid-3 text-n-slate-11"
+          class="inline-flex items-center justify-center h-4 min-w-4 px-1 text-xs font-semibold rounded-full bg-n-solid-3 text-n-slate-11"
         >
           {{ thinkingCount }}
         </span>
