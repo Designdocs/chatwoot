@@ -33,7 +33,7 @@ export default {
         <img :src="authorImage" class="h-8 w-8 rounded-full" />
       </div>
       <div class="ml-2">
-        <div class="text-sm font-medium">{{ authorName }}</div>
+        <div class="text-sm font-semibold">{{ authorName }}</div>
         <div class="text-xs">{{ authorDesignation }}</div>
       </div>
     </div>

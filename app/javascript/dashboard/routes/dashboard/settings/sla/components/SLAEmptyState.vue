@@ -8,7 +8,7 @@ const primaryAction = () => emit('primaryAction');
 
 <template>
   <BaseEmptyState>
-    <p class="max-w-xs text-sm font-medium text-center">
+    <p class="max-w-xs text-sm font-semibold text-center">
       {{ $t('SLA.LIST.404') }}
     </p>
     <NextButton

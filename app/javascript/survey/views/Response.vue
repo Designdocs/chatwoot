@@ -172,7 +172,7 @@ export default {
         />
         <label
           v-if="!isRatingSubmitted"
-          class="mb-4 text-base font-medium text-n-slate-11"
+          class="mb-4 text-base font-semibold text-n-slate-11"
         >
           {{ $t('SURVEY.RATING.LABEL') }}
         </label>

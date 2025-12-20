@@ -134,7 +134,7 @@ const handleSubmit = async () => {
     <div class="flex flex-col gap-1">
       <label
         for="documentType"
-        class="mb-0.5 text-sm font-medium text-n-slate-12"
+        class="mb-0.5 text-sm font-semibold text-n-slate-12"
       >
         {{ t('CAPTAIN.DOCUMENTS.FORM.TYPE.LABEL') }}
       </label>
@@ -156,7 +156,7 @@ const handleSubmit = async () => {
     />
 
     <div v-if="state.documentType === 'pdf'" class="flex flex-col gap-2">
-      <label class="text-sm font-medium text-n-slate-12">
+      <label class="text-sm font-semibold text-n-slate-12">
         {{ t('CAPTAIN.DOCUMENTS.FORM.PDF_FILE.LABEL') }}
       </label>
       <div class="relative">
@@ -182,7 +182,7 @@ const handleSubmit = async () => {
                 <i class="text-xl i-ph-file-pdf text-n-slate-11" />
               </div>
               <div class="flex flex-col flex-1 gap-1 items-start">
-                <p class="m-0 text-sm font-medium text-n-slate-12">
+                <p class="m-0 text-sm font-semibold text-n-slate-12">
                   {{
                     state.pdfFile
                       ? state.pdfFile.name

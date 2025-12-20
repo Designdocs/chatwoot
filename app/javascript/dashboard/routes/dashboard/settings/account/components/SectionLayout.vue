@@ -21,7 +21,7 @@ const { t } = useI18n();
   >
     <header class="grid grid-cols-4">
       <div class="col-span-3">
-        <h4 class="text-lg font-medium text-n-slate-12 flex items-center gap-2">
+        <h4 class="text-lg font-semibold text-n-slate-12 flex items-center gap-2">
           <slot name="title">{{ title }}</slot>
           <div
             v-if="beta"

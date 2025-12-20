@@ -20,7 +20,7 @@ const handleClick = () => {
   <CardLayout class="[&>div]:px-5 cursor-pointer" @click="handleClick">
     <div class="flex flex-col items-start gap-2">
       <div class="flex justify-between w-full items-center">
-        <h3 class="text-n-slate-12 text-base font-medium">{{ title }}</h3>
+        <h3 class="text-n-slate-12 text-base font-semibold">{{ title }}</h3>
         <Button
           xs
           slate

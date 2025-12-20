@@ -176,7 +176,7 @@ const tableHeaders = computed(() => {
             :key="cannedItem.short_code"
           >
             <td
-              class="py-4 ltr:pr-4 rtl:pl-4 truncate max-w-xs font-medium"
+              class="py-4 ltr:pr-4 rtl:pl-4 truncate max-w-xs font-semibold"
               :title="cannedItem.short_code"
             >
               {{ cannedItem.short_code }}

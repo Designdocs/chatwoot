@@ -283,7 +283,7 @@ export default {
             }
           : undefined
       "
-      :label-class="context => `text-sm font-medium ${labelClass(context)}`"
+      :label-class="context => `text-sm font-semibold ${labelClass(context)}`"
       :input-class="context => inputClass(context)"
       :validation-messages="{
         startsWithPlus: $t(
@@ -302,7 +302,7 @@ export default {
       v-if="!hasActiveCampaign"
       name="message"
       type="textarea"
-      :label-class="context => `text-sm font-medium ${labelClass(context)}`"
+      :label-class="context => `text-sm font-semibold ${labelClass(context)}`"
       :input-class="context => inputClass(context)"
       :label="$t('PRE_CHAT_FORM.FIELDS.MESSAGE.LABEL')"
       :placeholder="$t('PRE_CHAT_FORM.FIELDS.MESSAGE.PLACEHOLDER')"
@@ -313,7 +313,7 @@ export default {
     />
 
     <CustomButton
-      class="mt-3 mb-5 font-medium flex items-center justify-center gap-2"
+      class="mt-3 mb-5 font-semibold flex items-center justify-center gap-2"
       block
       :bg-color="widgetColor"
       :text-color="textColor"

@@ -26,7 +26,7 @@ defineProps({
     >
       <slot name="header">
         <div class="flex items-center gap-2 flex-row">
-          <h5 class="mb-0 text-n-slate-12 font-medium text-lg">
+          <h5 class="mb-0 text-n-slate-12 font-semibold text-lg">
             {{ header }}
           </h5>
           <span

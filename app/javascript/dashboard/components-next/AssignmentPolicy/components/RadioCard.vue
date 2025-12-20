@@ -49,7 +49,7 @@ const handleChange = () => {
 
     <!-- Content -->
     <div class="flex flex-col gap-3 items-start">
-      <h3 class="text-sm font-medium text-n-slate-12">
+      <h3 class="text-sm font-semibold text-n-slate-12">
         {{ label }}
       </h3>
       <p class="text-sm text-n-slate-11">

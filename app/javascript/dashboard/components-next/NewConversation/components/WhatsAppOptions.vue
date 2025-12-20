@@ -69,7 +69,7 @@ const handleSendMessage = template => {
       color="slate"
       size="sm"
       :disabled="selectedTemplate"
-      class="!text-xs font-medium"
+      class="!text-xs font-semibold"
       @click="handleTriggerClick"
     />
     <div

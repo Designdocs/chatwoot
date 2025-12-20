@@ -33,7 +33,7 @@ defineProps({
     <div class="flex flex-col gap-2 items-center w-full rounded-t-[5px]">
       <div class="grid grid-cols-[1fr_auto] items-center w-full gap-1">
         <div
-          class="overflow-hidden text-base font-medium text-n-slate-12 text-left"
+          class="overflow-hidden text-base font-semibold text-n-slate-12 text-left"
         >
           <span class="block truncate">{{ title }}</span>
         </div>

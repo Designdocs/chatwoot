@@ -13,6 +13,7 @@ export const SDK_CSS = `
   position: fixed !important;
   transition: opacity 0.2s linear, transform 0.25s linear;
   z-index: 2147483000 !important;
+  border: 1px solid #7d7d7e33 !important;
 }
 
 .woot-widget-holder.woot-widget-holder--flat {
@@ -27,6 +28,7 @@ export const SDK_CSS = `
   height: 100% !important;
   width: 100% !important;
   max-height: 100vh !important;
+  border: 1px solid #7d7d7e33 !important;
 }
 
 .woot-widget-holder.has-unread-view {
@@ -283,9 +285,10 @@ export const SDK_CSS = `
     border-radius: 16px;
     bottom: 104px;
     height: calc(90% - 64px - 20px);
-    max-height: 640px !important;
+    max-height: 670px !important;
     min-height: 250px !important;
-    width: 400px !important;
+    width: 430px !important;
+    border: 1px solid #7d7d7e33 !important;
  }
 }
 

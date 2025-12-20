@@ -20,7 +20,7 @@ const onChange = (id, value) => {
 <template>
   <div>
     <label
-      class="flex justify-between pb-1 text-sm font-medium leading-6 text-n-slate-12"
+      class="flex justify-between pb-1 text-sm font-semibold leading-6 text-n-slate-12"
     >
       {{ label }}
     </label>

@@ -68,7 +68,7 @@ defineProps({
   @apply relative top-px mr-0.5 rtl:mr-0 rtl:ml-0.5;
 }
 .option__title {
-  @apply text-n-slate-12 font-medium mb-0.5;
+  @apply text-n-slate-12 font-semibold mb-0.5;
 }
 .option__body {
   @apply text-xs text-n-slate-12 mt-1;

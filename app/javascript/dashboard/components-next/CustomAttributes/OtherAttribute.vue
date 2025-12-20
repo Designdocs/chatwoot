@@ -125,7 +125,7 @@ const handleInputUpdate = async () => {
       v-if="!isEditingValue"
       class="min-w-0 text-sm"
       :class="{
-        'cursor-pointer text-n-slate-11 hover:text-n-slate-12 py-2 select-none font-medium':
+        'cursor-pointer text-n-slate-11 hover:text-n-slate-12 py-2 select-none font-semibold':
           !isEditingView,
         'text-n-slate-12 truncate': isEditingView && !isAttributeTypeLink,
         'truncate hover:text-n-brand text-n-blue-text':

@@ -194,11 +194,11 @@ onMounted(() => {
           v-if="shouldShowWhatsAppWebhookDetails"
           class="w-[50%] max-w-[50%] ml-[25%]"
         >
-          <p class="mt-8 font-medium text-n-slate-11">
+          <p class="mt-8 font-semibold text-n-slate-11">
             {{ $t('INBOX_MGMT.ADD.WHATSAPP.API_CALLBACK.WEBHOOK_URL') }}
           </p>
           <woot-code lang="html" :script="currentInbox.callback_webhook_url" />
-          <p class="mt-8 font-medium text-n-slate-11">
+          <p class="mt-8 font-semibold text-n-slate-11">
             {{
               $t(
                 'INBOX_MGMT.ADD.WHATSAPP.API_CALLBACK.WEBHOOK_VERIFICATION_TOKEN'

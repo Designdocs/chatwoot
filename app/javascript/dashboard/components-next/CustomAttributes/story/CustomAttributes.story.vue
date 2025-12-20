@@ -39,7 +39,7 @@ const handleDelete = type => {
           class="grid grid-cols-[140px,1fr] group-hover/attribute items-center gap-1 min-h-10"
         >
           <div class="flex items-center justify-between truncate">
-            <span class="text-sm font-medium text-n-slate-12">
+            <span class="text-sm font-semibold text-n-slate-12">
               {{ attribute.attributeDisplayName }}
             </span>
           </div>
@@ -63,7 +63,7 @@ const handleDelete = type => {
           class="grid grid-cols-[140px,1fr] group-hover/attribute items-center gap-1 min-h-10"
         >
           <div class="flex items-center justify-between truncate">
-            <span class="text-sm font-medium text-n-slate-12">
+            <span class="text-sm font-semibold text-n-slate-12">
               {{ attribute.attributeDisplayName }}
             </span>
           </div>

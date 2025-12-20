@@ -141,7 +141,7 @@ onMounted(() => {
     <label
       v-if="label"
       :for="id"
-      class="mb-0.5 text-sm font-medium text-n-slate-12"
+      class="mb-0.5 text-sm font-semibold text-n-slate-12"
     >
       {{ label }}
     </label>

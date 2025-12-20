@@ -234,7 +234,7 @@ export default {
         :alt="globalConfig.installationName"
         class="hidden w-auto h-8 mx-auto dark:block"
       />
-      <h2 class="mt-6 text-3xl font-medium text-center text-n-slate-12">
+      <h2 class="mt-6 text-3xl font-semibold text-center text-n-slate-12">
         {{ replaceInstallationName($t('LOGIN.TITLE')) }}
       </h2>
       <p v-if="showSignupLink" class="mt-3 text-sm text-center text-n-slate-11">
@@ -275,7 +275,7 @@ export default {
                 icon="i-lucide-lock-keyhole"
                 class="size-5 text-n-slate-11"
               />
-              <span class="ml-2 text-base font-medium text-n-slate-12">
+              <span class="ml-2 text-base font-semibold text-n-slate-12">
                 {{ $t('LOGIN.SAML.LABEL') }}
               </span>
             </router-link>

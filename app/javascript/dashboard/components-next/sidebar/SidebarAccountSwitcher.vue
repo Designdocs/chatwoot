@@ -60,7 +60,7 @@ const emitNewAccount = () => {
         @click="() => showAccountSwitcher && toggle()"
       >
         <span
-          class="text-sm font-medium leading-5 text-n-slate-12 truncate"
+          class="text-sm font-semibold leading-5 text-n-slate-12 truncate"
           aria-live="polite"
         >
           {{ currentAccount.name }}

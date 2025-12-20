@@ -36,8 +36,8 @@ const contextMenuPosition = ref({ x: null, y: null });
 const slaCardLabel = ref(null);
 
 const getMessageClasses = {
-  emphasis: 'text-sm font-medium text-n-slate-11',
-  emphasisUnread: 'text-sm font-medium text-n-slate-12',
+  emphasis: 'text-sm font-semibold text-n-slate-11',
+  emphasisUnread: 'text-sm font-semibold text-n-slate-12',
   normal: 'text-sm font-normal text-n-slate-11',
   normalUnread: 'text-sm text-n-slate-12',
 };
@@ -184,7 +184,7 @@ onBeforeMount(contextMenuActions.close);
             :class="!isUnread ? 'text-n-slate-11' : 'text-n-blue-text'"
           />
           <span
-            class="text-xs font-medium truncate"
+            class="text-xs font-semibold truncate"
             :class="!isUnread ? 'text-n-slate-11' : 'text-n-blue-text'"
           >
             {{ snoozedText }}
@@ -200,7 +200,7 @@ onBeforeMount(contextMenuActions.close);
             class="flex-shrink-0 size-4"
           />
           <span
-            class="text-xs font-medium truncate"
+            class="text-xs font-semibold truncate"
             :class="isUnread ? notificationDetails.color : 'text-n-slate-11'"
           >
             {{ notificationDetails.text }}

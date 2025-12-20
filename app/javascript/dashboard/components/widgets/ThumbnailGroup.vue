@@ -60,7 +60,7 @@ const moreThumbnailsClass = computed(() => {
     />
     <span
       v-if="showMoreThumbnailsCount"
-      class="text-n-slate-11 bg-n-slate-4 outline outline-1 outline-n-background text-xs font-medium rounded-full px-2 inline-flex items-center shadow relative"
+      class="text-n-slate-11 bg-n-slate-4 outline outline-1 outline-n-background text-xs font-semibold rounded-full px-2 inline-flex items-center shadow relative"
       :class="moreThumbnailsClass"
     >
       {{ moreThumbnailsText }}

@@ -1,5 +1,5 @@
 <script setup>
-import { computed, toRef } from 'vue';
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useMapGetter } from 'dashboard/composables/store.js';
 import GroupedAvatars from 'widget/components/GroupedAvatars.vue';
@@ -30,15 +30,13 @@ const { t } = useI18n();
 const availableMessage = useMapGetter('appConfig/getAvailableMessage');
 const unavailableMessage = useMapGetter('appConfig/getUnavailableMessage');
 
-// Pass toRef(props, 'agents') instead of props.agents to maintain reactivity
-// when the parent component's agents prop updates (e.g., after API response)
 const {
   currentTime,
   hasOnlineAgents,
   isOnline,
   inboxConfig,
   isInWorkingHours,
-} = useAvailability(toRef(props, 'agents'));
+} = useAvailability(props.agents);
 
 const workingHours = computed(() => inboxConfig.value.workingHours || []);
 const workingHoursEnabled = computed(
@@ -66,7 +64,7 @@ const headerText = computed(() =>
 <template>
   <div class="flex items-center justify-between gap-2">
     <div class="flex flex-col gap-1">
-      <div v-if="showHeader" class="font-medium text-n-slate-12">
+      <div v-if="showHeader" class="font-semibold text-n-slate-12">
         {{ headerText }}
       </div>
 

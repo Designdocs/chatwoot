@@ -139,7 +139,7 @@ const onClickSend = email => {
 <template>
   <div class="flex flex-col w-full gap-6">
     <div class="flex flex-col gap-2">
-      <h6 class="text-base font-medium text-n-slate-12">
+      <h6 class="text-base font-semibold text-n-slate-12">
         {{
           t(
             'HELP_CENTER.PORTAL_SETTINGS.CONFIGURATION_FORM.CUSTOM_DOMAIN.HEADER'
@@ -158,7 +158,7 @@ const onClickSend = email => {
       <div class="flex items-center justify-between w-full gap-2">
         <div v-if="customDomainAddress" class="flex flex-col gap-1">
           <div class="flex items-center w-full h-8 gap-4">
-            <label class="text-sm font-medium text-n-slate-12">
+            <label class="text-sm font-semibold text-n-slate-12">
               {{
                 t(
                   'HELP_CENTER.PORTAL_SETTINGS.CONFIGURATION_FORM.CUSTOM_DOMAIN.LABEL'
@@ -193,7 +193,7 @@ const onClickSend = email => {
               />
               <span
                 :class="statusColors.text"
-                class="text-sm leading-[16px] font-medium"
+                class="text-sm leading-[16px] font-semibold"
               >
                 {{ statusText }}
               </span>

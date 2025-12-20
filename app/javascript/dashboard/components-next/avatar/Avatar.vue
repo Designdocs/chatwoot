@@ -216,7 +216,7 @@ watch(
     <!-- Avatar Container -->
     <span
       role="img"
-      class="relative inline-flex items-center justify-center object-cover overflow-hidden font-medium"
+      class="relative inline-flex items-center justify-center object-cover overflow-hidden font-semibold"
       :class="[
         roundedFull ? 'rounded-full' : 'rounded-xl',
         {

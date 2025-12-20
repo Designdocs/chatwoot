@@ -76,7 +76,7 @@ export default {
   <div>
     <form
       v-if="!hasSubmitted"
-      class="email-input-group h-10 flex my-2 mx-0 min-w-[200px]"
+      class="email-input-group h-10 flex my-2 mx-0"
       @submit.prevent="onSubmit"
     >
       <input

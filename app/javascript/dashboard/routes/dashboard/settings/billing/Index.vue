@@ -253,7 +253,7 @@ onMounted(handleBillingPageLogic);
             solid
             slate
             icon="i-lucide-life-buoy"
-            @click="onToggleChatWindow"
+            @open="onToggleChatWindow"
           >
             {{ $t('BILLING_SETTINGS.CHAT_WITH_US.BUTTON_TXT') }}
           </ButtonV4>
