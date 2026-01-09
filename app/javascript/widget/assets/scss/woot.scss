@@ -381,3 +381,8 @@ blockquote {
     --white-alpha: 255, 255, 255, 0.1;
   }
 }
+
+.woot-widget-bubble svg {
+    height: 240px !important;
+    width: 240px !important;
+}
