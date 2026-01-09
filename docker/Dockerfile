@@ -1,5 +1,5 @@
 # pre-build stage
-FROM node:23-alpine as node
+FROM node:23-alpine AS node
 FROM ruby:3.4.4-alpine3.21 AS pre-builder
 
 ARG NODE_VERSION="23.7.0"
@@ -24,16 +24,19 @@ ENV NODE_OPTIONS ${NODE_OPTIONS}
 
 ENV BUNDLE_PATH="/gems"
 
-RUN apk update && apk add --no-cache \
-  openssl \
-  tar \
-  build-base \
-  tzdata \
-  postgresql-dev \
-  postgresql-client \
-  git \
-  curl \
-  xz \
+RUN echo "https://mirrors.aliyun.com/alpine/v3.21/main" > /etc/apk/repositories \
+  && echo "https://mirrors.aliyun.com/alpine/v3.21/community" >> /etc/apk/repositories \
+  && apk update \
+  && apk add --no-cache \
+    openssl \
+    tar \
+    build-base \
+    tzdata \
+    postgresql-dev \
+    postgresql-client \
+    git \
+    curl \
+    xz \
   && mkdir -p /var/app \
   && gem install bundler
 
@@ -62,8 +65,14 @@ COPY Gemfile Gemfile.lock ./
 # https://github.com/googleapis/google-cloud-ruby/issues/13306
 # adding xz as nokogiri was failing to build libxml
 # https://github.com/chatwoot/chatwoot/issues/4045
-RUN apk update && apk add --no-cache build-base musl ruby-full ruby-dev gcc make musl-dev openssl openssl-dev g++ linux-headers xz vips
-RUN bundle config set --local force_ruby_platform true
+RUN echo "https://mirrors.aliyun.com/alpine/v3.21/main" > /etc/apk/repositories \
+  && echo "https://mirrors.aliyun.com/alpine/v3.21/community" >> /etc/apk/repositories \
+  && apk update \
+  && apk add --no-cache build-base musl ruby-full ruby-dev gcc make musl-dev openssl openssl-dev g++ linux-headers xz vips
+RUN bundle config set --local force_ruby_platform true \
+  && bundle config set --local retry 5 \
+  && bundle config set --local timeout 30 \
+  && bundle config unset mirror.https://rubygems.org
 
 # Do not install development or test gems in production
 RUN if [ "$RAILS_ENV" = "production" ]; then \
@@ -120,14 +129,17 @@ ARG RAILS_ENV=production
 ENV RAILS_ENV ${RAILS_ENV}
 ENV BUNDLE_PATH="/gems"
 
-RUN apk update && apk add --no-cache \
-  build-base \
-  openssl \
-  tzdata \
-  postgresql-client \
-  imagemagick \
-  git \
-  vips \
+RUN echo "https://mirrors.aliyun.com/alpine/v3.21/main" > /etc/apk/repositories \
+  && echo "https://mirrors.aliyun.com/alpine/v3.21/community" >> /etc/apk/repositories \
+  && apk update \
+  && apk add --no-cache \
+    build-base \
+    openssl \
+    tzdata \
+    postgresql-client \
+    imagemagick \
+    git \
+    vips \
   && gem install bundler
 
 COPY --from=node /usr/local/bin/node /usr/local/bin/

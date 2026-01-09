@@ -34,7 +34,7 @@ export const createBubbleIcon = ({ className, path, target }) => {
   bubbleIcon.setAttributeNS(null, 'id', 'woot-widget-bubble-icon');
   bubbleIcon.setAttributeNS(null, 'width', '24');
   bubbleIcon.setAttributeNS(null, 'height', '24');
-  bubbleIcon.setAttributeNS(null, 'viewBox', '0 0 24 24');
+  bubbleIcon.setAttributeNS(null, 'viewBox', '0 0 240 240');
   bubbleIcon.setAttributeNS(null, 'fill', 'none');
   bubbleIcon.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
 
