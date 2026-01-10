@@ -1,7 +1,7 @@
 export const SDK_CSS = `
 :root {
-  --b-100: #F2F3F7;
-  --s-700: #37546D;
+  --b-100: #f2f3f7;
+  --s-700: #37546d;
 }
 
 .woot-widget-holder {
@@ -43,12 +43,12 @@ export const SDK_CSS = `
 .woot-widget-bubble {
   background: #1f93ff;
   border-radius: 100px;
-  border-width: 0px;
+  border-width: 0;
   bottom: 20px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, .16) !important;
   cursor: pointer;
   height: 64px;
-  padding: 0px;
+  padding: 0;
   position: fixed;
   user-select: none;
   width: 64px;
@@ -86,8 +86,8 @@ export const SDK_CSS = `
   height: 12px;
   background: #ff4040;
   border-radius: 100%;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
   border: 2px solid #ffffff;
   transition: background 0.2s ease;
 }
@@ -112,7 +112,7 @@ export const SDK_CSS = `
   width: auto !important;
 }
 
-.woot-widget-bubble.woot-widget--expanded.woot-widget-bubble-color--lighter div{
+.woot-widget-bubble.woot-widget--expanded.woot-widget-bubble-color--lighter div {
   color: var(--s-700);
 }
 
@@ -142,24 +142,16 @@ export const SDK_CSS = `
   width: 240px;
 }
 
-.woot-widget-bubble.woot-widget-bubble-color--lighter path{
+.woot-widget-bubble.woot-widget-bubble-color--lighter path {
   fill: var(--s-700);
-}
-
-@media only screen and (min-width: 667px) {
-  .woot-widget-holder.woot-elements--left {
-    left: 20px;
- }
-  .woot-widget-holder.woot-elements--right {
-    right: 20px;
- }
 }
 
 .woot--close:hover {
   opacity: 1;
 }
 
-.woot--close::before, .woot--close::after {
+.woot--close::before,
+.woot--close::after {
   background-color: #fff;
   content: ' ';
   display: inline;
@@ -170,7 +162,8 @@ export const SDK_CSS = `
   width: 2px;
 }
 
-.woot-widget-bubble-color--lighter.woot--close::before, .woot-widget-bubble-color--lighter.woot--close::after {
+.woot-widget-bubble-color--lighter.woot--close::before,
+.woot-widget-bubble-color--lighter.woot--close::after {
   background-color: var(--s-700);
 }
 
@@ -193,13 +186,16 @@ export const SDK_CSS = `
 .woot-widget--without-bubble {
   bottom: 20px !important;
 }
-.woot-widget-holder.woot--hide{
+
+.woot-widget-holder.woot--hide {
   transform: translateY(40px);
 }
+
 .woot-widget-bubble.woot--close {
-  transform: translateX(0px) scale(1) rotate(0deg);
+  transform: translateX(0) scale(1) rotate(0deg);
   transition: transform 300ms ease, opacity 100ms ease, visibility 0ms linear 0ms, bottom 0ms linear 0ms;
 }
+
 .woot-widget-bubble.woot--close.woot--hide {
   transform: translateX(8px) scale(.75) rotate(45deg);
   transition: transform 300ms ease, opacity 200ms ease, visibility 0ms linear 500ms, bottom 0ms ease 200ms;
@@ -211,34 +207,60 @@ export const SDK_CSS = `
   transform: translateX(0) scale(1) rotate(0deg);
   transition: transform 300ms ease, opacity 100ms ease, visibility 0ms linear 0ms, bottom 0ms linear 0ms;
 }
+
 .woot-widget-bubble.woot--hide {
   transform: translateX(8px) scale(.75) rotate(-30deg);
   transition: transform 300ms ease, opacity 200ms ease, visibility 0ms linear 500ms, bottom 0ms ease 200ms;
 }
 
 .woot-widget-bubble.woot-widget--expanded {
-  transform: translateX(0px);
+  transform: translateX(0);
   transition: transform 300ms ease, opacity 100ms ease, visibility 0ms linear 0ms, bottom 0ms linear 0ms;
 }
+
 .woot-widget-bubble.woot-widget--expanded.woot--hide {
   transform: translateX(8px);
   transition: transform 300ms ease, opacity 200ms ease, visibility 0ms linear 500ms, bottom 0ms ease 200ms;
 }
+
 .woot-widget-bubble.woot-widget-bubble--flat.woot--close {
-  transform: translateX(0px);
+  transform: translateX(0);
   transition: transform 300ms ease, opacity 10ms ease, visibility 0ms linear 0ms, bottom 0ms linear 0ms;
 }
+
 .woot-widget-bubble.woot-widget-bubble--flat.woot--close.woot--hide {
   transform: translateX(8px);
   transition: transform 300ms ease, opacity 200ms ease, visibility 0ms linear 500ms, bottom 0ms ease 200ms;
 }
+
 .woot-widget-bubble.woot-widget--expanded.woot-widget-bubble--flat {
-  transform: translateX(0px);
+  transform: translateX(0);
   transition: transform 300ms ease, opacity 200ms ease, visibility 0ms linear 0ms, bottom 0ms linear 0ms;
 }
+
 .woot-widget-bubble.woot-widget--expanded.woot-widget-bubble--flat.woot--hide {
   transform: translateX(8px);
   transition: transform 300ms ease, opacity 200ms ease, visibility 0ms linear 500ms, bottom 0ms ease 200ms;
+}
+
+@media only screen and (min-width: 667px) {
+  .woot-widget-holder {
+    border-radius: 16px;
+    bottom: 104px;
+    height: calc(90% - 64px - 20px);
+    max-height: 670px !important;
+    min-height: 250px !important;
+    width: 430px !important;
+    border: 1px solid #7d7d7e33 !important;
+  }
+
+  .woot-widget-holder.woot-elements--left {
+    left: 20px;
+  }
+
+  .woot-widget-holder.woot-elements--right {
+    right: 20px;
+  }
 }
 
 @media only screen and (max-width: 667px) {
@@ -247,14 +269,13 @@ export const SDK_CSS = `
     right: 0;
     top: 0;
     width: 100%;
- }
+  }
 
- .woot-widget-holder iframe {
+  .woot-widget-holder iframe {
     min-height: 100% !important;
   }
 
-
- .woot-widget-holder.has-unread-view {
+  .woot-widget-holder.has-unread-view {
     height: auto;
     right: 0;
     width: auto;
@@ -268,7 +289,7 @@ export const SDK_CSS = `
     min-height: unset !important;
   }
 
- .woot-widget-holder.has-unread-view.woot-elements--left {
+  .woot-widget-holder.has-unread-view.woot-elements--left {
     left: 0;
   }
 
@@ -278,18 +299,6 @@ export const SDK_CSS = `
     visibility: hidden !important;
     z-index: -1 !important;
   }
-}
-
-@media only screen and (min-width: 667px) {
-  .woot-widget-holder {
-    border-radius: 16px;
-    bottom: 104px;
-    height: calc(90% - 64px - 20px);
-    max-height: 670px !important;
-    min-height: 250px !important;
-    width: 430px !important;
-    border: 1px solid #7d7d7e33 !important;
- }
 }
 
 .woot-hidden {
