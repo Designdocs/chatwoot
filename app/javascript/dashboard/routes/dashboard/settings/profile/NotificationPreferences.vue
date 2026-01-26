@@ -175,7 +175,7 @@ export default {
           :span="2"
           label="`${$t('PROFILE_SETTINGS.FORM.NOTIFICATIONS.EMAIL')}`"
         >
-          <span class="text-sm font-medium normal-case text-n-slate-12">
+          <span class="text-sm font-semibold normal-case text-n-slate-12">
             {{ $t('PROFILE_SETTINGS.FORM.NOTIFICATIONS.EMAIL') }}
           </span>
         </TableHeaderCell>
@@ -185,7 +185,7 @@ export default {
         >
           <div class="flex items-center justify-between gap-1">
             <span
-              class="text-sm font-medium normal-case text-n-slate-12 whitespace-nowrap"
+              class="text-sm font-semibold normal-case text-n-slate-12 whitespace-nowrap"
             >
               {{ $t('PROFILE_SETTINGS.FORM.NOTIFICATIONS.PUSH') }}
             </span>
@@ -225,7 +225,7 @@ export default {
     </div>
     <!--  Layout for mobile devices -->
     <div class="flex flex-col gap-6 sm:hidden">
-      <span class="text-sm font-medium normal-case text-n-slate-12">
+      <span class="text-sm font-semibold normal-case text-n-slate-12">
         {{ $t('PROFILE_SETTINGS.FORM.EMAIL_NOTIFICATIONS_SECTION.TITLE') }}
       </span>
       <div class="flex flex-col gap-4">
@@ -247,7 +247,7 @@ export default {
       </div>
 
       <div class="flex items-center justify-start gap-2">
-        <span class="text-sm font-medium normal-case text-n-slate-12">
+        <span class="text-sm font-semibold normal-case text-n-slate-12">
           {{ $t('PROFILE_SETTINGS.FORM.PUSH_NOTIFICATIONS_SECTION.TITLE') }}
         </span>
       </div>

@@ -43,7 +43,7 @@ const handleBack = () => {
               "
               color="slate"
               variant="faded"
-              class="w-full font-medium"
+              class="w-full font-semibold"
               @click="goBack"
             />
             <Button
@@ -52,7 +52,7 @@ const handleBack = () => {
                   'COMPOSE_NEW_CONVERSATION.FORM.WHATSAPP_OPTIONS.TEMPLATE_PARSER.SEND_MESSAGE'
                 )
               "
-              class="w-full font-medium"
+              class="w-full font-semibold"
               :disabled="disabled"
               @click="sendMessage"
             />

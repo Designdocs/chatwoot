@@ -100,7 +100,7 @@ const redirectToPortalHomePage = () => {
       <div class="flex flex-col gap-1">
         <div class="flex items-center gap-2">
           <h2
-            class="text-base font-medium cursor-pointer text-n-slate-12 w-fit hover:underline"
+            class="text-base font-semibold cursor-pointer text-n-slate-12 w-fit hover:underline"
             @click="redirectToPortalHomePage"
           >
             {{ t('HELP_CENTER.PORTAL_SWITCHER.PORTALS') }}
@@ -147,7 +147,7 @@ const redirectToPortalHomePage = () => {
             {{ portal.custom_domain || '' }}
           </span>
         </div>
-        <span class="text-sm font-medium truncate text-n-slate-12">
+        <span class="text-sm font-semibold truncate text-n-slate-12">
           {{ portal.name || '' }}
         </span>
         <Avatar

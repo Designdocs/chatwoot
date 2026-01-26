@@ -129,7 +129,7 @@ const handleSubmit = async () => {
     />
 
     <div class="flex flex-col gap-1">
-      <label for="inbox" class="mb-0.5 text-sm font-medium text-n-slate-12">
+      <label for="inbox" class="mb-0.5 text-sm font-semibold text-n-slate-12">
         {{ t('CAMPAIGN.SMS.CREATE.FORM.INBOX.LABEL') }}
       </label>
       <ComboBox
@@ -144,7 +144,7 @@ const handleSubmit = async () => {
     </div>
 
     <div class="flex flex-col gap-1">
-      <label for="audience" class="mb-0.5 text-sm font-medium text-n-slate-12">
+      <label for="audience" class="mb-0.5 text-sm font-semibold text-n-slate-12">
         {{ t('CAMPAIGN.SMS.CREATE.FORM.AUDIENCE.LABEL') }}
       </label>
       <TagMultiSelectComboBox

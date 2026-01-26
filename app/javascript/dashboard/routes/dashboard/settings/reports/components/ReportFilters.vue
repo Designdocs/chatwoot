@@ -169,7 +169,7 @@ export default {
 <template>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-y-0.5 gap-x-2">
     <div v-if="type === 'agent'" class="multiselect-wrap--small">
-      <p class="mb-2 text-xs font-medium">
+      <p class="mb-2 text-xs font-semibold">
         {{ $t('AGENT_REPORTS.FILTER_DROPDOWN_LABEL') }}
       </p>
       <multiselect
@@ -216,7 +216,7 @@ export default {
     </div>
 
     <div v-else-if="type === 'label'" class="multiselect-wrap--small">
-      <p class="mb-2 text-xs font-medium">
+      <p class="mb-2 text-xs font-semibold">
         {{ $t('LABEL_REPORTS.FILTER_DROPDOWN_LABEL') }}
       </p>
       <multiselect
@@ -257,7 +257,7 @@ export default {
     </div>
 
     <div v-else class="multiselect-wrap--small">
-      <p class="mb-2 text-xs font-medium">
+      <p class="mb-2 text-xs font-semibold">
         <template v-if="type === 'inbox'">
           {{ $t('INBOX_REPORTS.FILTER_DROPDOWN_LABEL') }}
         </template>
@@ -284,7 +284,7 @@ export default {
     </div>
 
     <div class="multiselect-wrap--small">
-      <p class="mb-2 text-xs font-medium">
+      <p class="mb-2 text-xs font-semibold">
         {{ $t('REPORT.DURATION_FILTER_LABEL') }}
       </p>
       <multiselect
@@ -317,7 +317,7 @@ export default {
     </div>
 
     <div v-if="isDateRangeSelected" class="order-3 md:order-4">
-      <p class="mb-2 text-xs font-medium">
+      <p class="mb-2 text-xs font-semibold">
         {{ $t('REPORT.CUSTOM_DATE_RANGE.PLACEHOLDER') }}
       </p>
       <WootDateRangePicker
@@ -331,7 +331,7 @@ export default {
     </div>
 
     <div v-if="notLast7Days" class="multiselect-wrap--small order-4 md:order-5">
-      <p class="mb-2 text-xs font-medium">
+      <p class="mb-2 text-xs font-semibold">
         {{ $t('REPORT.GROUP_BY_FILTER_DROPDOWN_LABEL') }}
       </p>
       <multiselect

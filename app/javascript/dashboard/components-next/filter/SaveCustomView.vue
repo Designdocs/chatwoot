@@ -101,7 +101,7 @@ export default {
     ]"
     class="z-40 max-w-3xl lg:w-[500px] overflow-visible w-full border border-n-weak bg-n-alpha-3 backdrop-blur-[100px] shadow-lg rounded-xl p-6 grid gap-6"
   >
-    <h3 class="text-base font-medium leading-6 text-n-slate-12">
+    <h3 class="text-base font-semibold leading-6 text-n-slate-12">
       {{ $t('FILTER.CUSTOM_VIEWS.ADD.TITLE') }}
     </h3>
     <form class="w-full grid gap-6" @submit.prevent="saveCustomViews">

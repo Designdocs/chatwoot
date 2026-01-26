@@ -64,7 +64,7 @@ const toggleConversationLayout = () => {
   >
     <div class="flex items-center justify-center min-w-0">
       <h1
-        class="text-base font-medium truncate text-n-slate-12"
+        class="text-base font-semibold truncate text-n-slate-12"
         :title="pageTitle"
       >
         {{ pageTitle }}

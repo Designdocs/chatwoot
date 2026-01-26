@@ -9,7 +9,6 @@ defineProps({
   totalItems: { type: Number, default: 100 },
   activeSort: { type: String, default: 'name' },
   activeOrdering: { type: String, default: '' },
-  showPaginationFooter: { type: Boolean, default: true },
 });
 
 const emit = defineEmits(['update:currentPage', 'update:sort', 'search']);
@@ -37,7 +36,7 @@ const updateCurrentPage = page => {
           <slot name="default" />
         </div>
       </main>
-      <footer v-if="showPaginationFooter" class="sticky bottom-0 z-0 px-4 pb-4">
+      <footer class="sticky bottom-0 z-0 px-4 pb-4">
         <PaginationFooter
           current-page-info="COMPANIES_LAYOUT.PAGINATION_FOOTER.SHOWING"
           :current-page="currentPage"

@@ -118,7 +118,7 @@ const hasSlaPolicyId = computed(() => props.chat?.sla_policy_id);
       >
         <div class="flex flex-row items-center max-w-full gap-1 p-0 m-0">
           <span
-            class="text-sm font-medium truncate leading-tight text-n-slate-12"
+            class="text-sm font-semibold truncate leading-tight text-n-slate-12"
           >
             {{ currentContact.name }}
           </span>
@@ -135,7 +135,7 @@ const hasSlaPolicyId = computed(() => props.chat?.sla_policy_id);
           class="flex items-center gap-2 overflow-hidden text-xs conversation--header--actions text-ellipsis whitespace-nowrap"
         >
           <InboxName v-if="hasMultipleInboxes" :inbox="inbox" class="!mx-0" />
-          <span v-if="isSnoozed" class="font-medium text-n-amber-10">
+          <span v-if="isSnoozed" class="font-semibold text-n-amber-10">
             {{ snoozedDisplayText }}
           </span>
         </div>

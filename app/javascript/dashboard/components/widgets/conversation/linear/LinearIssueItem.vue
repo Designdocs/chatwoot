@@ -53,7 +53,7 @@ const unlinkIssue = () => {
         @unlink-issue="unlinkIssue"
       />
 
-      <h3 class="mt-2 text-sm font-medium text-n-slate-12">
+      <h3 class="mt-2 text-sm font-semibold text-n-slate-12">
         {{ issue.title }}
       </h3>
 

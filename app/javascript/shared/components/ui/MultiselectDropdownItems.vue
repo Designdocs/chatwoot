@@ -141,7 +141,7 @@ export default {
   @apply justify-between w-full;
 
   &.active {
-    @apply bg-n-slate-2 dark:bg-n-solid-3 border-n-weak/50 dark:border-n-weak font-medium;
+    @apply bg-n-slate-2 dark:bg-n-solid-3 border-n-weak/50 dark:border-n-weak font-semibold;
   }
 
   &:hover {

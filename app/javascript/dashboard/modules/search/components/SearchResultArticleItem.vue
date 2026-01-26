@@ -67,14 +67,14 @@ const statusTextColor = computed(() => {
         <div class="flex items-center min-w-0 justify-between gap-2 w-full">
           <div class="flex items-center gap-2">
             <h5
-              class="text-sm font-medium leading-4 truncate min-w-0 text-n-slate-12"
+              class="text-sm font-semibold leading-4 truncate min-w-0 text-n-slate-12"
             >
               {{ title }}
             </h5>
             <div v-if="category" class="w-px h-4 bg-n-strong mx-2" />
             <span
               v-if="category"
-              class="text-xs inline-flex items-center font-medium rounded-md whitespace-nowrap capitalize bg-n-alpha-2 px-1.5 h-6 text-n-slate-12"
+              class="text-xs inline-flex items-center font-semibold rounded-md whitespace-nowrap capitalize bg-n-alpha-2 px-1.5 h-6 text-n-slate-12"
             >
               {{ category }}
             </span>

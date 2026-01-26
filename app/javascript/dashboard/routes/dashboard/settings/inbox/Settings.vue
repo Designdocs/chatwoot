@@ -547,7 +547,7 @@ export default {
           :show-border="false"
         >
           <div class="flex flex-col gap-1 items-start mb-4">
-            <label class="mb-0.5 text-sm font-medium text-n-slate-12">
+            <label class="mb-0.5 text-sm font-semibold text-n-slate-12">
               {{ $t('INBOX_MGMT.ADD.WEBSITE_CHANNEL.CHANNEL_AVATAR.LABEL') }}
             </label>
             <Avatar

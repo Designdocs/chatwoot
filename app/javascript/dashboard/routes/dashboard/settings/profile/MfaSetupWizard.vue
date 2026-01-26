@@ -155,7 +155,7 @@ defineExpose({
         class="bg-n-solid-1 rounded-xl outline-1 outline-n-weak outline p-10 flex flex-col gap-4"
       >
         <div class="text-center">
-          <h3 class="text-lg font-medium text-n-slate-12 mb-2">
+          <h3 class="text-lg font-semibold text-n-slate-12 mb-2">
             {{ $t('MFA_SETTINGS.SETUP.STEP1_TITLE') }}
           </h3>
           <p class="text-sm text-n-slate-11">
@@ -185,7 +185,7 @@ defineExpose({
 
         <details class="border border-n-slate-4 rounded-lg">
           <summary
-            class="px-4 py-3 cursor-pointer hover:bg-n-slate-2 dark:hover:bg-n-slate-3 text-sm font-medium text-n-slate-11"
+            class="px-4 py-3 cursor-pointer hover:bg-n-slate-2 dark:hover:bg-n-slate-3 text-sm font-semibold text-n-slate-11"
           >
             {{ $t('MFA_SETTINGS.SETUP.MANUAL_ENTRY') }}
           </summary>
@@ -242,7 +242,7 @@ defineExpose({
     <!-- Step 2: Backup Codes -->
     <div v-if="setupStep === 'backup'" class="space-y-6">
       <div class="text-start">
-        <h3 class="text-lg font-medium text-n-slate-12 mb-2">
+        <h3 class="text-lg font-semibold text-n-slate-12 mb-2">
           {{ $t('MFA_SETTINGS.BACKUP.TITLE') }}
         </h3>
         <p class="text-sm text-n-slate-11">

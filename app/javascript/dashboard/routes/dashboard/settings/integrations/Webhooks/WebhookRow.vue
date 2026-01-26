@@ -37,7 +37,7 @@ const subscribedEvents = computed(() => {
 <template>
   <tr>
     <td class="py-4 ltr:pr-4 rtl:pl-4">
-      <div class="flex gap-2 font-medium break-words text-n-slate-12">
+      <div class="flex gap-2 font-semibold break-words text-n-slate-12">
         <template v-if="webhook.name">
           {{ webhook.name }}
           <span class="text-n-slate-11">
@@ -49,7 +49,7 @@ const subscribedEvents = computed(() => {
         </template>
       </div>
       <div class="block mt-1 text-sm text-n-slate-11">
-        <span class="font-medium">
+        <span class="font-semibold">
           {{ $t('INTEGRATION_SETTINGS.WEBHOOK.SUBSCRIBED_EVENTS') }}:
         </span>
         <ShowMore :text="subscribedEvents" :limit="60" />

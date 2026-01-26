@@ -49,7 +49,7 @@ defineProps({
         >
           <div class="flex flex-col items-center justify-center gap-3">
             <h2
-              class="text-3xl font-medium text-center text-n-slate-12 font-interDisplay"
+              class="text-3xl font-semibold text-center text-n-slate-12 font-interDisplay"
             >
               {{ title }}
             </h2>

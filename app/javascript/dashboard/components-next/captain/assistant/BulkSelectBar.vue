@@ -70,7 +70,7 @@ const bulkCheckboxState = computed({
             :indeterminate="isIndeterminate"
           />
           <span
-            class="text-sm font-medium truncate text-n-slate-12 tabular-nums"
+            class="text-sm font-semibold truncate text-n-slate-12 tabular-nums"
           >
             {{ selectAllLabel }}
           </span>

@@ -144,7 +144,7 @@ const getStatusTextColor = status => STATUS_COLORS[status] || 'text-n-slate-12';
         class="flex flex-col gap-5 justify-between items-start w-full md:flex-row"
       >
         <div>
-          <span class="text-base font-medium text-n-slate-12">
+          <span class="text-base font-semibold text-n-slate-12">
             {{ t('INBOX_MGMT.ACCOUNT_HEALTH.TITLE') }}
           </span>
           <p class="mt-1 text-sm text-n-slate-11">
@@ -169,7 +169,7 @@ const getStatusTextColor = status => STATUS_COLORS[status] || 'text-n-slate-12';
           class="flex flex-col gap-2 p-4 rounded-lg border border-n-weak bg-n-solid-1"
         >
           <div class="flex gap-2 items-center">
-            <span class="text-sm font-medium text-n-slate-11">
+            <span class="text-sm font-semibold text-n-slate-11">
               {{ item.label }}
             </span>
             <Icon
@@ -181,32 +181,32 @@ const getStatusTextColor = status => STATUS_COLORS[status] || 'text-n-slate-12';
           <div class="flex items-center">
             <span
               v-if="item.type === 'quality'"
-              class="inline-flex items-center px-2 py-0.5 min-h-6 text-xs font-medium rounded-md bg-n-alpha-2"
+              class="inline-flex items-center px-2 py-0.5 min-h-6 text-xs font-semibold rounded-md bg-n-alpha-2"
               :class="getQualityRatingTextColor(item.value)"
             >
               {{ item.value }}
             </span>
             <span
               v-else-if="item.type === 'status'"
-              class="inline-flex items-center px-2 py-0.5 min-h-6 text-xs font-medium rounded-md bg-n-alpha-2"
+              class="inline-flex items-center px-2 py-0.5 min-h-6 text-xs font-semibold rounded-md bg-n-alpha-2"
               :class="getStatusTextColor(item.value)"
             >
               {{ formatStatusDisplay(item.value) }}
             </span>
             <span
               v-else-if="item.type === 'mode'"
-              class="inline-flex items-center px-2 py-0.5 min-h-6 text-xs font-medium rounded-md bg-n-alpha-2"
+              class="inline-flex items-center px-2 py-0.5 min-h-6 text-xs font-semibold rounded-md bg-n-alpha-2"
               :class="getModeStatusTextColor(item.value)"
             >
               {{ formatModeDisplay(item.value) }}
             </span>
             <span
               v-else-if="item.type === 'tier'"
-              class="text-sm font-medium text-n-slate-12"
+              class="text-sm font-semibold text-n-slate-12"
             >
               {{ formatTierDisplay(item.value) }}
             </span>
-            <span v-else class="text-sm font-medium text-n-slate-12">{{
+            <span v-else class="text-sm font-semibold text-n-slate-12">{{
               item.value
             }}</span>
           </div>

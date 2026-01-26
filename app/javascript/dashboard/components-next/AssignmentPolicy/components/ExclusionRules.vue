@@ -70,7 +70,7 @@ onMounted(() => {
 <template>
   <div class="py-4 flex-col flex gap-6">
     <div class="flex flex-col items-start gap-1 py-1">
-      <label class="text-sm font-medium text-n-slate-12 py-1">
+      <label class="text-sm font-semibold text-n-slate-12 py-1">
         {{
           t(
             'ASSIGNMENT_POLICY.AGENT_CAPACITY_POLICY.FORM.EXCLUSION_RULES.LABEL'
@@ -87,7 +87,7 @@ onMounted(() => {
     </div>
 
     <div class="flex flex-col items-start gap-4">
-      <label class="text-sm font-medium text-n-slate-12 py-1">
+      <label class="text-sm font-semibold text-n-slate-12 py-1">
         {{
           t(
             'ASSIGNMENT_POLICY.AGENT_CAPACITY_POLICY.FORM.EXCLUSION_RULES.TAGS.LABEL'
@@ -126,7 +126,7 @@ onMounted(() => {
     </div>
 
     <div class="flex flex-col items-start gap-4">
-      <label class="text-sm font-medium text-n-slate-12 py-1">
+      <label class="text-sm font-semibold text-n-slate-12 py-1">
         {{
           t(
             'ASSIGNMENT_POLICY.AGENT_CAPACITY_POLICY.FORM.EXCLUSION_RULES.DURATION.LABEL'

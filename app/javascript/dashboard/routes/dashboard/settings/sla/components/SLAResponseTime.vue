@@ -23,13 +23,13 @@ defineProps({
         size="14"
         icon="information"
         type="outline"
-        class="flex-shrink-0 hidden text-sm font-normal sm:flex sm:font-medium text-n-slate-11"
+        class="flex-shrink-0 hidden text-sm font-normal sm:flex sm:font-semibold text-n-slate-11"
       />
       {{ $t(`SLA.LIST.RESPONSE_TYPES.SHORT_HAND.${responseType}`) }}
       <span class="flex sm:hidden">:</span>
     </span>
     <span
-      class="text-sm sm:text-2xl font-medium tracking-[-1.5%] text-n-slate-12"
+      class="text-sm sm:text-2xl font-semibold tracking-[-1.5%] text-n-slate-12"
     >
       {{ responseTime }}
     </span>

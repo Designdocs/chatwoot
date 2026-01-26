@@ -47,7 +47,7 @@ const formattedUpdatedAt = computed(() => {
       />
       <div class="flex flex-col gap-0.5 flex-1 min-w-0">
         <div class="flex flex-wrap items-center gap-x-4 gap-y-1 min-w-0">
-          <span class="text-base font-medium truncate text-n-slate-12">
+          <span class="text-base font-semibold truncate text-n-slate-12">
             {{ displayName }}
           </span>
           <span
@@ -79,7 +79,7 @@ const formattedUpdatedAt = computed(() => {
               class="inline-flex items-center gap-1.5 text-sm text-n-slate-11 truncate"
             >
               <Icon icon="i-lucide-contact" size="size-3.5 text-n-slate-11" />
-              {{ t('COMPANIES.CONTACTS_COUNT', { n: contactsCount }) }}
+              {{ t('COMPANIES.CONTACTS_COUNT', { count: contactsCount }) }}
             </span>
           </div>
           <span

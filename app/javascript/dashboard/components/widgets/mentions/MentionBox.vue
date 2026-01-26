@@ -92,7 +92,7 @@ const variableKey = (item = {}) => {
         >
           <slot :item="item" :index="index" :selected="index === selectedIndex">
             <p
-              class="max-w-full min-w-0 mb-0 overflow-hidden text-sm font-medium text-n-slate-11 group-hover:text-n-slate-12 text-ellipsis whitespace-nowrap"
+              class="max-w-full min-w-0 mb-0 overflow-hidden text-sm font-semibold text-n-slate-11 group-hover:text-n-slate-12 text-ellipsis whitespace-nowrap"
               :class="{
                 'text-n-slate-12': index === selectedIndex,
               }"

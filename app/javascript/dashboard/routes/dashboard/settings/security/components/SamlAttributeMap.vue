@@ -20,7 +20,7 @@ const toggleExpanded = () => {
       class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-n-solid-2 transition-colors"
       @click="toggleExpanded"
     >
-      <h4 class="font-medium text-n-slate-12">
+      <h4 class="font-semibold text-n-slate-12">
         {{ t('SECURITY_SETTINGS.SAML.ATTRIBUTE_MAPPING.TITLE') }}
       </h4>
       <Icon

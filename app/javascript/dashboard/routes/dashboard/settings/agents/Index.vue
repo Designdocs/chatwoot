@@ -173,7 +173,7 @@ const confirmDeletion = () => {
                   rounded-full
                 />
                 <div>
-                  <span class="block font-medium capitalize">
+                  <span class="block font-semibold capitalize">
                     {{ agent.name }}
                   </span>
                   <span>{{ agent.email }}</span>
@@ -183,7 +183,7 @@ const confirmDeletion = () => {
 
             <td class="relative py-4 ltr:pr-4 rtl:pl-4">
               <span
-                class="block font-medium w-fit"
+                class="block font-semibold w-fit"
                 :class="{
                   'hover:text-gray-900 group cursor-pointer':
                     agent.custom_role_id,

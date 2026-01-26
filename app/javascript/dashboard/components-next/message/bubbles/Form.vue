@@ -58,7 +58,7 @@ const formValues = computed(() => {
         <dd>{{ item.title }}</dd>
       </template>
     </dl>
-    <div v-else-if="isAWebWidgetInbox" class="my-2 font-medium">
+    <div v-else-if="isAWebWidgetInbox" class="my-2 font-semibold">
       {{ t('CONVERSATION.NO_RESPONSE') }}
     </div>
   </BaseBubble>

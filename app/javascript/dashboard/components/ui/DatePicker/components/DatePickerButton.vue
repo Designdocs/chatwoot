@@ -52,10 +52,10 @@ const openDatePicker = () => {
     @click="openDatePicker"
   >
     <fluent-icon class="text-n-slate-12" icon="calendar" size="16" />
-    <span class="text-sm font-medium text-n-slate-12">
+    <span class="text-sm font-semibold text-n-slate-12">
       {{ $t(activeDateRange) }}
     </span>
-    <span class="text-sm font-medium text-n-slate-11">
+    <span class="text-sm font-semibold text-n-slate-11">
       {{ formatDateRange }}
     </span>
     <fluent-icon class="text-n-slate-12" icon="chevron-down" size="14" />
