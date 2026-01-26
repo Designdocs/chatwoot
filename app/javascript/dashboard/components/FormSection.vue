@@ -14,7 +14,7 @@ defineProps({
 <template>
   <div class="flex flex-col items-start w-full gap-6">
     <div class="flex flex-col w-full gap-4">
-      <h4 v-if="title" class="text-lg font-medium text-n-slate-12">
+      <h4 v-if="title" class="text-lg font-semibold text-n-slate-12">
         {{ title }}
       </h4>
       <div class="flex flex-row items-center justify-between">

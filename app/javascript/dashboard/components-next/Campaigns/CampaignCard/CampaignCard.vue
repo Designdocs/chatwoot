@@ -86,12 +86,12 @@ const inboxIcon = computed(() => {
     <div class="flex flex-col items-start justify-between flex-1 min-w-0 gap-2">
       <div class="flex justify-between gap-3 w-fit">
         <span
-          class="text-base font-medium capitalize text-n-slate-12 line-clamp-1"
+          class="text-base font-semibold capitalize text-n-slate-12 line-clamp-1"
         >
           {{ title }}
         </span>
         <span
-          class="text-xs font-medium inline-flex items-center h-6 px-2 py-0.5 rounded-md bg-n-alpha-2"
+          class="text-xs font-semibold inline-flex items-center h-6 px-2 py-0.5 rounded-md bg-n-alpha-2"
           :class="statusTextColor"
         >
           {{ campaignStatus }}

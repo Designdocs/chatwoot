@@ -123,7 +123,7 @@ defineExpose({ open, close });
           @click.stop
         >
           <div v-if="title || description" class="flex flex-col gap-2">
-            <h3 class="text-base font-medium leading-6 text-n-slate-12">
+            <h3 class="text-base font-semibold leading-6 text-n-slate-12">
               {{ title }}
             </h3>
             <slot name="description">

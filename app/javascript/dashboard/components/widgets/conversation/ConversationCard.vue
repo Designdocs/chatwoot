@@ -3,6 +3,7 @@ import { computed, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore, useMapGetter } from 'dashboard/composables/store';
 import { getLastMessage } from 'dashboard/helper/conversationHelper';
+import { useVoiceCallStatus } from 'dashboard/composables/useVoiceCallStatus';
 import { frontendURL, conversationUrl } from 'dashboard/helper/URLHelper';
 import Avatar from 'next/avatar/Avatar.vue';
 import MessagePreview from './MessagePreview.vue';
@@ -13,7 +14,6 @@ import CardLabels from './conversationCardComponents/CardLabels.vue';
 import PriorityMark from './PriorityMark.vue';
 import SLACardLabel from './components/SLACardLabel.vue';
 import ContextMenu from 'dashboard/components/ui/ContextMenu.vue';
-import VoiceCallStatus from './VoiceCallStatus.vue';
 
 const props = defineProps({
   activeLabel: { type: String, default: '' },
@@ -84,10 +84,15 @@ const isInboxNameVisible = computed(() => !activeInbox.value);
 
 const lastMessageInChat = computed(() => getLastMessage(props.chat));
 
-const voiceCallData = computed(() => ({
-  status: props.chat.additional_attributes?.call_status,
-  direction: props.chat.additional_attributes?.call_direction,
-}));
+const callStatus = computed(
+  () => props.chat.additional_attributes?.call_status
+);
+const callDirection = computed(
+  () => props.chat.additional_attributes?.call_direction
+);
+
+const { labelKey: voiceLabelKey, listIconColor: voiceIconColor } =
+  useVoiceCallStatus(callStatus, callDirection);
 
 const inboxId = computed(() => props.chat.inbox_id);
 
@@ -119,7 +124,7 @@ const showLabelsSection = computed(() => {
 
 const messagePreviewClass = computed(() => {
   return [
-    hasUnread.value ? 'font-medium text-n-slate-12' : 'text-n-slate-11',
+    hasUnread.value ? 'font-semibold text-n-slate-12' : 'text-n-slate-11',
     !props.compact && hasUnread.value ? 'ltr:pr-4 rtl:pl-4' : '',
     props.compact && hasUnread.value ? 'ltr:pr-6 rtl:pl-6' : '',
   ];
@@ -301,7 +306,7 @@ const deleteConversation = () => {
         >
           <span
             v-if="showAssignee && assignee.name"
-            class="text-n-slate-11 text-xs font-medium leading-3 py-0.5 px-0 inline-flex items-center truncate"
+            class="text-n-slate-11 text-xs font-semibold leading-3 py-0.5 px-0 inline-flex items-center truncate"
           >
             <fluent-icon icon="person" size="12" class="text-n-slate-11" />
             {{ assignee.name }}
@@ -311,17 +316,24 @@ const deleteConversation = () => {
       </div>
       <h4
         class="conversation--user text-sm my-0 mx-2 capitalize pt-0.5 text-ellipsis overflow-hidden whitespace-nowrap flex-1 min-w-0 ltr:pr-16 rtl:pl-16 text-n-slate-12"
-        :class="hasUnread ? 'font-semibold' : 'font-medium'"
+        :class="hasUnread ? 'font-semibold' : 'font-semibold'"
       >
         {{ currentContact.name }}
       </h4>
-      <VoiceCallStatus
-        v-if="voiceCallData.status"
+      <div
+        v-if="callStatus"
         key="voice-status-row"
-        :status="voiceCallData.status"
-        :direction="voiceCallData.direction"
-        :message-preview-class="messagePreviewClass"
-      />
+        class="my-0 mx-2 leading-6 h-6 flex-1 min-w-0 text-sm overflow-hidden text-ellipsis whitespace-nowrap"
+        :class="messagePreviewClass"
+      >
+        <span
+          class="inline-block -mt-0.5 align-middle text-[16px] i-ph-phone-incoming"
+          :class="[voiceIconColor]"
+        />
+        <span class="mx-1">
+          {{ $t(voiceLabelKey) }}
+        </span>
+      </div>
       <MessagePreview
         v-else-if="lastMessageInChat"
         key="message-preview"

@@ -145,7 +145,7 @@ const renderInstruction = instruction => () =>
     <div v-if="!isEditing" class="flex flex-col w-full">
       <div class="flex items-start justify-between w-full gap-2">
         <div class="flex flex-col items-start">
-          <span class="text-sm text-n-slate-12 font-medium">{{ title }}</span>
+          <span class="text-sm text-n-slate-12 font-semibold">{{ title }}</span>
           <span class="text-sm text-n-slate-11 mt-2">
             {{ description }}
           </span>
@@ -194,7 +194,7 @@ const renderInstruction = instruction => () =>
       </div>
       <span
         v-if="tools?.length"
-        class="text-sm text-n-slate-11 font-medium mb-1"
+        class="text-sm text-n-slate-11 font-semibold mb-1"
       >
         {{ t('CAPTAIN.ASSISTANTS.SCENARIOS.ADD.SUGGESTED.TOOLS_USED') }}
         {{ tools?.map(tool => `@${tool}`).join(', ') }}

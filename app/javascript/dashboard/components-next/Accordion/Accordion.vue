@@ -26,7 +26,7 @@ watch(
       class="flex items-center justify-between w-full p-4 text-left"
       @click="toggleAccordion"
     >
-      <span class="text-sm font-medium text-n-slate-12">{{ title }}</span>
+      <span class="text-sm font-semibold text-n-slate-12">{{ title }}</span>
       <span
         class="w-5 h-5 transition-transform duration-200 i-lucide-chevron-down"
         :class="{ 'rotate-180': isExpanded }"

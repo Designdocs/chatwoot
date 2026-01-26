@@ -132,7 +132,7 @@ const handleAvatarDelete = async () => {
         @delete="handleAvatarDelete"
       />
       <div class="flex flex-col gap-1">
-        <h3 class="text-base font-medium text-n-slate-12">
+        <h3 class="text-base font-semibold text-n-slate-12">
           {{ selectedContact?.name }}
         </h3>
         <div class="flex flex-col gap-1.5">
@@ -180,7 +180,7 @@ const handleAvatarDelete = async () => {
         class="flex flex-col items-start w-full gap-4 pt-6 border-t border-n-strong"
       >
         <div class="flex flex-col gap-2">
-          <h6 class="text-base font-medium text-n-slate-12">
+          <h6 class="text-base font-semibold text-n-slate-12">
             {{ t('CONTACTS_LAYOUT.DETAILS.DELETE_CONTACT') }}
           </h6>
           <span class="text-sm text-n-slate-11">

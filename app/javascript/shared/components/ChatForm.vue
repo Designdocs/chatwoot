@@ -156,7 +156,7 @@ export default {
 <style scoped lang="scss">
 .form {
   label {
-    @apply block font-medium py-1 px-0 capitalize;
+    @apply block font-semibold py-1 px-0 capitalize;
   }
 
   .button {

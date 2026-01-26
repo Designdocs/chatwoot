@@ -4,6 +4,7 @@
 @import 'tailwindcss/utilities';
 @import 'shared/assets/fonts/widget_fonts';
 @import 'views/conversation';
+@import 'theme_custom';
 
 html,
 body {
@@ -69,7 +70,7 @@ body {
 }
 
 label {
-  @apply block font-medium py-1 px-0 capitalize;
+  @apply block font-semibold py-1 px-0 capitalize;
 }
 
 input:not(.reset-base),

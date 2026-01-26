@@ -150,7 +150,7 @@ export default {
         </woot-dropdown-menu>
         <div
           v-if="noResult"
-          class="flex justify-center py-4 px-2.5 font-medium text-xs text-n-slate-11"
+          class="flex justify-center py-4 px-2.5 font-semibold text-xs text-n-slate-11"
         >
           {{ $t('CONTACT_PANEL.LABELS.LABEL_SELECT.NO_RESULT') }}
         </div>

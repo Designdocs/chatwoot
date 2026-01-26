@@ -54,7 +54,7 @@ const handleAssign = () => {
       </svg>
     </div>
     <div class="flex items-center justify-between p-2.5">
-      <span class="text-sm font-medium">{{
+      <span class="text-sm font-semibold">{{
         t('BULK_ACTION.LABELS.ASSIGN_LABELS')
       }}</span>
       <NextButton ghost xs slate icon="i-lucide-x" @click="onClose" />

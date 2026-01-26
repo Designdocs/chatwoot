@@ -132,7 +132,7 @@ const onAgentSelect = index => {
         <!-- Section Header -->
         <div
           v-if="item.type === 'header'"
-          class="px-2 py-2 text-xs font-medium tracking-wide capitalize text-n-slate-11"
+          class="px-2 py-2 text-xs font-semibold tracking-wide capitalize text-n-slate-11"
         >
           {{ item.title }}
         </div>

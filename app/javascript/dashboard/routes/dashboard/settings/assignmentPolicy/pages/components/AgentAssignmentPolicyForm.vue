@@ -227,7 +227,7 @@ defineExpose({
 
       <div class="pt-4 pb-2 flex-col flex gap-4">
         <div class="flex flex-col items-start gap-1 py-1">
-          <label class="text-sm font-medium text-n-slate-12 py-1">
+          <label class="text-sm font-semibold text-n-slate-12 py-1">
             {{ t(`${BASE_KEY}.FORM.FAIR_DISTRIBUTION.LABEL`) }}
           </label>
           <p class="mb-0 text-n-slate-11 text-sm">
@@ -255,7 +255,7 @@ defineExpose({
     >
       <div class="flex items-end gap-4 w-full justify-between">
         <div class="flex flex-col items-start gap-1 py-1">
-          <label class="text-sm font-medium text-n-slate-12 py-1">
+          <label class="text-sm font-semibold text-n-slate-12 py-1">
             {{ t(`${BASE_KEY}.FORM.INBOXES.LABEL`) }}
           </label>
           <p class="mb-0 text-n-slate-11 text-sm">

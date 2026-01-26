@@ -25,12 +25,12 @@ defineProps({
       <svg width="24" height="24"><use xlink:href="#icon-mist-fill" /></svg>
     </div>
     <div class="flex flex-col h-14 justify-center">
-      <h1 id="page-title" class="text-base font-medium text-slate-900">
+      <h1 id="page-title" class="text-base font-semibold text-slate-900">
         {{ 'Robin AI playground' }}
       </h1>
       <p class="text-sm text-slate-600">
         {{ 'Chat with the source' }}
-        <span class="font-medium">
+        <span class="font-semibold">
           {{ responseSourceName }}
         </span>
         {{ 'and evaluate it’s efficiency.' }}

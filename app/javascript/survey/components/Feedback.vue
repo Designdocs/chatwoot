@@ -32,7 +32,7 @@ export default {
 
 <template>
   <div class="mt-6">
-    <label class="text-base font-medium text-n-slate-12">
+    <label class="text-base font-semibold text-n-slate-12">
       {{ $t('SURVEY.FEEDBACK.LABEL') }}
     </label>
     <TextArea
@@ -40,7 +40,7 @@ export default {
       class="my-5"
       :placeholder="$t('SURVEY.FEEDBACK.PLACEHOLDER')"
     />
-    <div class="flex items-center float-right font-medium">
+    <div class="flex items-center float-right font-semibold">
       <CustomButton @click="onClick">
         <Spinner v-if="isUpdating" class="p-0" />
         {{ $t('SURVEY.FEEDBACK.BUTTON_TEXT') }}

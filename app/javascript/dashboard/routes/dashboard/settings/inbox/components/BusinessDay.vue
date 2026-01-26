@@ -148,7 +148,7 @@ export default {
       />
     </div>
     <div
-      class="day flex items-center py-0 px-3 text-sm font-medium flex-shrink-0 min-w-28"
+      class="day flex items-center py-0 px-3 text-sm font-semibold flex-shrink-0 min-w-28"
     >
       <span>{{ dayName }}</span>
     </div>
@@ -161,11 +161,11 @@ export default {
           <input
             v-model="isOpenAllDay"
             name="enable-open-all-day"
-            class="enable-checkbox text-sm font-medium"
+            class="enable-checkbox text-sm font-semibold"
             type="checkbox"
             :title="$t('INBOX_MGMT.BUSINESS_HOURS.ALL_DAY')"
           />
-          <span class="text-sm font-medium ml-1">{{
+          <span class="text-sm font-semibold ml-1">{{
             $t('INBOX_MGMT.BUSINESS_HOURS.ALL_DAY')
           }}</span>
         </div>

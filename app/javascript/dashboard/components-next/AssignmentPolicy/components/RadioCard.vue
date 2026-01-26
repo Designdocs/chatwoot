@@ -65,7 +65,7 @@ const handleChange = () => {
     <!-- Content -->
     <div class="flex flex-col gap-3 items-start">
       <div class="flex items-center gap-2">
-        <h3 class="text-sm font-medium text-n-slate-12">
+        <h3 class="text-sm font-semibold text-n-slate-12">
           {{ label }}
         </h3>
         <span

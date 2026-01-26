@@ -86,7 +86,7 @@ const formatFilterValue = value => {
           "
         >
           <span
-            class="content-center h-full px-1 text-xs font-medium uppercase rounded-lg text-n-slate-10"
+            class="content-center h-full px-1 text-xs font-semibold uppercase rounded-lg text-n-slate-10"
           >
             {{ filter.queryOperator }}
           </span>

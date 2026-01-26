@@ -36,7 +36,7 @@ export default {
     />
     <div class="card-body">
       <h4
-        class="!text-base !font-medium !mt-1 !mb-1 !leading-[1.5] text-n-slate-12"
+        class="!text-base !font-semibold !mt-1 !mb-1 !leading-[1.5] text-n-slate-12"
       >
         {{ title }}
       </h4>

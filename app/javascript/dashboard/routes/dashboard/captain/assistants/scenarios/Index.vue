@@ -231,7 +231,7 @@ onMounted(() => {
               <component
                 :is="renderInstruction(formatMessage(item.instruction, false))"
               />
-              <span class="text-sm text-n-slate-11 font-medium mb-1">
+              <span class="text-sm text-n-slate-11 font-semibold mb-1">
                 {{ t('CAPTAIN.ASSISTANTS.SCENARIOS.ADD.SUGGESTED.TOOLS_USED') }}
                 {{ item.tools?.map(tool => `@${tool}`).join(', ') }}
               </span>

@@ -30,7 +30,7 @@ defineProps({
         size="18"
         :style="{ color: iconColor }"
       />
-      <span class="text-sm font-medium truncate text-n-slate-12">
+      <span class="text-sm font-semibold truncate text-n-slate-12">
         {{ buttonText }}
       </span>
       <fluent-icon

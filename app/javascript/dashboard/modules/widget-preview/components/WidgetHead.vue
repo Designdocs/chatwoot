@@ -40,7 +40,7 @@ const isDefaultScreen = computed(() => {
         />
         <div v-if="!isDefaultScreen">
           <div class="flex items-center justify-start gap-1">
-            <span class="text-base font-medium leading-3 text-n-slate-12">
+            <span class="text-base font-semibold leading-3 text-n-slate-12">
               {{ config.websiteName }}
             </span>
             <div

@@ -1,0 +1,373 @@
+// app/javascript/widget/assets/scss/_theme_custom.scss
+
+  /* 浅色模式整体色板（widget 内部） */
+html:root {
+    /* 背景基色改暗一点 */
+    --background-color: 230 230 250;
+
+     /* 代码片段背景 */
+    --alpha-2: 201 202 207 .15;
+
+    /* 主品牌色：紫 + 少量绿色做点缀 */
+    --iris-9: 129 140 248;   /* 主按钮/主高亮 */
+    --iris-10: 109 120 245;
+    --iris-11: 165 180 252;
+
+    /* 文字层级 */
+    --slate-1: 248 250 252;
+    --slate-12: 15 23 42;
+
+    /* 最外层背景 */
+    --slate-2: 249 249 251;
+
+    /* 容器 & 边框 */
+    --solid-1: 15 23 42;     /* 面板背景 */
+    --solid-2: 17 24 39;
+    --border-container: 240 236 244;
+    --border-weak: 30 41 59;
+    --border-strong: 138 151 164;
+    --tw-shadow-colored: 0 1px 1px 0 var(--tw-shadow-color);
+
+
+
+    /* 轻量色块 */
+    --solid-iris: 76 29 149;
+    --solid-blue: 37 99 235;
+    --solid-amber: 245 158 11;
+  }
+
+  /* 暗色模式下的重写（widget 内部暗黑） */
+  .dark  {
+    --background-color: 64 61 77;
+
+    /* 代码片段背景 */
+    --alpha-2: 155 167 219 .19;
+
+    --slate-1: 25 24 30;
+    --slate-2: 15 23 42;
+    --slate-3: 61 58 114;
+    --slate-12: 248 250 252;
+
+    --iris-9: 129 140 248;
+    --iris-10: 165 180 252;
+    --iris-11: 196 181 253;
+    --iris-12: 233 213 255;
+
+    --solid-1: 15 23 42;
+    --solid-2: 37 35 49;
+    --solid-3: 0 38 52;
+    --solid-active: 30 64 175;
+    --solid-iris: 88 28 135;
+    --solid-blue: 23 37 84;
+
+    --border-container: 30 30 33;
+    --border-weak: 30 41 59;
+    --border-strong: 51 65 85;
+  }
+
+/* ========== 布局 & 间距 ========== */
+
+.dark\:bg-n-solid-1:is(.dark *) {
+    --tw-bg-opacity: 1;
+    background-color: rgb(25 24 30 / var(--tw-bg-opacity));
+}
+.bg-neutral-50 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(249 249 251 / var(--tw-bg-opacity));
+}
+.dark\:bg-neutral-800:is(.dark *) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(20 19 24 / var(--tw-bg-opacity));
+}
+.diy-bg {
+    --tw-bg-opacity: 1;
+    background-color: rgb(249 249 251 / var(--tw-bg-opacity));
+}
+.dark .diy-bg {
+    --tw-bg-opacity: 1;
+    background-color: rgb(27 26 33 / var(--tw-bg-opacity));
+}
+.diy-border {
+    border: 1px solid #dadadc;
+}
+.dark .diy-border {
+    border: 1px solid #28282a;
+}
+ol, ul {
+  list-style: none;
+  margin: .5rem 0 .7rem .3rem;
+}
+::marker {
+    color: #272738;
+    font-weight: 500;
+}
+.dark ::marker {
+    color: #d6d6f8;
+    font-weight: 500;
+}
+.conversation-wrap p:not(:last-child) {
+    margin-bottom: .9rem;
+}
+/* 列表里的 p 下边距 0.4rem，覆盖通用的 0.8rem */
+.conversation-wrap ol p:not(:last-child),
+.conversation-wrap ul p:not(:last-child) {
+  margin-bottom: 0.45rem;
+}
+
+input, optgroup, select, textarea {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+button {
+    font-size: 14px !important;
+     margin: 0;
+    padding: 0;
+}
+.user-message-input{
+    outline: 1px solid transparent !important;
+    min-height: 2.1rem !important;
+}
+.user-message-input{
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    min-height: 2.1rem !important;
+}
+/* 整个 widget 内背景、圆角 */
+.woot-widget-holder {
+  background: radial-gradient(circle at 0% 0%, rgba(129, 140, 248, 0.2), rgba(15, 23, 42, 1));
+  border-radius: 24px;
+  border: 1px solid #dadadc !important;
+  /* Soft, wide shadow to visually lift the expanded window off the page */
+  box-shadow: 0 28px 80px rgba(124, 124, 124, 0.28), 0 12px 36px rgba(90, 90, 90, 0.1);
+}
+.dark .woot-widget-holder {
+  box-shadow: 0 28px 80px rgba(15, 16, 23, 0.36), 0 12px 36px rgba(0, 0, 0, 0.24);
+  border: 1px solid #28282a !important;
+}
+
+/* 对话容器 */
+.woot-widget-holder .conversation-wrap,
+.woot-widget-holder .conversation {
+  padding: 12px 16px 14px;
+}
+
+/* 消息列表 */
+.woot-widget-holder .messages-wrap,
+.woot-widget-holder .messages-list {
+  row-gap: 6px;
+}
+
+.conversation-wrap .agent-message .message-wrap {
+  margin-top: .3rem;
+  max-width: 95%;
+}
+.conversation-wrap .user-message {
+    max-width: 90%;
+
+}
+.message-content ul:where([dir=ltr],[dir=ltr] *) {
+    padding-left: .75rem;
+}
+/* ========== 消息气泡风格 ========== */
+
+.chat-bubble {
+  border-radius: 18px;
+  padding: 9px 11px;
+  box-shadow: 0 6px 15px #b2b2b22f;
+}
+.dark .chat-bubble {
+  box-shadow: 0 0px 8px #7b7e8a2f;
+}
+/* 气泡里的文本行为，关键在这里 */
+.chat-bubble p {
+  margin: 0;                    /* 去掉默认上下 margin，避免额外高度 */
+  display: inline;              /* 不要让 p 自己占一整行 */
+  white-space: normal;          /* 正常换行 */
+  word-break: break-word;       /* 只在必要时打断长串 */
+}
+
+/* 访客消息 */
+.chat-bubble.visitor,
+.chat-bubble--visitor {
+  background: rgba(15, 23, 42, 0.94);
+  color: rgb(226, 232, 240);
+  border: 1px solid rgba(63, 68, 121, 0.6);
+}
+
+/* 你的回复 */
+.chat-bubble.agent,
+.chat-bubble--agent {
+  background: #f6f6fa;
+  color: #272627;
+  border: 1px solid #e9e9ee;
+}
+.dark .chat-bubble.agent,
+.dark .chat-bubble--agent {
+  background: #2a2933;
+  color: rgb(226, 232, 240);
+  border: 1px solid #2c2c3e;
+}
+.message-content {
+  font-size: 14px;
+}
+
+/* 上下间距 */
+.chat-bubble + .chat-bubble {
+  margin-top: 3px;
+}
+
+.message-group + .message-group {
+  margin-top: 8px;
+}
+
+/* ========== 输入框和底部区域 ========== */
+
+.chat-message--input {
+  border-radius: 16px !important;
+  padding: 8px 10px !important;
+  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.6);
+}
+
+.chat-message--input.is-focused {
+  box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.9), 0 0 0 1px rgba(15, 23, 42, 0.9);
+}
+
+.ltr\:pr-2:where([dir=ltr],[dir=ltr] *) {
+    padding-right: .2rem;
+}
+.ltr\:pl-3:where([dir=ltr],[dir=ltr] *) {
+    padding-left: .5rem;
+}
+/* ========== 输入框边框 ========== */
+.chat-input-wrapper {
+  border: 1px solid #d1d5db;           /* 默认边框：浅灰 */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chat-input-wrapper:focus-within {
+  border-color: #111827;               /* 亮色模式下，聚焦颜色加深 */
+}
+
+/* 暗黑模式下的边框颜色 */
+.dark .chat-input-wrapper {
+  border-color: #4b5563;               /* 默认暗色边框 */
+}
+
+.dark .chat-input-wrapper:focus-within {
+  border-color: #e5e7eb;               /* 聚焦时更亮一点，方便看 */
+}
+
+/* 发送按钮 */
+.chat-footer .button,
+button.send-button {
+  border-radius: 999px;
+  padding: 0 14px;
+  background: linear-gradient(135deg, #22c55e, #a855f7);
+  border-color: transparent;
+}
+
+/* 顶部 header 高度和内边距（类名示意，按实际 DOM 调整） */
+.widget-header,
+.header-wrap {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.7);
+}
+/* 底部logo */
+.opacity-90 {
+    opacity: 0.1;
+    font-size: 0.5rem;
+}
+@media only screen and (min-width: 667px) {
+  .woot-widget-holder {
+      max-height: 670px !important;
+      min-height: 250px !important;
+      width: 430px !important;
+      border: 1px solid #a6a6a633 !important;
+  }
+}
+@media only screen and (min-width: 667px) {
+  .dark .woot-widget-holder {
+      max-height: 670px !important;
+      min-height: 250px !important;
+      width: 430px !important;
+      border: 1px solid #7d7d7e33 !important;
+  }
+}
+/* ========== 代码格式 ========== */
+pre {
+    margin-top: .35rem;
+    margin-bottom: .625rem;
+    display: block;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    border-radius: .375rem;
+    --tw-bg-opacity: 1;
+    background-color: #eeeefe;
+    background-color: rgb(238 238 254 / var(--tw-bg-opacity)) !important;
+    padding: .5rem;
+    line-height: 1.5;
+    --tw-text-opacity: 1;
+    color: #60646c;
+    color: rgb(var(--slate-11) / var(--tw-text-opacity));
+}
+pre:is(.dark *) {
+    background-color: #c9cacf26;
+    background-color: rgb(179 185 211 / 18%) !important;
+}
+pre code {
+    background-color: transparent !important;
+    padding: 0;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    --tw-text-opacity: 1;
+    color: #60646c;
+    color: rgb(95 100 159 / var(--tw-text-opacity)) !important;
+}
+pre:is(.dark *) code {
+    --tw-text-opacity: 1;
+    color: rgb(181 191 246 / var(--tw-text-opacity)) !important;
+}
+code {
+    color: rgb(95 100 159 / var(--tw-text-opacity)) !important;
+    background-color: rgb(179 185 211 / 10%);
+}
+code:is(.dark *) {
+    --tw-text-opacity: 1;
+    color: rgb(181 191 246 / var(--tw-text-opacity)) !important;
+    background-color: rgb(179 185 211 / 10%);
+}
+
+p code {
+    color: rgb(95 100 159 / var(--tw-text-opacity)) !important;
+    background-color: rgb(179 185 211 / 10%) !important;
+    font-weight: 600;
+}
+p code:is(.dark *) {
+    --tw-text-opacity: 1;
+    color: rgb(181 191 246 / var(--tw-text-opacity)) !important;
+    background-color: rgb(179 185 211 / 10%) !important;
+}
+/* ========== 链接样式 ========== */
+@supports (color: rgb(0 0 0 / 0)) and (top: var(--f)) {
+    .chat-bubble.agent .link {
+        color: rgb(94 94 212) !important;
+    }
+    .dark .chat-bubble.agent .link {
+        color: rgb(144, 144, 231) !important;
+    }
+}
+.chat-bubble.agent .link {
+    --tw-text-opacity: 1;
+    color: rgb(92, 92, 240);
+    word-break: break-word;
+}
+.dark .chat-bubble.agent .link {
+    --tw-text-opacity: 1;
+    color: rgb(147, 147, 244);
+    word-break: break-word;
+}
+.chat-bubble .link {
+    text-decoration: none !important;
+}

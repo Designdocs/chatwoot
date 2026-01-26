@@ -77,16 +77,3 @@ export const MEDIA_TYPES = [
   ATTACHMENT_TYPES.AUDIO,
   ATTACHMENT_TYPES.IG_REEL,
 ];
-
-export const VOICE_CALL_STATUS = {
-  IN_PROGRESS: 'in-progress',
-  RINGING: 'ringing',
-  COMPLETED: 'completed',
-  NO_ANSWER: 'no-answer',
-  FAILED: 'failed',
-};
-
-export const VOICE_CALL_DIRECTION = {
-  INBOUND: 'inbound',
-  OUTBOUND: 'outbound',
-};

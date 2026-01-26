@@ -14,7 +14,7 @@ defineProps({
     <img :src="message.image_url" class="max-h-44 rounded-lg w-full" />
     <span
       v-dompurify-html="message.content"
-      class="prose prose-bubble font-medium text-sm"
+      class="prose prose-bubble font-semibold text-sm"
     />
   </div>
 </template>

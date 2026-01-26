@@ -889,7 +889,7 @@ useEmitter(BUS_EVENTS.INSERT_INTO_RICH_EDITOR, insertContentIntoEditor);
       <button
         v-for="size in sizes"
         :key="size.name"
-        class="text-xs font-medium rounded-[4px] outline outline-1 outline-n-strong px-1.5 py-0.5 hover:bg-n-slate-5"
+        class="text-xs font-semibold rounded-[4px] outline outline-1 outline-n-strong px-1.5 py-0.5 hover:bg-n-slate-5"
         @click="setURLWithQueryAndImageSize(size)"
       >
         {{ size.name }}
@@ -992,7 +992,7 @@ useEmitter(BUS_EVENTS.INSERT_INTO_RICH_EDITOR, insertContentIntoEditor);
 
 .is-private {
   .prosemirror-mention-node {
-    @apply font-medium bg-n-amber-2/80 dark:bg-n-amber-2/80 text-n-slate-12 py-0 px-1;
+    @apply font-semibold bg-n-amber-2/80 dark:bg-n-amber-2/80 text-n-slate-12 py-0 px-1;
   }
 
   .ProseMirror-menubar-wrapper {
@@ -1007,7 +1007,7 @@ useEmitter(BUS_EVENTS.INSERT_INTO_RICH_EDITOR, insertContentIntoEditor);
 }
 
 .prosemirror-tools-node {
-  @apply font-medium text-n-slate-12 py-0;
+  @apply font-semibold text-n-slate-12 py-0;
 }
 
 .editor-wrap {

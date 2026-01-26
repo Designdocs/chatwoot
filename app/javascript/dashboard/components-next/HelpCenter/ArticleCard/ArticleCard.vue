@@ -133,7 +133,7 @@ const handleClick = id => {
       </span>
       <div class="flex items-center gap-2">
         <span
-          class="text-xs font-medium inline-flex items-center h-6 px-2 py-0.5 rounded-md bg-n-alpha-2"
+          class="text-xs font-semibold inline-flex items-center h-6 px-2 py-0.5 rounded-md bg-n-alpha-2"
           :class="statusTextColor"
         >
           {{ statusText }}
