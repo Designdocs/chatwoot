@@ -44,7 +44,8 @@ module ChatwootApp
   end
 
   def self.advanced_search_allowed?
-    enterprise? && ENV.fetch('OPENSEARCH_URL', nil).present?
+    # 方便本地测试：只要配置了 OPENSEARCH_URL 即开启高级搜索，不再要求企业版检测
+    ENV.fetch('OPENSEARCH_URL', nil).present?
   end
 
   def self.otel_enabled?

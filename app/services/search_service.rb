@@ -64,7 +64,8 @@ class SearchService
   end
 
   def should_run_advanced_search?
-    ChatwootApp.advanced_search_allowed? && current_account.feature_enabled?('advanced_search')
+    # 本地测试：只要全局允许高级搜索（已放宽），即启用
+    ChatwootApp.advanced_search_allowed?
   end
 
   def advanced_search; end
