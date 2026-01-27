@@ -12,9 +12,9 @@ module ChatwootApp
   end
 
   def self.enterprise?
-    return if ENV.fetch('DISABLE_ENTERPRISE', false)
-
-    @enterprise ||= root.join('enterprise').exist?
+    # 本地测试：放开企业版限制，直接视为 Enterprise 环境
+    return false if ENV.fetch('DISABLE_ENTERPRISE', false)
+    true
   end
 
   def self.chatwoot_cloud?
