@@ -235,17 +235,9 @@ class Message < ApplicationRecord
   end
 
   def should_index?
-    return false unless ChatwootApp.advanced_search_allowed?
     return false unless incoming? || outgoing?
-    # For Chatwoot Cloud:
-    #   - Enable indexing only if the account is paid.
-    #   - The `advanced_search_indexing` feature flag is used only in the cloud.
-    #
-    # For Self-hosted:
-    #   - Adding an extra feature flag here would cause confusion.
-    #   - If the user has configured Elasticsearch, enabling `advanced_search`
-    #     should automatically work without any additional flags.
-    return false if ChatwootApp.chatwoot_cloud? && !account.feature_enabled?('advanced_search_indexing')
+    # 放宽条件：只要允许高级搜索（当前已在 ChatwootApp 中放宽），就进行索引
+    return false unless ChatwootApp.advanced_search_allowed?
 
     true
   end
