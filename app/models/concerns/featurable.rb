@@ -42,23 +42,18 @@ module Featurable
   end
 
   def feature_enabled?(name)
-    # 高级搜索：如果缺少 OPENSEARCH_URL，优先降级为关闭
-    if %w[advanced_search advanced_search_indexing].include?(name.to_s)
-      return false if ENV.fetch('OPENSEARCH_URL', nil).blank?
-      return true
-    end
-
-    send("feature_#{name}?")
+    # 本地测试：移除账号/版本限制，所有功能视为开启
+    true
   end
 
   def all_features
     FEATURE_LIST.pluck('name').index_with do |feature_name|
-      feature_enabled?(feature_name)
+      true
     end
   end
 
   def enabled_features
-    all_features.select { |_feature, enabled| enabled == true }
+    all_features
   end
 
   def disabled_features
