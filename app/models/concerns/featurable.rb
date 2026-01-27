@@ -42,8 +42,11 @@ module Featurable
   end
 
   def feature_enabled?(name)
-    # 本地测试强制开启高级搜索相关特性
-    return true if %w[advanced_search advanced_search_indexing].include?(name.to_s)
+    # 高级搜索：如果缺少 OPENSEARCH_URL，优先降级为关闭
+    if %w[advanced_search advanced_search_indexing].include?(name.to_s)
+      return false if ENV.fetch('OPENSEARCH_URL', nil).blank?
+      return true
+    end
 
     send("feature_#{name}?")
   end
