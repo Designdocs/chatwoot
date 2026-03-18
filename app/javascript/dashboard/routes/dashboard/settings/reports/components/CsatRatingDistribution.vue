@@ -44,7 +44,7 @@ const getRatingCount = value => {
   <div
     class="shadow outline-1 outline outline-n-container rounded-xl bg-n-solid-2 px-6 py-5"
   >
-    <span class="text-sm font-medium text-n-slate-11">
+    <span class="text-sm font-semibold text-n-slate-11">
       {{ $t('CSAT_REPORTS.METRIC.RATING_DISTRIBUTION') }}
     </span>
 
@@ -88,7 +88,7 @@ const getRatingCount = value => {
           <span class="text-sm text-n-slate-11">
             {{ getRatingLabel(rating.value) }}
           </span>
-          <span class="text-sm font-medium text-n-slate-12">
+          <span class="text-sm font-semibold text-n-slate-12">
             {{ formatPercent(ratingPercentage[rating.value]) }}
           </span>
           <span class="text-xs text-n-slate-10">

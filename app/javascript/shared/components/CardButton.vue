@@ -67,6 +67,6 @@ export default {
 
 <style scoped lang="scss">
 .action-button {
-  @apply items-center rounded-lg flex font-medium justify-center mt-1 p-0 w-full;
+  @apply items-center rounded-lg flex font-semibold justify-center mt-1 p-0 w-full;
 }
 </style>

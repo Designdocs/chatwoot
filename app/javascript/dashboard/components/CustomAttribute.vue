@@ -213,7 +213,7 @@ export default {
         </div>
         <div class="flex items-center justify-between w-full">
           <span
-            class="w-full inline-flex gap-1.5 items-start font-medium whitespace-nowrap text-sm mb-0"
+            class="w-full inline-flex gap-1.5 items-start font-semibold whitespace-nowrap text-sm mb-0"
             :class="
               v$.editedValue.$error ? 'text-n-ruby-11' : 'text-n-slate-12'
             "

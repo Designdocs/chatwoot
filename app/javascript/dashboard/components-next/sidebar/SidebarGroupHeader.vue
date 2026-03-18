@@ -32,8 +32,8 @@ const count = computed(() =>
     :to="to"
     :title="label"
     :class="{
-      'text-n-slate-12 bg-n-alpha-2 font-medium': isActive && !hasActiveChild,
-      'text-n-slate-12 font-medium': hasActiveChild,
+      'text-n-slate-12 bg-n-alpha-2 font-semibold': isActive && !hasActiveChild,
+      'text-n-slate-12 font-semibold': hasActiveChild,
       'text-n-slate-11 hover:bg-n-alpha-2': !isActive && !hasActiveChild,
     }"
     @click.stop="emit('toggle')"
@@ -50,14 +50,14 @@ const count = computed(() =>
         class="truncate"
         :class="{
           'text-body-main': !isActive,
-          'font-medium text-sm': isActive || hasActiveChild,
+          'font-semibold text-sm': isActive || hasActiveChild,
         }"
       >
         {{ label }}
       </span>
       <span
         v-if="dynamicCount && !expandable"
-        class="rounded-md capitalize text-xs leading-5 font-medium text-center outline outline-1 px-1 flex-shrink-0"
+        class="rounded-md capitalize text-xs leading-5 font-semibold text-center outline outline-1 px-1 flex-shrink-0"
         :class="{
           'text-n-slate-12 outline-n-slate-6': isActive,
           'text-n-slate-11 outline-n-strong': !isActive,

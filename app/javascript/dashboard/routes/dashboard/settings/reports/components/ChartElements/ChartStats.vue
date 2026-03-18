@@ -53,7 +53,7 @@ const trendColor = (value, key) => {
       </div>
       <div
         v-else-if="fetchingStatus === STATUS.FINISHED"
-        class="text-xl font-medium"
+        class="text-xl font-semibold"
       >
         {{ displayMetric(metric.KEY) }}
       </div>
@@ -71,7 +71,10 @@ const trendColor = (value, key) => {
           class="h-0 w-0 border-x-4 medium border-x-transparent border-b-[8px] mr-1"
           :class="trendColor(metric.trend, metric.KEY)"
         />
-        <span class="font-medium" :class="trendColor(metric.trend, metric.KEY)">
+        <span
+          class="font-semibold"
+          :class="trendColor(metric.trend, metric.KEY)"
+        >
           {{ calculateTrend(metric.KEY) }}%
         </span>
       </div>

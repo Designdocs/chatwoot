@@ -92,7 +92,7 @@ defineExpose({ dialogRef });
     <div class="flex flex-col gap-6 divide-y divide-n-strong">
       <div class="flex flex-col gap-6">
         <div class="flex flex-col gap-2 ltr:pr-10 rtl:pl-10">
-          <h3 class="text-base font-medium leading-6 text-n-slate-12">
+          <h3 class="text-base font-semibold leading-6 text-n-slate-12">
             {{
               t(
                 'HELP_CENTER.PORTAL_SETTINGS.CONFIGURATION_FORM.CUSTOM_DOMAIN.DNS_CONFIGURATION_DIALOG.HEADER'
@@ -126,7 +126,7 @@ defineExpose({ dialogRef });
 
       <div class="flex flex-col gap-6 pt-6">
         <div class="flex flex-col gap-2 ltr:pr-10 rtl:pl-10">
-          <h3 class="text-base font-medium leading-6 text-n-slate-12">
+          <h3 class="text-base font-semibold leading-6 text-n-slate-12">
             {{
               t(
                 'HELP_CENTER.PORTAL_SETTINGS.CONFIGURATION_FORM.CUSTOM_DOMAIN.DNS_CONFIGURATION_DIALOG.SEND_INSTRUCTIONS.HEADER'

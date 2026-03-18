@@ -277,7 +277,7 @@ export default {
       @apply max-w-[30rem];
 
       h2 {
-        @apply font-medium text-base;
+        @apply font-semibold text-base;
       }
     }
   }

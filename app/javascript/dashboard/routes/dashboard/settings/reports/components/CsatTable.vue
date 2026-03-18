@@ -156,7 +156,7 @@ const table = useVueTable({
               :style="{
                 width: header.getSize() ? `${header.getSize()}px` : 'auto',
               }"
-              class="text-left py-3 px-5 font-medium text-sm text-n-slate-12"
+              class="text-left py-3 px-5 font-semibold text-sm text-n-slate-12"
             >
               {{ header.column.columnDef.header }}
             </th>
@@ -187,7 +187,7 @@ const table = useVueTable({
                     backgroundColor: `${getRatingData(row.rating).color}20`,
                   }"
                 >
-                  <span class="text-sm font-medium text-n-slate-12 truncate">
+                  <span class="text-sm font-semibold text-n-slate-12 truncate">
                     {{ $t(getRatingData(row.rating).translationKey) }}
                   </span>
                 </div>

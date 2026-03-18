@@ -239,7 +239,7 @@ onBeforeUnmount(() => {
           </div>
         </div>
 
-        <h3 class="mb-2 text-base font-medium text-n-slate-12">
+        <h3 class="mb-2 text-base font-semibold text-n-slate-12">
           {{ $t('INBOX_MGMT.ADD.WHATSAPP.EMBEDDED_SIGNUP.TITLE') }}
         </h3>
         <p class="text-sm leading-[24px] text-n-slate-12">

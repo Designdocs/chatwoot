@@ -148,7 +148,7 @@ const allowedMenuItems = computed(() => {
           rounded-full
         />
         <div v-if="!isCollapsed" class="min-w-0">
-          <div class="text-sm font-medium leading-4 truncate text-n-slate-12">
+          <div class="text-sm font-semibold leading-4 truncate text-n-slate-12">
             {{ currentUser.available_name }}
           </div>
           <div class="text-xs truncate text-n-slate-11">

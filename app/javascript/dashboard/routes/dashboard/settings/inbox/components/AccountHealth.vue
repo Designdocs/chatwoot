@@ -197,7 +197,7 @@ const handleRegisterWebhook = () => {
           class="flex flex-col gap-2 p-4 rounded-lg border border-n-weak bg-n-solid-1"
         >
           <div class="flex gap-2 items-center">
-            <span class="text-body-main font-medium text-n-slate-11">
+            <span class="text-body-main font-semibold text-n-slate-11">
               {{ item.label }}
             </span>
             <Icon
@@ -246,7 +246,7 @@ const handleRegisterWebhook = () => {
           class="flex flex-col gap-2 p-4 rounded-lg border border-n-weak bg-n-solid-1"
         >
           <div class="flex gap-2 items-center">
-            <span class="text-body-main font-medium text-n-slate-11">
+            <span class="text-body-main font-semibold text-n-slate-11">
               {{ t('INBOX_MGMT.ACCOUNT_HEALTH.WEBHOOK.TITLE') }}
             </span>
             <Icon

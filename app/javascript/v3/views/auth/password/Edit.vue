@@ -94,7 +94,7 @@ export default {
       @submit.prevent="submitForm"
     >
       <h1
-        class="mb-1 text-2xl font-medium tracking-tight text-left text-n-slate-12"
+        class="mb-1 text-2xl font-semibold tracking-tight text-left text-n-slate-12"
       >
         {{ $t('SET_NEW_PASSWORD.TITLE') }}
       </h1>

@@ -33,7 +33,7 @@ const showForwardingAddress = computed(() => {
     </p>
 
     <div v-if="showForwardingAddress" class="w-[50%] max-w-[50%] mx-auto">
-      <p class="mt-8 mb-4 font-medium text-n-slate-11">
+      <p class="mt-8 mb-4 font-semibold text-n-slate-11">
         {{ $t('INBOX_MGMT.ADD.EMAIL_CHANNEL.FORWARDING_ADDRESS_LABEL') }}
       </p>
       <woot-code lang="html" :script="inbox.forward_to_email" />

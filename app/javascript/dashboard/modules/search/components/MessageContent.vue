@@ -78,7 +78,7 @@ const authorText = computed(() => {
         'overflow-hidden whitespace-nowrap text-ellipsis': showReadMore,
       }"
     >
-      <span v-if="authorText" class="text-n-slate-11 font-medium leading-4">{{
+      <span v-if="authorText" class="text-n-slate-11 font-semibold leading-4">{{
         authorText
       }}</span>
       <span
@@ -87,7 +87,7 @@ const authorText = computed(() => {
       />
       <button
         v-if="showReadLess"
-        class="text-sm text-n-slate-11 underline cursor-pointer bg-transparent border-0 p-0 hover:text-n-slate-12 font-medium ltr:ml-0.5 rtl:mr-0.5"
+        class="text-sm text-n-slate-11 underline cursor-pointer bg-transparent border-0 p-0 hover:text-n-slate-12 font-semibold ltr:ml-0.5 rtl:mr-0.5"
         @click.prevent="toggleExpanded(false)"
       >
         {{ t('SEARCH.READ_LESS') }}
@@ -95,7 +95,7 @@ const authorText = computed(() => {
     </div>
     <button
       v-if="showReadMore"
-      class="text-sm text-n-slate-11 underline cursor-pointer bg-transparent border-0 p-0 hover:text-n-slate-12 font-medium justify-self-end ltr:ml-0.5 rtl:mr-0.5"
+      class="text-sm text-n-slate-11 underline cursor-pointer bg-transparent border-0 p-0 hover:text-n-slate-12 font-semibold justify-self-end ltr:ml-0.5 rtl:mr-0.5"
       @click.prevent="toggleExpanded(true)"
     >
       {{ t('SEARCH.READ_MORE') }}

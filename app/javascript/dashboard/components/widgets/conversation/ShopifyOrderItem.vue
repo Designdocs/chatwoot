@@ -65,7 +65,7 @@ const getFulfillmentClass = status => {
     class="py-3 border-b border-n-weak last:border-b-0 flex flex-col gap-1.5"
   >
     <div class="flex justify-between items-center">
-      <div class="font-medium flex">
+      <div class="font-semibold flex">
         <a
           :href="order.admin_url"
           target="_blank"
@@ -95,7 +95,7 @@ const getFulfillmentClass = status => {
     <div v-if="fulfillmentStatus">
       <span
         :class="getFulfillmentClass(order.fulfillment_status)"
-        class="capitalize font-medium"
+        class="capitalize font-semibold"
         :title="fulfillmentStatus"
       >
         {{ fulfillmentStatus }}

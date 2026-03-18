@@ -195,7 +195,7 @@ onMounted(() => {
               class="flex-shrink-0"
             />
             <div class="flex flex-col ml-2 rtl:ml-0 rtl:mr-2 overflow-hidden">
-              <h3 class="text-base leading-5 m-0 font-medium">
+              <h3 class="text-base leading-5 m-0 font-semibold">
                 <span
                   class="overflow-hidden text-n-slate-12 whitespace-nowrap text-ellipsis"
                 >
@@ -211,7 +211,7 @@ onMounted(() => {
           </div>
 
           <div
-            class="flex-1 mx-2 px-2 truncate text-sm font-medium text-center text-n-slate-12"
+            class="flex-1 mx-2 px-2 truncate text-sm font-semibold text-center text-n-slate-12"
           >
             <span v-dompurify-html="fileNameFromDataUrl" class="truncate" />
           </div>
@@ -347,7 +347,7 @@ onMounted(() => {
           class="z-10 flex items-center justify-center h-12 border-t border-n-weak"
         >
           <div
-            class="rounded-md flex items-center justify-center px-3 py-1 bg-n-slate-3 text-n-slate-12 text-sm font-medium"
+            class="rounded-md flex items-center justify-center px-3 py-1 bg-n-slate-3 text-n-slate-12 text-sm font-semibold"
           >
             {{ `${activeImageIndex + 1} / ${allAttachments.length}` }}
           </div>

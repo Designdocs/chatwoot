@@ -30,7 +30,7 @@ defineProps({
         class="w-11 h-11 rounded-full object-cover"
       />
       <div class="ml-3">
-        <div class="text-base font-medium text-n-slate-12">
+        <div class="text-base font-semibold text-n-slate-12">
           {{ authorName }}
         </div>
         <div class="text-sm text-n-slate-10">{{ authorDesignation }}</div>

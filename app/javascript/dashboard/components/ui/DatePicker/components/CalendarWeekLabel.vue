@@ -7,7 +7,7 @@ import { calendarWeeks } from '../helpers/DatePickerHelper';
     <div
       v-for="day in calendarWeeks"
       :key="day.id"
-      class="flex items-center justify-center font-medium text-sm w-9 h-7 py-1.5 px-2"
+      class="flex items-center justify-center font-semibold text-sm w-9 h-7 py-1.5 px-2"
     >
       {{ day.label }}
     </div>

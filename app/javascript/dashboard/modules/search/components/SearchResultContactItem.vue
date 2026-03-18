@@ -101,7 +101,9 @@ const formattedLocation = computed(() => {
       />
       <div class="min-w-0 flex flex-col items-start gap-1.5 w-full">
         <div class="flex items-center min-w-0 justify-between gap-2 w-full">
-          <h5 class="text-sm font-medium truncate min-w-0 text-n-slate-12 py-1">
+          <h5
+            class="text-sm font-semibold truncate min-w-0 text-n-slate-12 py-1"
+          >
             {{ name }}
           </h5>
           <span

@@ -37,7 +37,7 @@ defineProps({
     </div>
 
     <div class="flex flex-col items-start gap-1.5">
-      <h3 class="text-n-slate-12 text-sm text-start font-medium capitalize">
+      <h3 class="text-n-slate-12 text-sm text-start font-semibold capitalize">
         {{ title }}
       </h3>
       <p class="text-n-slate-11 text-start text-sm">
@@ -49,7 +49,7 @@ defineProps({
       v-if="isComingSoon"
       class="absolute inset-0 flex items-center justify-center backdrop-blur-[2px] rounded-2xl bg-gradient-to-br from-n-surface-1/90 via-n-surface-1/70 to-n-surface-1/95 cursor-not-allowed"
     >
-      <span class="text-n-slate-12 font-medium text-sm">
+      <span class="text-n-slate-12 font-semibold text-sm">
         {{ $t('CHANNEL_SELECTOR.COMING_SOON') }} 🚀
       </span>
     </div>

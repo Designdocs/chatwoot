@@ -39,12 +39,12 @@ const handleBack = () => {
               :label="t('CONTENT_TEMPLATES.FORM.BACK_BUTTON')"
               color="slate"
               variant="faded"
-              class="w-full font-medium"
+              class="w-full font-semibold"
               @click="goBack"
             />
             <Button
               :label="t('CONTENT_TEMPLATES.FORM.SEND_MESSAGE_BUTTON')"
-              class="w-full font-medium"
+              class="w-full font-semibold"
               :disabled="disabled"
               @click="sendMessage"
             />

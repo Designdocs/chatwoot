@@ -18,7 +18,7 @@ defineProps({
     <div class="p-3 rounded-xl bg-n-alpha-2">
       <span
         v-dompurify-html="message.content"
-        class="text-sm font-medium prose prose-bubble"
+        class="text-sm font-semibold prose prose-bubble"
       />
     </div>
     <div class="flex gap-2">

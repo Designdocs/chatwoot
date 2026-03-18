@@ -172,7 +172,7 @@
   },
   "NETWORK": {
     "NOTIFICATION": {
-      "OFFLINE": "离线的",
+      "OFFLINE": "离线",
       "RECONNECTING": "正在重连...",
       "RECONNECT_SUCCESS": "已重新连接"
     },

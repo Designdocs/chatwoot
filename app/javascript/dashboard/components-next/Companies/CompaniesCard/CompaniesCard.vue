@@ -47,7 +47,7 @@ const formattedUpdatedAt = computed(() => {
       />
       <div class="flex flex-col gap-0.5 flex-1 min-w-0">
         <div class="flex flex-wrap items-center gap-x-4 gap-y-1 min-w-0">
-          <span class="text-base font-medium truncate text-n-slate-12">
+          <span class="text-base font-semibold truncate text-n-slate-12">
             {{ displayName }}
           </span>
           <span

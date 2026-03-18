@@ -199,7 +199,7 @@ const handleTest = async () => {
 
     <div class="flex gap-2">
       <div class="flex flex-col gap-1 w-28">
-        <label class="mb-0.5 text-sm font-medium text-n-slate-12">
+        <label class="mb-0.5 text-sm font-semibold text-n-slate-12">
           {{ t('CAPTAIN.CUSTOM_TOOLS.FORM.HTTP_METHOD.LABEL') }}
         </label>
         <ComboBox
@@ -219,7 +219,7 @@ const handleTest = async () => {
     </div>
 
     <div class="flex flex-col gap-1">
-      <label class="mb-0.5 text-sm font-medium text-n-slate-12">
+      <label class="mb-0.5 text-sm font-semibold text-n-slate-12">
         {{ t('CAPTAIN.CUSTOM_TOOLS.FORM.AUTH_TYPE.LABEL') }}
       </label>
       <ComboBox
@@ -235,7 +235,7 @@ const handleTest = async () => {
     />
 
     <div class="flex flex-col gap-2">
-      <label class="text-sm font-medium text-n-slate-12">
+      <label class="text-sm font-semibold text-n-slate-12">
         {{ t('CAPTAIN.CUSTOM_TOOLS.FORM.PARAMETERS.LABEL') }}
       </label>
       <p class="text-xs text-n-slate-11 -mt-1">
