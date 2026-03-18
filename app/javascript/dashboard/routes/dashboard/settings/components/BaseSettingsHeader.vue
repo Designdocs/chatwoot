@@ -72,7 +72,7 @@ const helpURL = getHelpUrlForFeature(props.featureName);
           :href="helpURL"
           target="_blank"
           rel="noopener noreferrer"
-          class="items-center hidden gap-1 text-sm font-medium sm:inline-flex w-fit text-n-blue-11 hover:underline mb-2"
+          class="items-center hidden gap-1 text-sm font-semibold sm:inline-flex w-fit text-n-blue-11 hover:underline mb-2"
         >
           {{ linkText }}
           <Icon

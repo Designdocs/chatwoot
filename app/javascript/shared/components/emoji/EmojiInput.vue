@@ -110,7 +110,7 @@ export default {
       </div>
       <div v-if="hasNoSearch" ref="emojiItem" class="emoji-item">
         <h5
-          class="text-sm text-n-slate-12 font-medium leading-normal m-0 py-1 px-2 capitalize"
+          class="text-sm text-n-slate-12 font-semibold leading-normal m-0 py-1 px-2 capitalize"
         >
           {{ selectedKey }}
         </h5>
@@ -129,7 +129,7 @@ export default {
         <div v-for="category in filterAllEmojisBySearch" :key="category.slug">
           <h5
             v-if="category.emojis.length > 0"
-            class="text-sm text-n-slate-12 font-medium leading-normal m-0 py-1 px-2 capitalize"
+            class="text-sm text-n-slate-12 font-semibold leading-normal m-0 py-1 px-2 capitalize"
           >
             {{ category.name }}
           </h5>
@@ -151,7 +151,7 @@ export default {
           <div class="text-n-slate-11 mb-2">
             <FluentIcon icon="emoji" size="48" />
           </div>
-          <span class="text-n-slate-11 text-sm font-medium">
+          <span class="text-n-slate-11 text-sm font-semibold">
             {{ $t('EMOJI.NOT_FOUND') }}
           </span>
         </div>

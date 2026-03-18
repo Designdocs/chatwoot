@@ -36,7 +36,9 @@ export default {
         'bg-n-slate-2 border-n-weak': !active,
       }"
     >
-      <div class="flex items-center p-1 text-sm font-medium">{{ heading }}</div>
+      <div class="flex items-center p-1 text-sm font-semibold">
+        {{ heading }}
+      </div>
       <fluent-icon
         v-if="active"
         icon="checkmark-circle"

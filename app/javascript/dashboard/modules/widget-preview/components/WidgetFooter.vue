@@ -32,7 +32,7 @@ const getStatusText = computed(() => {
       <div class="flex items-center justify-between">
         <div>
           <div
-            class="text-sm font-medium leading-4 text-n-slate-12 dark:text-n-slate-50"
+            class="text-sm font-semibold leading-4 text-n-slate-12 dark:text-n-slate-50"
           >
             {{ getStatusText }}
           </div>
@@ -44,7 +44,7 @@ const getStatusText = computed(() => {
       </div>
       <button
         v-if="config.isDefaultScreen"
-        class="inline-flex items-center justify-between px-2 py-1 mt-1 -ml-2 font-medium leading-6 bg-transparent rounded-md text-n-slate-12 dark:bg-transparent"
+        class="inline-flex items-center justify-between px-2 py-1 mt-1 -ml-2 font-semibold leading-6 bg-transparent rounded-md text-n-slate-12 dark:bg-transparent"
         :style="{ color: config.color }"
       >
         <span class="pr-2 text-xs">

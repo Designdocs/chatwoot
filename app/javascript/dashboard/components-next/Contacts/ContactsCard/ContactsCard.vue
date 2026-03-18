@@ -146,7 +146,7 @@ const handleAvatarHover = isHovered => {
         </div>
         <div class="flex flex-col gap-0.5 flex-1">
           <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
-            <span class="text-base font-medium truncate text-n-slate-12">
+            <span class="text-base font-semibold truncate text-n-slate-12">
               {{ name }}
             </span>
             <span class="inline-flex items-center gap-1">

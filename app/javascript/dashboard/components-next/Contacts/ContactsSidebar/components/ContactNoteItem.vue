@@ -63,9 +63,9 @@ onMounted(() => {
         />
         <div class="min-w-0 truncate">
           <span class="inline-flex items-center gap-1 text-sm text-n-slate-11">
-            <span class="font-medium text-n-slate-12">{{ writtenBy }}</span>
+            <span class="font-semibold text-n-slate-12">{{ writtenBy }}</span>
             {{ t('CONTACTS_LAYOUT.SIDEBAR.NOTES.WROTE') }}
-            <span class="font-medium text-n-slate-12">
+            <span class="font-semibold text-n-slate-12">
               {{ dynamicTime(note.createdAt) }}
             </span>
           </span>

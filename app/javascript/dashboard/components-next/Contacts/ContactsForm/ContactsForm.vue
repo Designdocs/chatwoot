@@ -249,7 +249,7 @@ defineExpose({
 <template>
   <div class="flex flex-col gap-6">
     <div class="flex flex-col items-start gap-2">
-      <span class="py-1 text-sm font-medium text-n-slate-12">
+      <span class="py-1 text-sm font-semibold text-n-slate-12">
         {{ t('CONTACTS_LAYOUT.CARD.EDIT_DETAILS_FORM.TITLE') }}
       </span>
       <div class="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
@@ -297,7 +297,7 @@ defineExpose({
       </div>
     </div>
     <div class="flex flex-col items-start gap-2">
-      <span class="py-1 text-sm font-medium text-n-slate-12">
+      <span class="py-1 text-sm font-semibold text-n-slate-12">
         {{ t('CONTACTS_LAYOUT.CARD.SOCIAL_MEDIA.TITLE') }}
       </span>
       <div class="flex flex-wrap gap-2">

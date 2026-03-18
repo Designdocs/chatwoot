@@ -121,7 +121,7 @@ const handleModelChange = ({ feature, model }) => {
   >
     <div class="flex items-center justify-between gap-4 flex-1">
       <div class="flex-1 min-w-0">
-        <h4 class="text-sm font-medium text-n-slate-12">{{ title }}</h4>
+        <h4 class="text-sm font-semibold text-n-slate-12">{{ title }}</h4>
         <p class="text-sm text-n-slate-11 mt-0.5">{{ description }}</p>
       </div>
       <div v-if="isAllowed" class="flex-shrink-0">
@@ -133,7 +133,7 @@ const handleModelChange = ({ feature, model }) => {
       class="flex gap-2 ps-8 relative before:content-[''] before:absolute before:w-0.5 before:h-1/2 before:top-0 before:start-3 before:bg-n-weak after:content-[''] after:absolute after:w-2.5 after:h-3 after:top-[calc(50%-6px)] after:start-3 after:border-b-[0.125rem] after:border-s-[0.125rem] after:rounded-es after:border-n-weak"
     >
       <div class="flex-1 min-w-0">
-        <h4 class="text-sm font-medium text-n-slate-12">{{ modelTitle }}</h4>
+        <h4 class="text-sm font-semibold text-n-slate-12">{{ modelTitle }}</h4>
         <p class="text-sm text-n-slate-11 mt-0.5">{{ modelDescription }}</p>
       </div>
       <div class="flex justify-end">

@@ -135,7 +135,7 @@ defineExpose({ dialogRef });
         class="[&>div>button:not(.focused)]:!outline-n-slate-5 [&>div>button:not(.focused)]:dark:!outline-n-slate-5"
       />
       <div class="flex flex-col gap-2">
-        <span class="text-sm font-medium text-n-slate-12">
+        <span class="text-sm font-semibold text-n-slate-12">
           {{ t('HELP_CENTER.LOCALES_PAGE.ADD_LOCALE_DIALOG.STATUS.LABEL') }}
         </span>
         <ComboBox

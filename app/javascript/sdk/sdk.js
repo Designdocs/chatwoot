@@ -6,6 +6,7 @@ export const SDK_CSS = `
 
 .woot-widget-holder {
   box-shadow: 0 5px 40px rgba(0, 0, 0, .16);
+  border: 1px solid #7d7d7e33 !important;
   opacity: 1;
   will-change: transform, opacity;
   transform: translateY(0);
@@ -283,9 +284,10 @@ export const SDK_CSS = `
     border-radius: 16px;
     bottom: 104px;
     height: calc(90% - 64px - 20px);
-    max-height: 640px !important;
+    max-height: 670px !important;
     min-height: 250px !important;
-    width: 400px !important;
+    width: 430px !important;
+    border: 1px solid #7d7d7e33 !important;
  }
 }
 

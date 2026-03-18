@@ -44,7 +44,8 @@ module ChatwootApp
   end
 
   def self.advanced_search_allowed?
-    enterprise? && ENV.fetch('OPENSEARCH_URL', nil).present?
+    # Allow advanced search when OPENSEARCH_URL is configured, regardless of enterprise status
+    ENV.fetch('OPENSEARCH_URL', nil).present?
   end
 
   def self.otel_enabled?

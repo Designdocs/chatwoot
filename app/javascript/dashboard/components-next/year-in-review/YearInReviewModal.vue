@@ -222,7 +222,7 @@ watch(
               class="mt-4 px-4 py-2 rounded-full text-n-slate-12 dark:text-n-slate-1 bg-white bg-opacity-20 hover:bg-opacity-30 transition-colors"
               @click="close"
             >
-              <span class="text-sm font-medium">{{
+              <span class="text-sm font-semibold">{{
                 t('YEAR_IN_REVIEW.CLOSE')
               }}</span>
             </button>
@@ -319,7 +319,7 @@ watch(
               @click="previousSlide"
             >
               <i class="i-lucide-chevron-left w-5 h-5" />
-              <span class="text-sm font-medium">
+              <span class="text-sm font-semibold">
                 {{ t('YEAR_IN_REVIEW.NAVIGATION.PREVIOUS') }}
               </span>
             </button>
@@ -346,7 +346,7 @@ watch(
             >
               <span
                 v-if="currentVisualSlide < totalSlides - 1"
-                class="text-sm font-medium"
+                class="text-sm font-semibold"
               >
                 {{ t('YEAR_IN_REVIEW.NAVIGATION.NEXT') }}
               </span>
@@ -362,7 +362,7 @@ watch(
             @click="shareCurrentSlide"
           >
             <i class="i-lucide-share-2 w-5 h-5" />
-            <span class="text-sm font-medium">{{
+            <span class="text-sm font-semibold">{{
               t('YEAR_IN_REVIEW.NAVIGATION.SHARE')
             }}</span>
           </button>

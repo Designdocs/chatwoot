@@ -5,7 +5,7 @@
 <template>
   <div class="flex justify-start">
     <div class="flex items-center space-x-2">
-      <span class="text-n-iris-11 font-medium">
+      <span class="text-n-iris-11 font-semibold">
         {{ $t('CAPTAIN.COPILOT.LOADER') }}
       </span>
       <div class="flex space-x-1">

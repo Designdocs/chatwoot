@@ -259,7 +259,7 @@ onMounted(() => {
         </div>
         <p
           v-if="showEmptyState"
-          class="p-4 text-sm font-medium text-center text-n-slate-10"
+          class="p-4 text-sm font-semibold text-center text-n-slate-10"
         >
           {{ $t('INBOX.LIST.NO_NOTIFICATIONS') }}
         </p>

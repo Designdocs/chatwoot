@@ -32,7 +32,7 @@
   }
 
   .agent-name {
-    @apply text-xs font-medium my-2 ltr:pl-0.5 rtl:pr-0.5;
+    @apply text-xs font-semibold my-2 ltr:pl-0.5 rtl:pr-0.5;
   }
 
   .has-attachment {

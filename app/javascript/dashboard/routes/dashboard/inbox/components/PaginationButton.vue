@@ -60,7 +60,7 @@ export default {
       />
     </div>
     <div class="flex items-center gap-1 whitespace-nowrap">
-      <span class="text-sm font-medium text-n-slate-12 tabular-nums">
+      <span class="text-sm font-semibold text-n-slate-12 tabular-nums">
         {{ totalLength <= 1 ? '1' : currentIndex }}
       </span>
       <span

@@ -146,7 +146,7 @@ const handleDeleteSuccess = () => {
           <span class="h-px w-full bg-n-weak mt-2" />
           <div class="flex items-end justify-between w-full gap-4">
             <div class="flex flex-col gap-2">
-              <h6 class="text-n-slate-12 text-base font-medium">
+              <h6 class="text-n-slate-12 text-base font-semibold">
                 {{ t('CAPTAIN.ASSISTANTS.SETTINGS.DELETE.TITLE') }}
               </h6>
               <span class="text-n-slate-11 text-sm">

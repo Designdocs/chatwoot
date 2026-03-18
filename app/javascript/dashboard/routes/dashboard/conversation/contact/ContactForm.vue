@@ -291,7 +291,7 @@ export default {
     @submit.prevent="handleSubmit"
   >
     <div class="flex flex-col mb-4 items-start gap-1 w-full">
-      <label class="mb-0.5 text-sm font-medium text-n-slate-12">
+      <label class="mb-0.5 text-sm font-semibold text-n-slate-12">
         {{ $t('CONTACT_FORM.FORM.AVATAR.LABEL') }}
       </label>
       <Avatar

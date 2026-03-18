@@ -35,7 +35,7 @@ const openIssue = () => {
           class="text-[#5E6AD2]"
           view-box="0 0 19 19"
         />
-        <span class="text-xs font-medium text-n-slate-12">
+        <span class="text-xs font-semibold text-n-slate-12">
           {{ identifier }}
         </span>
       </div>

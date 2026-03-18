@@ -36,7 +36,7 @@ export default {
   <label class="block">
     <div
       v-if="label"
-      class="mb-2 text-xs font-medium"
+      class="mb-2 text-xs font-semibold"
       :class="{
         'text-n-gray-12': !error,
         'text-n-ruby-9': error,
@@ -53,7 +53,7 @@ export default {
       }"
       :placeholder="placeholder"
     />
-    <div v-if="error" class="mt-2 text-xs font-medium text-n-ruby-9">
+    <div v-if="error" class="mt-2 text-xs font-semibold text-n-ruby-9">
       {{ error }}
     </div>
   </label>

@@ -80,7 +80,7 @@ const handleSubmit = async () => {
 <template>
   <form class="flex flex-col gap-4" @submit.prevent="handleSubmit">
     <div class="flex flex-col gap-1">
-      <label for="inbox" class="mb-0.5 text-sm font-medium text-n-slate-12">
+      <label for="inbox" class="mb-0.5 text-sm font-semibold text-n-slate-12">
         {{ t('CAPTAIN.INBOXES.FORM.INBOX.LABEL') }}
       </label>
       <ComboBox

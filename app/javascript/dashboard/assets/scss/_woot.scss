@@ -107,21 +107,21 @@ body {
 
   /* heading-2: Secondary heading for sections */
   .text-heading-2 {
-    @apply font-inter text-base font-medium;
+    @apply font-inter text-base font-semibold;
     line-height: 24px; /* 133.333% */
     letter-spacing: -0.27px;
   }
 
   /* heading-3: For card headings, breadcrumbs, subsections */
   .text-heading-3 {
-    @apply font-inter text-sm font-medium;
+    @apply font-inter text-sm font-semibold;
     line-height: 21px; /* 150% */
     letter-spacing: -0.27px;
   }
 
   /* label: Standard label text for form fields */
   .text-label {
-    @apply font-inter text-sm font-medium;
+    @apply font-inter text-sm font-semibold;
     line-height: 21px; /* 150% */
   }
 

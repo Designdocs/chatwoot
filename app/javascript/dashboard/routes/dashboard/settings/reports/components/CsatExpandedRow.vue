@@ -78,7 +78,7 @@ const saveReviewNotes = async () => {
           class="flex items-center gap-1.5 text-n-slate-11 shrink-0 w-36 pt-3"
         >
           <i class="i-lucide-notebook-pen size-4" />
-          <span class="text-sm font-medium">
+          <span class="text-sm font-semibold">
             {{ $t('CSAT_REPORTS.REVIEW_NOTES.TITLE') }}
           </span>
         </div>
@@ -143,7 +143,7 @@ const saveReviewNotes = async () => {
       >
         <div class="flex items-center gap-1.5 text-n-slate-11 shrink-0 w-36">
           <i class="i-lucide-user-pen size-4" />
-          <span class="text-sm font-medium">
+          <span class="text-sm font-semibold">
             {{ $t('CSAT_REPORTS.REVIEW_NOTES.UPDATED_BY_LABEL') }}
           </span>
         </div>

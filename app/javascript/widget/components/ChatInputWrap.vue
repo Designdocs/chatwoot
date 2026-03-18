@@ -128,10 +128,9 @@ export default {
 
 <template>
   <div
-    class="items-center flex ltr:pl-3 rtl:pr-3 ltr:pr-2 rtl:pl-2 rounded-[7px] transition-all duration-200 bg-n-background !shadow-[0_0_0_1px,0_0_2px_3px]"
+    class="chat-input-wrapper items-center flex ltr:pl-3 rtl:pr-3 ltr:pr-2 rtl:pl-2 rounded-[7px] transition-all duration-200 bg-n-background"
     :class="{
-      '!shadow-[var(--widget-color,#2781f6)]': isFocused,
-      '!shadow-n-strong dark:!shadow-n-strong': !isFocused,
+      'is-focused': isFocused,
     }"
     @keydown.esc="hideEmojiPicker"
   >
