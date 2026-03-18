@@ -193,7 +193,7 @@ defineExpose({
   <div>
     <div class="flex flex-col gap-4 p-4 mb-4 rounded-lg bg-n-alpha-black2">
       <div class="flex justify-between items-center">
-        <h3 class="text-sm font-medium text-n-slate-12">
+        <h3 class="text-sm font-semibold text-n-slate-12">
           {{ template.name }}
         </h3>
         <span class="text-xs text-n-slate-11">

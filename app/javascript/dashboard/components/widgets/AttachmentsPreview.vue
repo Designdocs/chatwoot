@@ -64,7 +64,7 @@ const fileName = file => {
       </div>
       <div class="max-w-3/5 min-w-[50%] overflow-hidden text-ellipsis">
         <span
-          class="h-4 overflow-hidden text-sm font-medium text-ellipsis whitespace-nowrap"
+          class="h-4 overflow-hidden text-sm font-semibold text-ellipsis whitespace-nowrap"
         >
           {{ fileName(attachment.resource) }}
         </span>

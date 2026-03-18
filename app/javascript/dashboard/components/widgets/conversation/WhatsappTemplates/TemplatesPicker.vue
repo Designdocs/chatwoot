@@ -118,7 +118,7 @@ const refreshTemplates = async () => {
             </div>
             <!-- Header -->
             <div v-if="getTemplateHeader(template)" class="mb-3">
-              <p class="text-xs font-medium text-n-slate-11">
+              <p class="text-xs font-semibold text-n-slate-11">
                 {{ t('WHATSAPP_TEMPLATES.PICKER.HEADER') || 'HEADER' }}
               </p>
               <div
@@ -142,7 +142,7 @@ const refreshTemplates = async () => {
 
             <!-- Body -->
             <div>
-              <p class="text-xs font-medium text-n-slate-11">
+              <p class="text-xs font-semibold text-n-slate-11">
                 {{ t('WHATSAPP_TEMPLATES.PICKER.BODY') || 'BODY' }}
               </p>
               <p class="text-sm label-body">{{ getTemplateBody(template) }}</p>
@@ -150,7 +150,7 @@ const refreshTemplates = async () => {
 
             <!-- Footer -->
             <div v-if="getTemplateFooter(template)" class="mt-3">
-              <p class="text-xs font-medium text-n-slate-11">
+              <p class="text-xs font-semibold text-n-slate-11">
                 {{ t('WHATSAPP_TEMPLATES.PICKER.FOOTER') || 'FOOTER' }}
               </p>
               <p class="text-sm label-body">
@@ -160,7 +160,7 @@ const refreshTemplates = async () => {
 
             <!-- Buttons -->
             <div v-if="getTemplateButtons(template)" class="mt-3">
-              <p class="text-xs font-medium text-n-slate-11">
+              <p class="text-xs font-semibold text-n-slate-11">
                 {{ t('WHATSAPP_TEMPLATES.PICKER.BUTTONS') || 'BUTTONS' }}
               </p>
               <div class="flex flex-wrap gap-1 mt-1">
@@ -175,7 +175,7 @@ const refreshTemplates = async () => {
             </div>
 
             <div class="mt-3">
-              <p class="text-xs font-medium text-n-slate-11">
+              <p class="text-xs font-semibold text-n-slate-11">
                 {{ t('WHATSAPP_TEMPLATES.PICKER.CATEGORY') || 'CATEGORY' }}
               </p>
               <p class="text-sm">{{ template.category }}</p>

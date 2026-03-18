@@ -180,7 +180,7 @@ const handleTryAnotherMethod = () => {
         <button
           v-for="method in [OTP, BACKUP]"
           :key="method"
-          class="flex-1 py-2 px-4 text-sm font-medium rounded-md transition-colors"
+          class="flex-1 py-2 px-4 text-sm font-semibold rounded-md transition-colors"
           :class="
             verificationMethod === method
               ? 'bg-n-solid-active text-n-slate-12 shadow-sm'
@@ -200,7 +200,7 @@ const handleTryAnotherMethod = () => {
       <form class="space-y-4" @submit.prevent="handleVerification">
         <!-- OTP Code Input -->
         <div v-if="verificationMethod === OTP">
-          <label class="block text-sm font-medium text-n-slate-12 mb-2">
+          <label class="block text-sm font-semibold text-n-slate-12 mb-2">
             {{ $t('MFA_VERIFICATION.ENTER_OTP_CODE') }}
           </label>
           <div class="flex justify-between gap-2">
@@ -311,13 +311,13 @@ const handleTryAnotherMethod = () => {
     >
       <div class="space-y-4 text-sm text-n-slate-11">
         <div v-for="section in ['AUTHENTICATOR', 'BACKUP']" :key="section">
-          <h4 class="font-medium text-n-slate-12 mb-2">
+          <h4 class="font-semibold text-n-slate-12 mb-2">
             {{ $t(`MFA_VERIFICATION.HELP_MODAL.${section}_TITLE`) }}
           </h4>
           <p>{{ $t(`MFA_VERIFICATION.HELP_MODAL.${section}_DESC`) }}</p>
         </div>
         <div>
-          <h4 class="font-medium text-n-slate-12 mb-2">
+          <h4 class="font-semibold text-n-slate-12 mb-2">
             {{ $t('MFA_VERIFICATION.HELP_MODAL.CONTACT_TITLE') }}
           </h4>
           <p>{{ $t(`MFA_VERIFICATION.HELP_MODAL.${contactDescKey}`) }}</p>

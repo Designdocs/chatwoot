@@ -33,7 +33,7 @@ const handleModelChange = ({ feature, model }) => {
     :class="{ 'opacity-60 pointer-events-none relative': !isAllowed }"
   >
     <div class="flex-1 min-w-0">
-      <h4 class="text-sm font-medium text-n-slate-12">
+      <h4 class="text-sm font-semibold text-n-slate-12">
         {{ title }}
       </h4>
       <p class="text-sm text-n-slate-11 mt-0.5">{{ description }}</p>

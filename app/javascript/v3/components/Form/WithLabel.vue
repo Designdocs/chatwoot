@@ -14,7 +14,7 @@ defineProps({
     <label
       v-if="label"
       :for="name"
-      class="flex justify-between text-sm font-medium leading-6 text-n-slate-12"
+      class="flex justify-between text-sm font-semibold leading-6 text-n-slate-12"
       :class="{ 'text-n-ruby-12': hasError }"
     >
       <slot name="label">

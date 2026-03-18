@@ -284,7 +284,7 @@ export default {
         hide-toggle
       >
         <template #editor>
-          <p class="mb-1 text-sm font-medium text-n-slate-12">
+          <p class="mb-1 text-sm font-semibold text-n-slate-12">
             {{ $t('INBOX_MGMT.SETTINGS_POPUP.IDENTITY_VALIDATION.SECRET_KEY') }}
           </p>
           <woot-code :script="inbox.hmac_token" />

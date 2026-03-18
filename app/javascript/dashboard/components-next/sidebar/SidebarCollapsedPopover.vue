@@ -113,7 +113,7 @@ onMounted(async () => {
         class="bg-n-alpha-3 backdrop-blur-[100px] outline outline-1 -outline-offset-1 w-56 outline-n-weak rounded-xl shadow-lg py-2 px-2"
       >
         <div
-          class="px-2 py-1.5 text-xs font-medium text-n-slate-11 uppercase tracking-wider border-b border-n-weak mb-1"
+          class="px-2 py-1.5 text-xs font-semibold text-n-slate-11 uppercase tracking-wider border-b border-n-weak mb-1"
         >
           {{ label }}
         </div>

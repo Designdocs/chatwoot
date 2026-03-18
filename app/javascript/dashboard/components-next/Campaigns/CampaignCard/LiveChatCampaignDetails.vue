@@ -40,7 +40,7 @@ const senderThumbnailSrc = computed(() => props.sender?.thumbnail);
       :size="16"
       rounded-full
     />
-    <span class="text-sm font-medium text-n-slate-12">
+    <span class="text-sm font-semibold text-n-slate-12">
       {{ senderName }}
     </span>
   </div>
@@ -49,7 +49,7 @@ const senderThumbnailSrc = computed(() => props.sender?.thumbnail);
   </span>
   <div class="flex items-center gap-1.5 flex-shrink-0">
     <Icon :icon="inboxIcon" class="flex-shrink-0 text-n-slate-12 size-3" />
-    <span class="text-sm font-medium text-n-slate-12">
+    <span class="text-sm font-semibold text-n-slate-12">
       {{ inboxName }}
     </span>
   </div>

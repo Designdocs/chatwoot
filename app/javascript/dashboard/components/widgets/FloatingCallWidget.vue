@@ -106,7 +106,7 @@ watch(
         />
       </div>
       <div class="flex-1 min-w-0">
-        <p class="text-sm font-medium text-n-slate-12 truncate mb-0">
+        <p class="text-sm font-semibold text-n-slate-12 truncate mb-0">
           {{ getCallInfo(call).contactName }}
         </p>
         <p class="text-xs text-n-slate-11 truncate">
@@ -146,7 +146,7 @@ watch(
         />
       </div>
       <div class="flex-1 min-w-0">
-        <p class="text-sm font-medium text-n-slate-12 truncate mb-0">
+        <p class="text-sm font-semibold text-n-slate-12 truncate mb-0">
           {{ getCallInfo(activeCall || incomingCalls[0]).contactName }}
         </p>
         <p v-if="hasActiveCall" class="font-mono text-sm text-n-teal-9">

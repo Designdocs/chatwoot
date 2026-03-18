@@ -107,7 +107,7 @@ defineExpose({ openDialog, closeDialog });
         <i :class="inboxIcon" class="text-lg text-n-slate-11" />
       </div>
       <div class="flex flex-col min-w-0">
-        <span class="text-sm font-medium text-n-slate-12 truncate">
+        <span class="text-sm font-semibold text-n-slate-12 truncate">
           {{ inboxName }}
         </span>
       </div>

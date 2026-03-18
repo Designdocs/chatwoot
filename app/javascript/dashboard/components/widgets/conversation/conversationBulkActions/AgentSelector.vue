@@ -188,7 +188,7 @@ export default {
     @apply p-2.5;
 
     span {
-      @apply text-sm font-medium;
+      @apply text-sm font-semibold;
     }
   }
 

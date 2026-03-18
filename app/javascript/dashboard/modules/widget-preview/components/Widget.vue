@@ -208,7 +208,7 @@ const handleToggleWidget = () => {
             :style="{ background: props.color }"
             :class="
               isBubbleExpanded
-                ? 'w-auto font-medium text-base text-white dark:text-white h-12 px-4'
+                ? 'w-auto font-semibold text-base text-white dark:text-white h-12 px-4'
                 : 'w-16 h-16'
             "
             @click="handleToggleWidget"

@@ -22,7 +22,7 @@ defineProps({
     >
       <i :class="icon" class="size-8 text-n-slate-10" />
     </div>
-    <h3 class="text-base font-medium text-n-slate-12 mb-1">
+    <h3 class="text-base font-semibold text-n-slate-12 mb-1">
       {{ title }}
     </h3>
     <p v-if="description" class="text-sm text-n-slate-10 max-w-sm">

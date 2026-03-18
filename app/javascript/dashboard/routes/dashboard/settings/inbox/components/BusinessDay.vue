@@ -158,7 +158,7 @@ export default {
           type="checkbox"
           :title="$t('INBOX_MGMT.BUSINESS_HOURS.DAY.ENABLE')"
         />
-        <span class="text-body-main text-n-slate-12 font-medium">
+        <span class="text-body-main text-n-slate-12 font-semibold">
           {{ dayName }}
         </span>
       </div>

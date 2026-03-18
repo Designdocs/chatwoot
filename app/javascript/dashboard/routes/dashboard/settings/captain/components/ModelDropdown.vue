@@ -129,7 +129,7 @@ const selectModel = model => {
           <Icon :icon="iconForModel(model)" class="size-4 flex-shrink-0" />
           <div class="flex flex-col w-full text-left gap-1">
             <div
-              class="text-sm w-full font-medium leading-none text-n-slate-12 flex items-baseline justify-between"
+              class="text-sm w-full font-semibold leading-none text-n-slate-12 flex items-baseline justify-between"
             >
               {{ model.display_name }}
               <span

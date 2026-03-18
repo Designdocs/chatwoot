@@ -71,7 +71,7 @@ const removeAttachment = id => {
         :key="attachment.id"
         class="max-w-[18.75rem] inline-flex items-center h-8 min-w-0 bg-n-alpha-2 dark:bg-n-solid-3 rounded-lg gap-3 ltr:pl-3 rtl:pr-3 ltr:pr-2 rtl:pl-2"
       >
-        <span class="text-sm font-medium text-n-slate-11">
+        <span class="text-sm font-semibold text-n-slate-11">
           {{ fileNameWithEllipsis(attachment.resource) }}
         </span>
         <Button

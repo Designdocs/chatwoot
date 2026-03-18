@@ -50,7 +50,7 @@ export default {
       />
     </div>
     <div class="mt-2">
-      <p class="block m-0 text-sm font-medium leading-[1.8] text-n-slate-12">
+      <p class="block m-0 text-sm font-semibold leading-[1.8] text-n-slate-12">
         {{ $t('MACROS.EDITOR.VISIBILITY.LABEL') }}
       </p>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">

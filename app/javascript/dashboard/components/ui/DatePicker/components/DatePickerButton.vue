@@ -66,10 +66,10 @@ const openDatePicker = () => {
         icon="i-lucide-calendar-range"
         class="text-n-slate-11 size-3.5 flex-shrink-0"
       />
-      <span class="text-sm font-medium text-n-slate-12 truncate">
+      <span class="text-sm font-semibold text-n-slate-12 truncate">
         {{ navigationLabel || $t(activeDateRange) }}
       </span>
-      <span class="text-sm font-medium text-n-slate-11 truncate">
+      <span class="text-sm font-semibold text-n-slate-11 truncate">
         {{ formatDateRange }}
       </span>
       <Icon

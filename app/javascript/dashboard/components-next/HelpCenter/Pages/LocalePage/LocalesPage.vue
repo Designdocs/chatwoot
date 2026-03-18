@@ -35,7 +35,7 @@ const localeCount = computed(() => props.locales?.length);
     <template #header-actions>
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-4">
-          <span class="text-sm font-medium text-n-slate-12">
+          <span class="text-sm font-semibold text-n-slate-12">
             {{ $t('HELP_CENTER.LOCALES_PAGE.LOCALES_COUNT', localeCount) }}
           </span>
         </div>

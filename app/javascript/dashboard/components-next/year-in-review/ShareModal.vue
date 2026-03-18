@@ -196,7 +196,7 @@ defineExpose({ handleOpen });
         @click.stop
       >
         <div class="flex items-center justify-between">
-          <h3 class="text-xl font-medium text-white">
+          <h3 class="text-xl font-semibold text-white">
             {{ t('YEAR_IN_REVIEW.SHARE_MODAL.TITLE') }}
           </h3>
           <button
@@ -221,7 +221,7 @@ defineExpose({ handleOpen });
             @click="downloadImage"
           >
             <i class="i-lucide-download w-5 h-5" />
-            <span class="text-sm font-medium">{{
+            <span class="text-sm font-semibold">{{
               t('YEAR_IN_REVIEW.SHARE_MODAL.DOWNLOAD')
             }}</span>
           </button>

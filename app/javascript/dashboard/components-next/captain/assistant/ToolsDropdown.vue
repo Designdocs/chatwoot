@@ -47,7 +47,9 @@ watch(
       class="flex flex-col gap-1 rounded-md py-2 px-2 cursor-pointer hover:bg-n-alpha-black2"
       @click="onItemClick(idx)"
     >
-      <span class="text-n-slate-12 font-medium text-sm">{{ tool.title }}</span>
+      <span class="text-n-slate-12 font-semibold text-sm">{{
+        tool.title
+      }}</span>
       <span class="text-n-slate-11 text-sm">{{ tool.description }}</span>
     </div>
   </div>

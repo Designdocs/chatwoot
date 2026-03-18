@@ -8,7 +8,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-medium text-n-slate-12;
+  @apply font-semibold text-n-slate-12;
 }
 
 p {
@@ -49,12 +49,12 @@ button {
 // Form elements
 // -------------------------
 label {
-  @apply text-n-slate-12 block m-0 leading-7 text-sm font-medium;
+  @apply text-n-slate-12 block m-0 leading-7 text-sm font-semibold;
 }
 
 .input-wrap,
 .help-text {
-  @apply text-n-slate-11 text-sm font-medium;
+  @apply text-n-slate-11 text-sm font-semibold;
 }
 
 // Focus outline removal

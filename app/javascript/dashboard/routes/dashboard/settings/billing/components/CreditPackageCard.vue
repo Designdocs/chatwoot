@@ -58,7 +58,7 @@ const formatAmount = (amount, currency) => {
     />
     <span
       v-if="isPopular"
-      class="absolute -top-3 left-4 px-3 py-1 text-xs font-medium rounded"
+      class="absolute -top-3 left-4 px-3 py-1 text-xs font-semibold rounded"
       :class="
         isSelected ? 'bg-woot-500 text-white' : 'bg-n-solid-3 text-n-slate-11'
       "

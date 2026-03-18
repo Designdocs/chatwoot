@@ -76,7 +76,7 @@ const handleAction = ({ action, value }) => {
   <CardLayout>
     <div class="flex justify-between gap-2">
       <div class="flex items-center justify-start gap-2">
-        <span class="text-sm font-medium text-n-slate-12 line-clamp-1">
+        <span class="text-sm font-semibold text-n-slate-12 line-clamp-1">
           {{ localeLabel }}
         </span>
         <span

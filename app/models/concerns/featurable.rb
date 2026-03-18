@@ -42,6 +42,11 @@ module Featurable
   end
 
   def feature_enabled?(name)
+    # For search features, check OPENSEARCH_URL environment variable
+    if %w[advanced_search advanced_search_indexing].include?(name.to_s)
+      return ENV.fetch('OPENSEARCH_URL', nil).present?
+    end
+
     send("feature_#{name}?")
   end
 

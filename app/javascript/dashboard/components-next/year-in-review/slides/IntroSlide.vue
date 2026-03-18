@@ -28,7 +28,7 @@ const { t } = useI18n();
         {{ year }}
       </h1>
       <h2
-        class="text-3xl md:text-4xl lg:text-5xl font-medium mb-12 md:mb-16 lg:mb-20 text-n-slate-12 dark:text-n-slate-1"
+        class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-12 md:mb-16 lg:mb-20 text-n-slate-12 dark:text-n-slate-1"
       >
         {{ t('YEAR_IN_REVIEW.TITLE') }}
       </h2>

@@ -555,11 +555,11 @@ const handleConfirmTemplateUpdate = async () => {
                   class="flex flex-col gap-3 p-3 rounded-xl outline outline-1 outline-n-weak bg-n-alpha-1"
                 >
                   <div class="flex gap-2 items-center">
-                    <span class="text-sm font-medium text-n-slate-12">
+                    <span class="text-sm font-semibold text-n-slate-12">
                       {{ $t('INBOX_MGMT.CSAT.UTILITY_ANALYZER.RESULT_LABEL') }}
                     </span>
                     <span
-                      class="px-2 py-0.5 text-xs font-medium rounded-full"
+                      class="px-2 py-0.5 text-xs font-semibold rounded-full"
                       :class="
                         getUtilityClassificationClass(
                           utilityAnalysisResult.classification
@@ -583,7 +583,7 @@ const handleConfirmTemplateUpdate = async () => {
                     "
                     class="flex flex-col gap-2"
                   >
-                    <p class="text-xs font-medium text-n-slate-12">
+                    <p class="text-xs font-semibold text-n-slate-12">
                       {{
                         $t('INBOX_MGMT.CSAT.UTILITY_ANALYZER.SUGGESTION_LABEL')
                       }}
@@ -629,7 +629,7 @@ const handleConfirmTemplateUpdate = async () => {
                   />
                   <span
                     :class="templateApprovalStatus.color"
-                    class="text-sm font-medium"
+                    class="text-sm font-semibold"
                   >
                     {{ templateApprovalStatus.text }}
                   </span>
@@ -640,7 +640,7 @@ const handleConfirmTemplateUpdate = async () => {
                 class="flex flex-col flex-shrink-0 justify-start items-center p-6 mt-1 rounded-xl basis-2/5 bg-n-slate-2 outline outline-1 outline-n-weak"
               >
                 <p
-                  class="inline-flex items-center text-sm font-medium text-n-slate-11"
+                  class="inline-flex items-center text-sm font-semibold text-n-slate-11"
                 >
                   {{ $t('INBOX_MGMT.CSAT.MESSAGE_PREVIEW.LABEL') }}
                   <Icon

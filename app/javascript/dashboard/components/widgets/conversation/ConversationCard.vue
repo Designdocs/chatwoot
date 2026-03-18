@@ -130,7 +130,7 @@ const showLabelsSection = computed(() => {
 
 const messagePreviewClass = computed(() => {
   return [
-    hasUnread.value ? 'font-medium text-n-slate-12' : 'text-n-slate-11',
+    hasUnread.value ? 'font-semibold text-n-slate-12' : 'text-n-slate-11',
     !props.compact && hasUnread.value ? 'ltr:pr-4 rtl:pl-4' : '',
     props.compact && hasUnread.value ? 'ltr:pr-6 rtl:pl-6' : '',
   ];
@@ -312,7 +312,7 @@ const deleteConversation = () => {
         >
           <span
             v-if="showAssignee && assignee.name"
-            class="text-n-slate-11 text-xs font-medium leading-3 py-0.5 px-0 inline-flex items-center truncate"
+            class="text-n-slate-11 text-xs font-semibold leading-3 py-0.5 px-0 inline-flex items-center truncate"
           >
             <fluent-icon icon="person" size="12" class="text-n-slate-11" />
             {{ assignee.name }}
@@ -322,7 +322,7 @@ const deleteConversation = () => {
       </div>
       <h4
         class="conversation--user text-sm my-0 mx-2 capitalize pt-0.5 text-ellipsis overflow-hidden whitespace-nowrap flex-1 min-w-0 ltr:pr-16 rtl:pl-16 text-n-slate-12"
-        :class="hasUnread ? 'font-semibold' : 'font-medium'"
+        :class="hasUnread ? 'font-semibold' : 'font-semibold'"
       >
         {{ currentContact.name }}
       </h4>

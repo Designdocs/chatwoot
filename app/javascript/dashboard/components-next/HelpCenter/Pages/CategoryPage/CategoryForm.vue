@@ -160,7 +160,7 @@ defineExpose({ state, isSubmitDisabled });
       class="flex items-center justify-start gap-8 px-4 py-2 border rounded-lg border-n-strong"
     >
       <div class="flex flex-col items-start w-full gap-2 py-2">
-        <span class="text-sm font-medium text-n-slate-11">
+        <span class="text-sm font-semibold text-n-slate-11">
           {{ t('HELP_CENTER.CATEGORY_PAGE.CATEGORY_DIALOG.HEADER.PORTAL') }}
         </span>
         <span class="text-sm text-n-slate-12">
@@ -169,7 +169,7 @@ defineExpose({ state, isSubmitDisabled });
       </div>
       <div class="justify-start w-px h-10 bg-n-strong" />
       <div class="flex flex-col w-full gap-2 py-2">
-        <span class="text-sm font-medium text-n-slate-11">
+        <span class="text-sm font-semibold text-n-slate-11">
           {{ t('HELP_CENTER.CATEGORY_PAGE.CATEGORY_DIALOG.HEADER.LOCALE') }}
         </span>
         <span

@@ -71,7 +71,7 @@ const actionURL = computed(() =>
     </div>
     <div class="flex flex-col m-0 flex-1">
       <div
-        class="font-medium mb-2 text-n-slate-12 flex justify-between items-center"
+        class="font-semibold mb-2 text-n-slate-12 flex justify-between items-center"
       >
         <span class="text-heading-3 text-n-slate-12">{{ name }}</span>
         <router-link :to="actionURL">
