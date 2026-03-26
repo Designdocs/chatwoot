@@ -112,7 +112,7 @@ class WebhookListener < BaseListener
       next unless webhook.subscriptions.include?(payload[:event])
 
       WebhookJob.perform_later(webhook.url, payload, :account_webhook,
-                               secret: webhook.secret,
+                               secret: webhook_secret(webhook),
                                delivery_id: SecureRandom.uuid)
     end
   end
@@ -128,5 +128,11 @@ class WebhookListener < BaseListener
   def deliver_webhook_payloads(payload, inbox)
     deliver_account_webhooks(payload, inbox.account)
     deliver_api_inbox_webhooks(payload, inbox)
+  end
+
+  def webhook_secret(webhook)
+    return unless webhook.has_attribute?(:secret)
+
+    webhook.secret
   end
 end

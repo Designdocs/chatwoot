@@ -235,6 +235,27 @@ describe WebhookListener do
         listener.contact_updated(contact_updated_event)
       end
     end
+
+    context 'when webhook secret attribute is not available in the current schema' do
+      it 'triggers webhook without raising and sends a nil secret' do
+        webhook = create(:webhook, account: account)
+        allow(webhook).to receive(:has_attribute?).with(:secret).and_return(false)
+        allow(webhook).to receive(:has_attribute?).and_call_original
+        allow(account.webhooks).to receive(:account_type).and_return([webhook])
+
+        expect(WebhookJob).to receive(:perform_later).with(
+          webhook.url,
+          contact.webhook_data.merge(
+            event: 'contact_updated',
+            changed_attributes: [{ 'name' => { :current_value => 'Jane Doe', :previous_value => 'Jane' } }]
+          ),
+          :account_webhook,
+          secret: nil, delivery_id: instance_of(String)
+        ).once
+
+        listener.contact_updated(contact_updated_event)
+      end
+    end
   end
 
   describe '#inbox_created' do
