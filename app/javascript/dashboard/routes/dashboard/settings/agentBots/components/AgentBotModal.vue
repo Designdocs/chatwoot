@@ -350,7 +350,7 @@ defineExpose({ dialogRef });
         v-if="botSecret && type === MODAL_TYPES.EDIT"
         class="flex flex-col gap-1"
       >
-        <label class="mb-0.5 text-sm font-medium text-n-slate-12">
+        <label class="mb-0.5 text-sm font-semibold text-n-slate-12">
           {{ $t('AGENT_BOTS.SECRET.LABEL') }}
         </label>
         <AccessToken
@@ -388,7 +388,7 @@ defineExpose({ dialogRef });
         <p class="text-sm text-n-slate-11">
           {{ $t('AGENT_BOTS.SECRET.CREATED_DESC') }}
         </p>
-        <label class="mb-0.5 text-sm font-medium text-n-slate-12">
+        <label class="mb-0.5 text-sm font-semibold text-n-slate-12">
           {{ $t('AGENT_BOTS.SECRET.LABEL') }}
         </label>
         <AccessToken
