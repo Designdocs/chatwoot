@@ -8,7 +8,7 @@
 - [x] Back up CSS- and widget-related custom files before branch movement, with explicit focus on `_base.scss`, `_theme_custom.scss`, SDK files, and widget SCSS.
 - [x] Use `/Users/smusic/Desktop/X/ChatWoot/widget_diff_patch.txt` as the reference for required local widget/dashboard styling details.
 - [x] Keep existing local customization commits from `release-4.14.0` where they still apply cleanly.
-- [ ] Create and push a new branch named `release-4.14.1` to `origin`.
+- [x] Create and push a new branch named `release-4.14.1` to `origin`.
 
 ## Implementation Plan
 
@@ -18,7 +18,7 @@
 - [x] Fetch upstream `v4.14.1`, create `release-4.14.1`, and bring the branch forward with a low-risk history strategy.
 - [x] Reconcile conflicts and reapply or adapt local customizations with direct comparison against the backup and `widget_diff_patch.txt`.
 - [x] Run targeted verification for diff hygiene and preserved customization markers.
-- [ ] Commit the result, push `origin/release-4.14.1`, and record review notes here.
+- [x] Commit the result, push `origin/release-4.14.1`, and record review notes here.
 
 ## Verification
 
@@ -26,7 +26,7 @@
 - [x] Confirm markers from `widget_diff_patch.txt` remain present where still relevant.
 - [x] Confirm there are no unresolved conflicts or malformed patches with `git diff --check`.
 - [x] Run available targeted test/lint checks or clearly record why they could not run.
-- [ ] Confirm the new branch exists locally and on `origin`.
+- [x] Confirm the new branch exists locally and on `origin`.
 
 ## Review
 
@@ -44,3 +44,5 @@
 - `git diff --cached --check` passed.
 - Ruby tests could not run because this machine is using system Ruby `2.6.10` and is missing Bundler `2.5.16`.
 - Targeted Vitest command could not run because the current Node/pnpm environment is below the 4.14.1 engine requirement (`Node 24.x`, `pnpm 10.x`), and direct local Vitest startup fails because existing `node_modules` is missing `@rollup/plugin-yaml`.
+- Commit created: `4469104202` (`Merge tag 'v4.14.1' into release-4.14.1`).
+- Pushed branch: `origin/release-4.14.1`.
