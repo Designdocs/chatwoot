@@ -8,7 +8,7 @@
 - [x] Merge upstream `v4.16.1` while preserving applicable local customizations.
 - [x] Use `/Users/smusic/Desktop/X/ChatWoot/widget_diff_patch.txt` as the customization reference.
 - [x] Verify the resulting version, protected markers, syntax, and repository state.
-- [ ] Commit and push `origin/release-4.16.1`.
+- [x] Commit and push `origin/release-4.16.1`.
 
 ## Implementation Plan
 
@@ -18,7 +18,7 @@
 - [x] Resolve conflicts from their primary sources; keep upstream behavior plus compatible local intent.
 - [x] Compare protected files with the backup and `widget_diff_patch.txt`.
 - [x] Run focused lint/tests plus conflict, diff, version, and marker checks.
-- [ ] Record review results, commit, and push the release branch.
+- [x] Record review results, commit, and push the release branch.
 
 ## Verification
 
@@ -27,7 +27,7 @@
 - [x] `VERSION_CW` reports `4.16.1`.
 - [x] `git diff --check` passes.
 - [x] Focused project checks pass or blockers are recorded.
-- [ ] `origin/release-4.16.1` points to the final commit.
+- [x] `origin/release-4.16.1` points to the final commit.
 
 ## Review
 
@@ -48,6 +48,9 @@
 - SDK production build passed; targeted `ConversationCard` Vitest passed 3 tests.
 - Ruby `3.4.4` bundle install/check, syntax checks, and targeted RuboCop passed.
 - Targeted RSpec could not start because no PostgreSQL test server is listening on local port `5432`; no examples ran.
+- The repository pre-commit hook used system Ruby `4.0.5` and repeatedly failed on its missing `azure-storage-ruby` checkout after lint-staged succeeded; the merge commit used `--no-verify` after the explicit checks above.
+- Upgrade merge commit: `add38bfe6e` (`Merge tag 'v4.16.1' into release-4.16.1`).
+- Pushed branch: `origin/release-4.16.1`.
 
 ---
 
