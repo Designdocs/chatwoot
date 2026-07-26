@@ -1,3 +1,56 @@
+# Upgrade to v4.16.1
+
+## Spec
+
+- [x] Start from the current `release-4.15.1` customization baseline.
+- [x] Back up protected CSS/widget SDK files before comparing or merging.
+- [x] Confirm upstream `v4.16.1` exists and create `release-4.16.1`.
+- [x] Merge upstream `v4.16.1` while preserving applicable local customizations.
+- [x] Use `/Users/smusic/Desktop/X/ChatWoot/widget_diff_patch.txt` as the customization reference.
+- [x] Verify the resulting version, protected markers, syntax, and repository state.
+- [ ] Commit and push `origin/release-4.16.1`.
+
+## Implementation Plan
+
+- [x] Audit the clean working tree, remotes, current baseline, and protected file set.
+- [x] Create and checksum a dated pre-upgrade backup.
+- [x] Fetch upstream/origin refs, create `release-4.16.1`, and merge `v4.16.1`.
+- [x] Resolve conflicts from their primary sources; keep upstream behavior plus compatible local intent.
+- [x] Compare protected files with the backup and `widget_diff_patch.txt`.
+- [x] Run focused lint/tests plus conflict, diff, version, and marker checks.
+- [ ] Record review results, commit, and push the release branch.
+
+## Verification
+
+- [x] No unresolved conflicts or conflict markers.
+- [x] Protected CSS/widget SDK customizations remain present where applicable.
+- [x] `VERSION_CW` reports `4.16.1`.
+- [x] `git diff --check` passes.
+- [x] Focused project checks pass or blockers are recorded.
+- [ ] `origin/release-4.16.1` points to the final commit.
+
+## Review
+
+- Backup created at `/Users/smusic/Desktop/X/ChatWoot/backup_css/20260726_081241_release-4.15.1_pre_4.16.1_upgrade`; protected files were checksummed before the merge, with two additional tracked style files and `ChatFooter.vue` archived from the immutable pre-merge `HEAD`.
+- Merged official `v4.16.1` (`0882dc929153203137478a906a5eefdced01a63f`) into the new `release-4.16.1` branch.
+- Resolved five conflicts:
+  - Kept upstream pending-edits behavior, truncation/layout fixes, AgentBot icon handling, and TikTok cloud warning UI.
+  - Reapplied the matching local `font-semibold` customizations.
+  - Accepted the upstream removal of the Captain temperature control because `v4.16.1` intentionally moves to a fixed default.
+- Protected-file comparison:
+  - `_base.scss`, dashboard `_woot.scss`, widget `_reset.scss`, `_theme_custom.scss`, `_conversation.scss`, `woot.scss`, SDK files, entrypoint `sdk.js`, `Branding.vue`, `Messages.vue`, and `ChatFooter.vue` retain their pre-upgrade local customizations.
+  - Widget `zh_CN.json` keeps the local brand/offline/placeholders and accepts the new upstream `EMOJI_ICON_PICKER` keys.
+  - `widget_diff_patch.txt` was used as an intent reference only; it is older than the current branch and was not reapplied wholesale.
+- Verified markers remain present: `@import 'theme_custom'`, `diy-border`, `width: 430px`, `max-height: 670px`, `availableMessage`, `enableFileUpload`, `font-semibold`, `暂时离线`, and `ArtstationX`.
+- `VERSION_CW` is `4.16.1`; conflict scan, `git ls-files -u`, JSON parsing, and `git diff --check` passed.
+- Correct Node `24.13.0` / pnpm `10.2.0` dependencies installed from the lockfile.
+- Targeted ESLint passed with zero errors and one existing dynamic-i18n-key warning in `ArticleCard.vue`.
+- SDK production build passed; targeted `ConversationCard` Vitest passed 3 tests.
+- Ruby `3.4.4` bundle install/check, syntax checks, and targeted RuboCop passed.
+- Targeted RSpec could not start because no PostgreSQL test server is listening on local port `5432`; no examples ran.
+
+---
+
 # Upgrade to v4.15.1
 
 ## Spec
