@@ -1,3 +1,55 @@
+# Upgrade to v4.16.2
+
+## Spec
+
+- [x] Start from the current `release-4.16.1` customization baseline.
+- [x] Back up protected CSS/widget SDK files before comparing or merging.
+- [x] Confirm upstream `v4.16.2` exists and create `release-4.16.2`.
+- [x] Merge upstream `v4.16.2` while preserving applicable local customizations.
+- [x] Use `/Users/smusic/Desktop/X/ChatWoot/widget_diff_patch.txt` as the customization reference.
+- [x] Verify the resulting version, protected markers, syntax, and repository state.
+- [x] Commit and push `origin/release-4.16.2`.
+
+## Implementation Plan
+
+- [x] Audit the clean working tree, remotes, current baseline, and protected file set.
+- [x] Create and checksum a dated pre-upgrade backup.
+- [x] Fetch upstream/origin refs, create `release-4.16.2`, and merge `v4.16.2`.
+- [x] Resolve conflicts from their primary sources; keep upstream behavior plus compatible local intent.
+- [x] Compare protected files with the backup and `widget_diff_patch.txt`.
+- [x] Run focused lint/tests plus conflict, diff, version, and marker checks.
+- [x] Record review results, commit, and push the release branch.
+
+## Verification
+
+- [x] No unresolved conflicts or conflict markers.
+- [x] Protected CSS/widget SDK customizations remain present where applicable.
+- [x] `VERSION_CW` reports `4.16.2`.
+- [x] `git diff --check` passes.
+- [x] Focused project checks pass or blockers are recorded.
+- [x] `origin/release-4.16.2` points to the published upgrade commit.
+
+## Review
+
+- Created and verified the pre-upgrade backup at `/Users/smusic/Desktop/X/ChatWoot/backup_css/20260729_230759_release-4.16.1_pre_4.16.2_upgrade`; its 30 archived files have a passing SHA-256 manifest.
+- Merged official `v4.16.2` (`70e284a044f00326725f65f703162745371075ec`) into the new `release-4.16.2` branch.
+- The upstream release changed 186 files but did not change the protected dashboard SCSS, Widget, SDK, SDK entrypoint, or Branding paths.
+- Six upstream paths overlapped local customization paths. Five merged automatically with both upstream behavior and local `font-semibold` changes intact.
+- Resolved the only content conflict in `AccountHealth.vue` by keeping the complete v4.16.2 health-status redesign and reapplying the two compatible local `font-semibold` labels.
+- `_base.scss`, dashboard `_woot.scss`, Widget `_reset.scss`, the current 406-line `_theme_custom.scss`, `_conversation.scss`, Widget `woot.scss`, SDK files, `Branding.vue`, `Messages.vue`, `ChatFooter.vue`, and Widget `zh_CN.json` remain byte-identical to the pre-upgrade backup.
+- `widget_diff_patch.txt` was used as historical intent evidence only. It was not reapplied wholesale because it contains superseded paths and behavior that would revert current responsive availability, call, sizing, and Captain flows.
+- Verified markers remain present: `@import 'theme_custom'`, `diy-border`, 430px width, 670px maximum height, `availableMessage`, `unavailableMessage`, `enableFileUpload`, `font-semibold`, `暂时离线`, and `ArtstationX`.
+- `VERSION_CW` and `package.json` report `4.16.2`; unmerged-index, conflict-marker, JSON parsing, customization-path-set, protected-file, and `git diff --check` checks passed.
+- Node `24.13.0` / pnpm `10.2.0` targeted ESLint passed with zero errors and five dynamic-i18n-key warnings in upstream-integrated files.
+- Eleven focused Vitest files passed 117 tests, including Account Health, channel icon/provider, conversation card, Widget SDK/config, and attachment behavior.
+- SDK production build and the complete Vite production build passed. The build reported only existing Browserslist and large-chunk warnings.
+- Ruby `3.4.4` dependency check passed; 88 changed Ruby files passed syntax checks and 87 existing changed files passed targeted RuboCop with no offenses.
+- Targeted RSpec could not start because the local PostgreSQL test service was not listening; no examples ran.
+- The repository hook completed lint-staged and created merge commit `e1cd7b2496`, but its default Ruby path could not locate RuboCop. RuboCop was therefore rerun explicitly with the project Ruby and passed.
+- Pushed and remotely verified `origin/release-4.16.2` at upgrade commit `e1cd7b2496ce0967cc331259b483311944ec42cd`.
+
+---
+
 # Upgrade to v4.16.1
 
 ## Spec
