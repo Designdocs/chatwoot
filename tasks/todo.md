@@ -1,3 +1,41 @@
+# Fix pre-commit hook Ruby path resolution
+
+## Spec
+
+- [x] Make the pre-commit hook run RuboCop with the project Ruby from `.ruby-version`.
+- [x] Stop the hook from silently skipping staged files.
+- [x] Keep the hook working when the project Ruby is unavailable, without silent success.
+
+## Root causes
+
+- **Wrong Ruby.** Git runs hooks in a non-interactive shell that never sources `~/.zshrc`, where `rbenv init` lives (lines 152 and 153). Without the shims on `PATH`, `bundle` resolved to `/opt/homebrew/bin/bundle` on Ruby `4.0.5` instead of the rbenv `3.4.4` pinned by `.ruby-version`, so `bundle exec rubocop` died with `Bundler::GemNotFound`. The same gap made `scss-lint`, a Ruby gem shim used by the `*.scss` lint-staged task, resolve to nothing at all.
+- **Silently skipped files.** The hook selected Ruby files with `git diff --name-only --cached | xargs -I {} sh -c 'test -f "{}" && echo "{}"'`. BSD `xargs -I` caps replacement expansion at 255 bytes, and this command substitutes the path twice, so any path of roughly 118 characters or more fails with `command line cannot be assembled, too long`. The repository already contains a 122 character tracked path, so this was reachable on a normal single file commit and was never about the 1993 file merge. Affected files were dropped from linting without any failure being surfaced.
+- **Deprecated config.** `lint-staged` 16 stages its own changes and warned that `git add` had to be removed from the task list.
+
+## Fix
+
+- The hook now prepends the first shim directory it finds among rbenv, asdf, and mise to `PATH`, restoring the pinned Ruby for both RuboCop and `scss-lint`.
+- File selection uses `git diff --name-only --cached --diff-filter=d -- '*.rb'`. This drops deletions natively, so the `test -f` guard and the `xargs -I` substitution are both gone, and no path length limit applies.
+- RuboCop now runs as a single batched invocation through `xargs -0` instead of one process per file, and only the staged Ruby files are re-added afterwards rather than every staged path.
+- When no working bundler Ruby is present the hook prints the expected and found Ruby versions and a remediation step on stderr instead of passing silently. It stays non-blocking, matching the previous `|| true` behavior.
+- Removed `git add` from the `lint-staged` `app/**/*.{js,vue}` task.
+
+## Verification
+
+- [x] Old selection versus new selection compared on a staged 155 character path: the old form emitted only the short file, the new form emitted both.
+- [x] Hook executed through `env -i` with node on `PATH` but no rbenv shims, reproducing a real hook environment. RuboCop ran, inspected both files including the long path, and applied autocorrections.
+- [x] Autocorrections confirmed re-staged; no residual unstaged diff for the touched files.
+- [x] Degradation path exercised with a fake `HOME` and only Homebrew Ruby present. It printed `expected ruby 3.4.4 (found 4.0.5)` and exited 0 without blocking.
+- [x] `sh -n .husky/pre-commit` passes and `package.json` remains valid JSON at version `4.17.0`.
+- [x] `scss-lint` confirmed to resolve and pass cleanly on `_theme_custom.scss` once the shims are restored.
+
+## Notes
+
+- The `*.scss` task still calls a bare `scss-lint` rather than `bundle exec scss-lint`. With the `PATH` fix it resolves correctly. It was left alone deliberately, since routing it through `bundle exec` would make every SCSS commit fail hard whenever gems are missing.
+- RuboCop remains non-blocking by design. If commits should fail on uncorrectable offenses, drop the `|| true` from the batched invocation.
+
+---
+
 # Upgrade to v4.17.0
 
 ## Spec
@@ -54,7 +92,7 @@
 - The built output was confirmed to carry the customizations: `public/packs/js/sdk.js` contains the 430px width, 670px maximum height, and both border declarations, and `diy-border` compiled into the widget CSS bundle.
 - Ruby `3.4.4` bundle install succeeded; all 467 changed Ruby files passed syntax checks and 466 passed targeted RuboCop with no offenses.
 - Targeted RSpec was not run because the local PostgreSQL test service is not listening, matching the blocker recorded for the previous two upgrades.
-- The repository pre-commit hook again failed to run RuboCop because it resolves system Ruby `4.0.5` instead of the project rbenv `3.4.4`, and its `xargs` invocation overflowed on 1993 files. RuboCop was therefore rerun explicitly with the project Ruby and passed.
+- The repository pre-commit hook again failed to run RuboCop because it resolves system Ruby `4.0.5` instead of the project rbenv `3.4.4`, and its `xargs -I` invocation could not assemble a command line. RuboCop was therefore rerun explicitly with the project Ruby and passed. Both defects were fixed afterwards; see the entry below. The `xargs` failure is caused by path length, not file count, correcting the initial reading recorded here.
 
 ---
 

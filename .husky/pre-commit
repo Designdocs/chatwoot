@@ -1,11 +1,36 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+# git runs hooks in a non-interactive shell that never sources ~/.zshrc, so the
+# version manager shims are missing and `bundle` / `scss-lint` resolve to the
+# system ruby instead of the version pinned in .ruby-version. Put the shims back
+# on PATH before anything below shells out to ruby.
+for shim_dir in "$HOME/.rbenv/shims" "$HOME/.asdf/shims" "$HOME/.local/share/mise/shims"; do
+  if [ -d "$shim_dir" ]; then
+    PATH="$shim_dir:$PATH"
+    export PATH
+    break
+  fi
+done
+
 # lint js and vue files
 npx --no-install lint-staged
 
-# lint only staged ruby files that still exist (not deleted)
-git diff --name-only --cached | xargs -I {} sh -c 'test -f "{}" && echo "{}"' | grep '\.rb$' | xargs -I {} bundle exec rubocop --force-exclusion -a "{}" || true
+# lint only staged ruby files that still exist (not deleted).
+# --diff-filter=d drops deletions, so the old per-file `test -f` guard is gone.
+# `xargs -I` is avoided: its 255 byte replacement limit cannot assemble a command
+# for this repo's longest paths, which silently skipped those files.
+staged_rb=$(git diff --name-only --cached --diff-filter=d -- '*.rb')
 
-# stage rubocop changes to files
-git diff --name-only --cached | xargs -I {} sh -c 'test -f "{}" && git add "{}"' || true
+if [ -n "$staged_rb" ]; then
+  if bundle exec rubocop --version >/dev/null 2>&1; then
+    # one batched invocation instead of one process per file
+    printf '%s\n' "$staged_rb" | tr '\n' '\0' | xargs -0 bundle exec rubocop --force-exclusion -a || true
+    # stage rubocop's autocorrections
+    printf '%s\n' "$staged_rb" | tr '\n' '\0' | xargs -0 git add --
+  else
+    echo "pre-commit: rubocop did not run - no working bundler ruby on PATH." >&2
+    echo "pre-commit: expected ruby $(cat .ruby-version 2>/dev/null) (found $(ruby -e 'print RUBY_VERSION' 2>/dev/null || echo none))." >&2
+    echo "pre-commit: run 'bundle install' with the project ruby, then recommit." >&2
+  fi
+fi
