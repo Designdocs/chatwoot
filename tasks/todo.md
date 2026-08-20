@@ -1,3 +1,79 @@
+# Upgrade to v4.17.0
+
+## Spec
+
+- [x] Start from the current `release-4.16.2` customization baseline.
+- [x] Back up protected CSS/widget SDK files before comparing or merging.
+- [x] Confirm upstream `v4.17.0` exists and create `release-4.17.0`.
+- [x] Merge upstream `v4.17.0` while preserving applicable local customizations.
+- [x] Use `/Users/smusic/Desktop/X/ChatWoot/widget_diff_patch.txt` as the customization reference.
+- [x] Verify the resulting version, protected markers, syntax, and repository state.
+- [x] Commit and push `origin/release-4.17.0`.
+
+## Implementation Plan
+
+- [x] Audit the working tree, remotes, current baseline, and protected file set.
+- [x] Create and checksum a dated pre-upgrade backup.
+- [x] Fetch the upstream `v4.17.0` tag, create `release-4.17.0`, and merge.
+- [x] Resolve conflicts from their primary sources; keep upstream behavior plus compatible local intent.
+- [x] Compare protected files with the backup and `widget_diff_patch.txt`.
+- [x] Run lint, the full test suite, SDK and production builds, and Ruby checks.
+- [x] Record review results, commit, and push the release branch.
+
+## Verification
+
+- [x] No unresolved conflicts or conflict markers.
+- [x] Protected CSS/widget SDK customizations remain present where applicable.
+- [x] `VERSION_CW` reports `4.17.0`.
+- [x] `git diff --check` passes.
+- [x] Focused project checks pass or blockers are recorded.
+- [x] `origin/release-4.17.0` points to the published upgrade commit.
+
+## Review
+
+- Created and verified the pre-upgrade backup at `/Users/smusic/Desktop/X/ChatWoot/backup_css/20260820_192718_release-4.16.2_pre_4.17.0_upgrade`; its 29 archived files have a passing SHA-256 manifest.
+- Merged official `v4.17.0` (`b34f5b71a4d7f41fa87cf2b32260e2c887817e54`) into the new `release-4.17.0` branch as `878a86fa07`.
+- This is a large release: 1993 upstream files changed, versus 186 in `4.16.2`. The local baseline carried 316 customized files.
+- The upstream release did not change the protected dashboard SCSS, Widget SCSS, `_theme_custom.scss`, SDK entrypoint, or `Branding.vue`. Only two protected paths overlapped: `sdk/sdk.js` and dashboard `zh_CN/inboxMgmt.json`, both auto-merged with local customizations intact.
+- Sixteen files conflicted. Every local change in all sixteen was the cosmetic `font-medium` to `font-semibold` theme customization; no local behavior was at stake.
+  - Four files were deleted by upstream (`MentionBox.vue`, Captain `assistants/settings/Settings.vue`, `NotificationTable.vue`, `HeatmapTooltip.vue`). Rename detection confirmed pure deletions with no successors, so the deletions were accepted.
+  - Twelve content conflicts were resolved to the complete upstream v4.17.0 version, then the local `font-semibold` customization was reapplied. Each of these files had zero remaining `font-medium` in the local baseline, so the customization rule was unambiguous.
+  - The customization is selective, not repository-wide: 37 files legitimately still use `font-medium` locally, so no blanket sweep was applied.
+- Two customized elements were relocated by upstream refactoring:
+  - The Delete Portal header moved from `PortalSettings.vue` into the new `PortalGeneralSettings.vue`; the `font-semibold` customization was reapplied there as an exact one-to-one match.
+  - The emoji picker item text in `keyboardEmojiSelector.vue` moved into the new shared `CaretAnchoredPicker.vue`, which has no font classes and is shared by five pickers. This customization is superseded and was deliberately not reinvented there, to avoid widening its blast radius.
+- Protected-file comparison against the backup: 27 of 29 files are byte-identical, including `_base.scss`, dashboard `_woot.scss`, `_next-colors.scss`, `app.scss`, `_date-picker.scss`, super_admin `index.scss`, Widget `_reset.scss`, the 406-line `_theme_custom.scss`, `_conversation.scss`, Widget `woot.scss`, every other SDK file, the SDK entrypoint, `Branding.vue`, `Messages.vue`, `ChatFooter.vue`, `useAttachments.js`, `appConfig.js`, and Widget `zh_CN.json`.
+- The two changed protected files kept their customizations. `sdk.js` retains the holder border, the 430px width, the 670px maximum height, and the responsive border; its only other deltas are upstream additions (a `:focus-visible` outline and `!important` hardening). The removal of `overflow: hidden` on `.woot-widget-bubble` was verified as an intentional upstream v4.17.0 change, not a lost customization. `inboxMgmt.json` keeps `暂时离线` and accepts new upstream Meta restriction keys.
+- `widget_diff_patch.txt` was used as historical intent evidence only. It was not reapplied wholesale because it contains superseded paths and behavior that would revert current responsive availability, call, sizing, and Captain flows.
+- Verified markers remain present: `@import 'theme_custom'`, `diy-border`, 430px width, 670px maximum height, `availableMessage`, `unavailableMessage`, `enableFileUpload`, `暂时离线`, and `ArtstationX` (which lives in Widget `zh_CN.json`, not `Branding.vue`).
+- `VERSION_CW`, `config/app.yml`, and `package.json` all report `4.17.0`; unmerged-index, conflict-marker, `zh_CN` JSON parsing, and `git diff --check` checks passed.
+- Node `24.19.0` / pnpm `10.2.0` targeted ESLint passed with zero errors and four warnings, all pre-existing upstream dynamic-i18n-key and raw-text patterns.
+- The full Vitest suite passed: 420 files and 4233 tests.
+- Seven `availabilityHelpers` and `conversation/getters` failures appeared only when Vitest was run without the project's own `TZ=UTC` wrapper on this UTC+8 host. The files are byte-identical to upstream with no local customizations, and all 49 tests pass under `TZ=UTC`, which the repository `test` script sets by default. Not a merge regression.
+- SDK production build passed, and the full `bundle exec vite build` production build passed with only the existing Browserslist and large-chunk warnings.
+- The built output was confirmed to carry the customizations: `public/packs/js/sdk.js` contains the 430px width, 670px maximum height, and both border declarations, and `diy-border` compiled into the widget CSS bundle.
+- Ruby `3.4.4` bundle install succeeded; all 467 changed Ruby files passed syntax checks and 466 passed targeted RuboCop with no offenses.
+- Targeted RSpec was not run because the local PostgreSQL test service is not listening, matching the blocker recorded for the previous two upgrades.
+- The repository pre-commit hook again failed to run RuboCop because it resolves system Ruby `4.0.5` instead of the project rbenv `3.4.4`, and its `xargs` invocation overflowed on 1993 files. RuboCop was therefore rerun explicitly with the project Ruby and passed.
+
+---
+
+# Diagnose Docker buildx registry timeout
+
+## Plan
+
+- [ ] Reproduce the Docker Hub token timeout with a minimal metadata-only loop.
+- [ ] Separate host, Docker Desktop, and `cwbuilder` DNS/IPv4/IPv6 behavior.
+- [ ] Apply the smallest confirmed network fix.
+- [ ] Re-run and push `smusiczz/chatwoot:release-4.16.2`.
+- [ ] Record the `.zshrc` completion warning fix or exact manual action.
+
+## Review
+
+- Pending.
+
+---
+
 # Upgrade to v4.16.2
 
 ## Spec
