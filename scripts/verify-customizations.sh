@@ -28,8 +28,7 @@ fi
 # count FILE PATTERN -> occurrence count, or the word "missing"
 count() {
   [ -f "$1" ] || { echo missing; return; }
-  n=$(grep -cF -- "$2" "$1" 2>/dev/null) || n=0
-  echo "$n"
+  grep -oF -- "$2" "$1" 2>/dev/null | wc -l | tr -d ' '
 }
 
 # count_tree DIR PATTERN -> number of files containing PATTERN
@@ -60,7 +59,7 @@ atleast() {
   fi
 }
 
-SDK_SRC=app/javascript/sdk/sdk.js
+SDK_SRC=app/javascript/sdk/sdk.css
 THEME=app/javascript/widget/assets/scss/_theme_custom.scss
 WOOT=app/javascript/widget/assets/scss/woot.scss
 WIDGET_ZH=app/javascript/widget/i18n/locale/zh_CN.json
@@ -75,9 +74,9 @@ PACKS=public/packs
 
 echo
 echo 'source customizations'
-exact 'sdk.js  widget width 430px'     1 "$(count "$SDK_SRC" 'width: 430px')"
-exact 'sdk.js  max-height 670px'       1 "$(count "$SDK_SRC" 'max-height: 670px')"
-exact 'sdk.js  border #7d7d7e33'       2 "$(count "$SDK_SRC" '7d7d7e33')"
+exact 'sdk.css  widget width 430px'     1 "$(count "$SDK_SRC" 'width: 430px')"
+exact 'sdk.css  max-height 670px'       1 "$(count "$SDK_SRC" 'max-height: 670px')"
+exact 'sdk.css  border #7d7d7e33'       2 "$(count "$SDK_SRC" '7d7d7e33')"
 exact 'woot.scss imports theme_custom' 1 "$(count "$WOOT" 'theme_custom')"
 atleast 'diy-border in _theme_custom'  1 "$(count "$THEME" 'diy-border')"
 if [ -f "$THEME" ]; then

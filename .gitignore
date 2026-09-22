@@ -106,3 +106,4 @@ local/
 Procfile.worktree
 widget_diff_patch.txt
 backups/
+.nodeterm/project.json

@@ -1,3 +1,38 @@
+# Upgrade to v4.18.0
+
+## Plan
+
+- [x] Back up all tracked CSS, Widget, and SDK files and verify checksums before merging.
+- [x] Fetch official v4.18.0 and create the requested release-4.18.0 branch.
+- [x] Resolve conflicts preserving upstream behavior and compatible local customizations.
+- [x] Verify customization preservation against the backup and historical widget_diff_patch.txt.
+- [x] Run appropriate tests, lint, production builds, and independent review.
+- [ ] Commit, push, and verify origin/release-4.18.0.
+
+## Review
+
+- Baseline: f57a6fb952; upstream v4.18.0: 9f920b549c14491a4e587687a3eed5d21c6ccc7d.
+- Backup: ../backup_css/20260922_203126_release-4.17.0_pre_4.18.0_upgrade (250 files, SHA-256 verified).
+- Nine conflicts: seven Vue typography conflicts, .gitignore, and SDK styles moved from sdk.js to sdk.css.
+- Retained upstream accessibility, sanitized signup terms, timestamps, filter controls, and Captain playground behavior. Reapplied local typography to existing surfaces only.
+- Migrated the existing SDK width, height, and borders to sdk.css and updated the existing verification script to the new source path.
+- All 248 archived project files were compared: 235 are byte-identical, including every CSS/SCSS file that retained its path, both key SCSS customizations, SDK entrypoint, bubble helpers, and Widget Chinese strings. The other 13 reflect upstream changes, including sdk.js moving to sdk.css; the existing IFrameHelper and ChatHeader customizations remain intact.
+- All 314 baseline customization paths remain represented relative to upstream; the sole old path absent is sdk.js, whose customizations moved to sdk.css. Compared font-weight customization counts on overlapping Vue files; none were lost.
+- Used widget_diff_patch.txt as historical intent evidence rather than applying it wholesale, since it contains obsolete reversions of upstream behavior.
+- Updated the verification script to count occurrences rather than matching lines, since the new SDK CSS is minified onto one line. Isolated assertions covered three matches across two lines and zero matches; shell syntax and all 15 customization checks passed.
+- Node 24.19.0 / pnpm 10.2.0 dependencies installed with the frozen lockfile. Corrected conflicting proxy protocol variables only for the install process and used an accessible registry mirror; no lockfile or machine configuration changes.
+- Ruby 3.4.4 bundle check and all 454 changed Ruby syntax checks passed; targeted RuboCop inspected 453 files with no offenses. Cache disabled because the default cache is outside writable paths.
+- Targeted ESLint checked the overlapping customized JS/Vue files. Fixed one formatting error introduced by the longer font class; remaining 23 warnings are upstream dynamic translation keys/raw text.
+- No unresolved conflicts; version and Chinese JSON checks passed. Custom diff against v4.18.0 passes whitespace checks; the upstream release itself contains trailing whitespace in config/cable.yml:9, left unchanged.
+- Independent read-only review approved the merge and subsequent verification-script/formatting adjustments without actionable findings.
+- Database-backed RSpec was not run: local PostgreSQL is unavailable. No database migrations or live deployment were performed.
+- Full Vitest suite passed: 448 files, 4,654 tests. Dependency source-map warnings did not fail tests.
+- SDK production build and full Vite production build passed. Verified the new SDK output carries both borders and custom dimensions, and the newly built widget CSS contains diy-border. All 15 customization checks pass after both builds.
+- Build warnings: outdated Browserslist data, existing large chunks, SDK public/output directory overlap, and uppercase HTTP_PROXY; no build failures.
+- Commit hooks that auto-rewrite the entire upstream merge are skipped after explicit ESLint, RuboCop, syntax, test, build, and review checks, preserving the upstream release content.
+
+---
+
 # Fix pre-commit hook Ruby path resolution
 
 ## Spec
