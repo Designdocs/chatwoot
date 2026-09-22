@@ -7,7 +7,7 @@
 - [x] Resolve conflicts preserving upstream behavior and compatible local customizations.
 - [x] Verify customization preservation against the backup and historical widget_diff_patch.txt.
 - [x] Run appropriate tests, lint, production builds, and independent review.
-- [ ] Commit, push, and verify origin/release-4.18.0.
+- [x] Commit and push origin/release-4.18.0 (upgrade commit d0694a6ec8).
 
 ## Review
 
@@ -30,6 +30,7 @@
 - SDK production build and full Vite production build passed. Verified the new SDK output carries both borders and custom dimensions, and the newly built widget CSS contains diy-border. All 15 customization checks pass after both builds.
 - Build warnings: outdated Browserslist data, existing large chunks, SDK public/output directory overlap, and uppercase HTTP_PROXY; no build failures.
 - Commit hooks that auto-rewrite the entire upstream merge are skipped after explicit ESLint, RuboCop, syntax, test, build, and review checks, preserving the upstream release content.
+- Published upgrade merge d0694a6ec8742854d3febcde94dd0285cca9c60c to the new origin/release-4.18.0 branch. The v4.18.0 tag is its second parent; the first parent preserves the complete local customization history.
 
 ---
 
