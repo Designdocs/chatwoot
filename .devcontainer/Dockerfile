@@ -1,6 +1,10 @@
 # The below image is created out of the Dockerfile.base
 # It has the dependencies already installed so that codespace will boot up fast
+ARG NODE_VERSION=24.22.1
+FROM node:${NODE_VERSION}-bookworm-slim AS node
 FROM ghcr.io/chatwoot/chatwoot_codespace:latest
+
+COPY --from=node /usr/local/bin/node /usr/local/bin/node
 
 # Do the set up required for chatwoot app
 WORKDIR /workspace

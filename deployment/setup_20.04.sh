@@ -206,6 +206,16 @@ EOF
 # Outputs:
 #   None
 ##############################################################################
+function node_version_is_secure() {
+  node -e '
+    const [major, minor, patch] = process.versions.node.split(".").map(Number);
+    const minimum = major === 24 ? [22, 1] : undefined;
+    const secure = minimum && (minor > minimum[0] ||
+      (minor === minimum[0] && patch >= minimum[1]));
+    process.exit(secure ? 0 : 1);
+  '
+}
+
 function install_dependencies() {
   apt-get update && apt-get upgrade -y
   apt-get install -y curl
@@ -229,6 +239,10 @@ function install_dependencies() {
       nodejs patch ruby-dev zlib1g-dev liblzma-dev \
       libgmp-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev sudo \
       libvips python3-pip
+  if ! node_version_is_secure; then
+    echo "Node.js 24.22.1 or newer within the 24.x release line is required." >&2
+    return 1
+  fi
   npm install -g pnpm
 }
 
@@ -891,7 +905,7 @@ function upgrade_redis() {
 
 
 ##############################################################################
-# Update nodejs to v20+
+# Update Node.js to a supported security release
 # Globals:
 #   None
 # Arguments:
@@ -902,14 +916,8 @@ function upgrade_redis() {
 function upgrade_node() {
   echo "Checking Node.js version..."
 
-  # Get current Node.js version
-  current_version=$(node --version | cut -c 2-)
-
-  # Parse major version number
-  major_version=$(echo "$current_version" | cut -d. -f1)
-
-  if [ "$major_version" -ge 24 ]; then
-    echo "Node.js is already version $current_version (>= 24.x). Skipping Node.js upgrade."
+  if command -v node > /dev/null && node_version_is_secure; then
+    echo "Node.js $(node --version) already includes the required security fixes."
     return
   fi
 
@@ -922,6 +930,10 @@ function upgrade_node() {
   apt-get update
   apt-get install nodejs -y
 
+  if ! node_version_is_secure; then
+    echo "Node.js 24.22.1 or newer within the 24.x release line is required." >&2
+    return 1
+  fi
 }
 
 ##############################################################################
