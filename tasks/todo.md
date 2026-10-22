@@ -1,3 +1,25 @@
+# Rebuild and publish release-4.19.0
+
+## Plan
+
+- [x] Verify release ancestry, runtime versions, dependency constraints, Dockerfile checks, and repository tag mutability.
+- [x] Reproduce the Scout APM native extension failure in isolation and verify the upstream GCC 15 fix.
+- [x] Update only the blocking dependency and complete a fresh production build.
+- [x] Validate the candidate image in isolation and compare its source/dependency files with the workspace.
+- [x] Publish the requested tag and verify its remote digest and target architecture.
+
+## Review
+
+- The first clean amd64 build failed in scout_apm 5.3.3 because its allocation callback signature is incompatible with GCC 15. An isolated install reproduced the failure in about five seconds; scout_apm 5.7.0 passed in the same environment in about six seconds.
+- Locked scout_apm to 5.7.1 within the compatible 5.7 release line; its isolated native compilation also passed. Bundler 2.5.16 updated the lockfile Ruby metadata to 3.4.11p137 without changing other previously locked dependency versions.
+- The user explicitly approved source commits on the existing release-4.19.0 branch. Production runtime, dependency, and Dockerfile updates are committed as 86fa05035725b2f85eb2f343c1e9ddc831f41b7f. Independent source review reported no actionable findings. Pre-existing development-container changes, the separate vulnerability-remediation plan, and untracked lessons remain outside this commit.
+- A complete linux/amd64 build with --pull and --no-cache passed, including 305 installed gems, SDK generation, and the Vite production build. Existing Browserslist, chunk-size, and dependency-layer Husky messages were non-blocking.
+- An isolated process with networking disabled loaded Rails, gRPC, Scout, and Vips; PNG decoding, resizing, and JPEG encoding passed. Verified Ruby 3.4.11, Node 24.22.1, Rails 7.2.3.2, Scout 5.7.1, ruby-vips 2.2.5, and libvips 8.18.2. The production manifest parsed, the SDK bundle was present, and six source/dependency file checksums plus the embedded source commit matched the workspace.
+- Published smusiczz/chatwoot:release-4.19.0 with manifest digest sha256:99ce2a98693dd629f82fe484e51a28d468a0a33d89643e542fe72f2c2de7bfe9. Remote registry and Hub metadata confirm linux/amd64 and config digest sha256:4f4ba8b104488067a74b7e002707d8c932957a7e6bb36c407404550ac0709998, identical to the tested candidate.
+- No deployment, database-backed tests, live conversation test, or refreshed vulnerability-count verification was performed. If using the outer workspace Compose file, update both application image references from its older release tag. Deployment still requires a database backup, standard database preparation, web/worker restart, and a live conversation check.
+
+---
+
 # Enable Captain for self-hosted testing
 
 ## Plan
