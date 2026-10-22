@@ -7,8 +7,8 @@
 - [x] Merge v4.19.0 into the requested release-4.19.0 branch, preserving compatible local changes.
 - [x] Compare protected files with the backup, review migrations, and run relevant checks and builds.
 - [x] Complete independent review of customization preservation and merge adaptations.
-- [ ] Commit the upgrade and push origin/release-4.19.0.
-- [ ] Restore unrelated pending changes and record publication and verification limits.
+- [x] Commit the upgrade and push origin/release-4.19.0.
+- [x] Restore unrelated pending changes and record publication and verification limits.
 
 ## Review
 
@@ -26,6 +26,9 @@
 - Reviewed all 19 new database migrations, including account/tool backfills and concurrent indexes. A real PG connection to local PostgreSQL was refused; database-backed RSpec and migrations were not run. No deployment or live conversation check was performed.
 - Operator handoff: back up the deployment database, run the standard Chatwoot database preparation on the upgraded image, restart web/background workers after success, and confirm a real Widget conversation. Official v4.19.0 retires Captain V1; installations still using V1 instructions must migrate them to V2 before upgrading.
 - Existing Browserslist data/source-map and large-chunk warnings are non-blocking. The existing commit hook rewrites the full staged upstream merge; skip that rewrite after the explicit lint, syntax, tests, builds, and review above. Release-branch pushes do not match existing build/publish push triggers; use `[skip ci]` and do not manually dispatch online checks.
+- Published merge 99398e6a4be76dd0f0f5e5fb28edc75f836e8381 to the new origin/release-4.19.0 branch. Its first parent preserves the local baseline; its second parent is the official v4.19.0 tag.
+- Restored the four original development-container edits and verified all four, plus untracked tasks/lessons.md, against their backup checksums. Removed only the temporary stash created for this upgrade. Final comparison: 414 archived project files unchanged, 107 updated, and 29 absent paths all confirmed removed/replaced by the official release.
+- Rebuilt the main production assets after the final extracted-component style adjustment. Production source maps confirm both final recipient-label/tool-section weights are included; current Widget CSS and all 15 customization assertions pass after this final build.
 
 ---
 
