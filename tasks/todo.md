@@ -1,3 +1,34 @@
+# Upgrade to v4.19.0
+
+## Plan
+
+- [x] Back up current styles, Widget/SDK sources, local customizations, and pending changes; verify SHA-256 checksums.
+- [x] Verify the official v4.19.0 tag and review historical customization guidance.
+- [x] Merge v4.19.0 into the requested release-4.19.0 branch, preserving compatible local changes.
+- [x] Compare protected files with the backup, review migrations, and run relevant checks and builds.
+- [x] Complete independent review of customization preservation and merge adaptations.
+- [ ] Commit the upgrade and push origin/release-4.19.0.
+- [ ] Restore unrelated pending changes and record publication and verification limits.
+
+## Review
+
+- Baseline: 7650f4b45d36c5031751062bf732f69171a7194c (release-4.18.0).
+- Backup: ../backup_css/20261022_091057_release-4.18.0_pre_4.19.0_upgrade; 553 files verified, with original working/staged patches and local customization diff.
+- Four pending development-container changes and untracked tasks/lessons.md belong to existing work and must remain uncommitted by this upgrade.
+- Official v4.19.0 tag: ad89249fef0c0e5c8190b070812a69f3d48443a6. All 18 conflicted paths resolved; upstream Company/Campaign replacements and retired Super Admin playground removals retained.
+- `_base.scss`, Widget `_theme_custom.scss`, `_reset.scss`, `woot.scss`, SDK `sdk.css`, `IFrameHelper.js`, `bubbleHelpers.js`, and the SDK entrypoint remain byte-identical to the backup. All 553 backup checksums reverified after the builds.
+- Moved the three local heading/label weights from `_woot.scss` to upstream's extracted `_typography.scss`. Preserved labels in extracted `RecipientsInput.vue` and `ToolFormSection.vue`; retained upstream MFA email verification, signup routing, conversation ordering, responsive layout, and tool interactions.
+- Historical `widget_diff_patch.txt` was used as intent evidence, not replayed wholesale. All upstream Widget Chinese translation keys are present with exactly the four intended local text overrides.
+- Node 24.22.1 / pnpm 10.2.0 and Ruby 3.4.4 used. Frozen frontend lockfile install and Ruby bundle check passed; both lockfiles remain identical to v4.19.0. Local patched Node constraints remain intact.
+- Full frontend suite: 511 files / 5,241 tests passed. SDK and full Vite production builds passed. Verified custom dimensions/borders in the newly built SDK and `diy-border` in the current manifest's Widget CSS; all 15 existing customization assertions passed.
+- Targeted ESLint covered 42 overlapping customized frontend files, plus the extracted tool section. Fixed the new recipient-label formatting error; affected files pass, with 27 upstream dynamic-i18n/raw-text warnings in the original set. Ruby syntax: 738 changed files passed. RuboCop: 737 non-excluded files inspected, no offenses.
+- Version checks, JSON/translation-key checks, relocated typography assertions, source conflict-marker scan, unmerged-index check, and whitespace checks passed. Independent read-only review approved the final adaptations with no remaining actionable findings.
+- Reviewed all 19 new database migrations, including account/tool backfills and concurrent indexes. A real PG connection to local PostgreSQL was refused; database-backed RSpec and migrations were not run. No deployment or live conversation check was performed.
+- Operator handoff: back up the deployment database, run the standard Chatwoot database preparation on the upgraded image, restart web/background workers after success, and confirm a real Widget conversation. Official v4.19.0 retires Captain V1; installations still using V1 instructions must migrate them to V2 before upgrading.
+- Existing Browserslist data/source-map and large-chunk warnings are non-blocking. The existing commit hook rewrites the full staged upstream merge; skip that rewrite after the explicit lint, syntax, tests, builds, and review above. Release-branch pushes do not match existing build/publish push triggers; use `[skip ci]` and do not manually dispatch online checks.
+
+---
+
 # Upgrade to v4.18.0
 
 ## Plan
