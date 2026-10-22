@@ -28,7 +28,18 @@ fi
 # count FILE PATTERN -> occurrence count, or the word "missing"
 count() {
   [ -f "$1" ] || { echo missing; return; }
-  grep -oF -- "$2" "$1" 2>/dev/null | wc -l | tr -d ' '
+  # BusyBox grep -oF misses repeated matches on the same minified line.
+  CUSTOMIZATION_PATTERN="$2" awk '
+    BEGIN { pattern = ENVIRON["CUSTOMIZATION_PATTERN"] }
+    {
+      remaining = $0
+      while ((position = index(remaining, pattern)) > 0) {
+        total++
+        remaining = substr(remaining, position + length(pattern))
+      }
+    }
+    END { print total + 0 }
+  ' "$1"
 }
 
 # count_tree DIR PATTERN -> number of files containing PATTERN
