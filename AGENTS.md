@@ -1,5 +1,10 @@
 # Chatwoot Development Guidelines
 
+## Alpine 3.24 Update Preference
+
+- Standing user authorization (2026-10-22): when official Alpine 3.24 repositories or compatible Ruby/Node base images on Alpine 3.24 provide updates, apply compatible updates directly without requesting confirmation again. Keep this maintenance within the Alpine 3.24 release series and preserve existing application customizations and unrelated working changes.
+- For these release updates, use the existing user-authorized `release-4.19.0` branch without creating a branch. After appropriate compatibility checks and comparison with the current image's vulnerability scan, commit and push only the update's source changes, build a fresh `linux/amd64` production image, publish `smusiczz/chatwoot:release-4.19.0`, and verify its remote digest. Report remaining findings accurately; do not treat a successful rebuild as proof that all vulnerabilities are fixed.
+
 ## Build / Test / Lint
 
 - **Setup**: `bundle install && pnpm install`
