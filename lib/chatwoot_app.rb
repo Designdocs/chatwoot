@@ -3,6 +3,8 @@
 require 'pathname'
 
 module ChatwootApp
+  SELF_HOSTED_CAPTAIN_FEATURES = %w[captain_integration captain_tasks custom_tools].freeze
+
   def self.root
     Pathname.new(File.expand_path('..', __dir__))
   end

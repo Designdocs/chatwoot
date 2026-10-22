@@ -1,3 +1,30 @@
+# Enable Captain for self-hosted testing
+
+## Plan
+
+- [x] Trace account defaults, Captain page restrictions, and local runtime availability without inspecting credentials.
+- [x] Confirm source changes only; the user will configure model credentials and run the application.
+- [x] Enable core Captain features for new self-hosted accounts and prepare a migration for existing accounts.
+- [x] Reuse existing self-hosted feature policy and enable Captain model settings without changing unrelated feature restrictions.
+- [x] Run static checks, isolated policy/migration validation, relevant existing frontend checks, and independent review.
+- [x] Prepare validated source changes for publication on the existing release-4.19.0 branch and record runtime limits.
+
+## Review
+
+- No local Chatwoot application or database is running for this workspace. No services will be started, and no database migration or model request will be executed.
+- User will configure API credentials/endpoints through the existing backend; do not create, read, persist, or print credentials.
+- New self-hosted accounts enable `captain_integration`, `captain_tasks`, and `custom_tools` through the existing account callback. Cloud defaults remain unchanged.
+- Generated `20261022013633_enable_captain_for_self_hosted_accounts.rb` with the Rails migration generator. It enables those three flags for existing accounts only when enterprise code is present and the installation is self-hosted; saves raise on failure. Rollback deliberately does not overwrite subsequently edited preferences.
+- Reused `CLOUD_PAYWALLED_FEATURES` for Captain and custom tools, retaining Cloud behavior. Enabled self-hosted accounts can access Captain model settings. Existing authorization and administrator-only changes remain intact.
+- Fixed both persistence reset paths: community-plan reconciliation preserves self-hosted Captain, and Super Admin account editing exposes its flags as editable. Other premium restrictions remain unchanged.
+- Existing frontend checks: 24 files / 121 tests passed; targeted ESLint and production Vite build passed. Existing Vue router-injection, Browserslist, and chunk-size warnings were non-blocking.
+- Isolated validation used the real policy/settings sources for 8,832 assertions across installation, Cloud, plan, flag, branding, and permission combinations. Ruby validation loaded the actual migration/callback/admin helper/reconciliation service with in-memory accounts; activation, idempotence, Cloud/OSS exclusion, unrelated-feature preservation, save failures, and irreversible rollback checks passed without a database or model request.
+- Eight changed Ruby files passed syntax and RuboCop checks. Independent read-only review approved the completed activation and both reset-path fixes. Existing Account and reconciliation specs were updated to reflect the requested self-hosted defaults.
+- Database-backed RSpec and actual migration execution remain unverified because this task is source-only and this workspace has no running local database. Existing accounts become enabled when the user runs the normal database preparation/migration step on this source. API key, endpoint, and model remain configured through Super Admin; restart application/background workers after changing restart-required model configuration.
+- Protected `_base.scss`, Widget `_theme_custom.scss`, and SDK CSS still match their verified upgrade backups. Untracked tasks/lessons.md is untouched and excluded from this change.
+
+---
+
 # Upgrade to v4.19.0
 
 ## Plan

@@ -548,12 +548,14 @@ RSpec.describe Account, type: :model do
       )
     end
 
-    it 'enables Captain V2 for new paid self-hosted accounts' do
-      allow(ChatwootApp).to receive(:self_hosted_paid?).and_return(true)
+    it 'enables Captain V2 and its tools for new self-hosted accounts' do
+      allow(ChatwootApp).to receive(:chatwoot_cloud?).and_return(false)
 
       account = create(:account)
 
       expect(account).to be_feature_enabled('captain_integration')
+      expect(account).to be_feature_enabled('captain_tasks')
+      expect(account).to be_feature_enabled('custom_tools')
       expect(account.captain_preferences[:models]['assistant']).to eq('gpt-5.2')
       expect(account.captain_models).to be_nil
     end

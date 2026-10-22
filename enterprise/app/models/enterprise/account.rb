@@ -118,7 +118,7 @@ module Enterprise::Account
 
   def enable_default_features
     super
-    enable_features('captain_integration') if ChatwootApp.self_hosted_paid?
+    enable_features(*ChatwootApp::SELF_HOSTED_CAPTAIN_FEATURES) unless ChatwootApp.chatwoot_cloud?
   end
 
   def sync_assignment_features

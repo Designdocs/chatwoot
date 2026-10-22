@@ -47,6 +47,9 @@ class Internal::ReconcilePlanConfigService
 
   def premium_features
     @premium_features ||= YAML.safe_load(File.read("#{config_path}/premium_features.yml")).freeze
+    return @premium_features if ChatwootApp.chatwoot_cloud?
+
+    @premium_features - ChatwootApp::SELF_HOSTED_CAPTAIN_FEATURES
   end
 
   def reconcile_premium_features

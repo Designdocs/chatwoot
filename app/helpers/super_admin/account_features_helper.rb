@@ -4,7 +4,10 @@ module SuperAdmin::AccountFeaturesHelper
   end
 
   def self.account_premium_features
-    account_features.filter { |feature| feature['premium'] }.pluck('name')
+    features = account_features.filter { |feature| feature['premium'] }.pluck('name')
+    return features unless ChatwootApp.enterprise? && !ChatwootApp.chatwoot_cloud?
+
+    features - ChatwootApp::SELF_HOSTED_CAPTAIN_FEATURES
   end
 
   # The list the dashboard shows its "Learn more" links from (dashboard/helper/featureHelper.js).
