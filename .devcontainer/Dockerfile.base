@@ -1,4 +1,7 @@
 ARG VARIANT="ubuntu-22.04"
+ARG NODE_VERSION=24.22.1
+
+FROM node:${NODE_VERSION}-bookworm-slim AS node
 
 FROM mcr.microsoft.com/vscode/devcontainers/base:0-${VARIANT}
 
@@ -19,9 +22,7 @@ RUN if [ "$USER_GID" != "1000" ] || [ "$USER_UID" != "1000" ]; then \
         && chmod -R $USER_UID:$USER_GID /home/vscode; \
     fi
 
-RUN NODE_MAJOR=$(echo $NODE_VERSION | cut -d. -f1) \
-    && curl -fsSL https://deb.nodesource.com/setup_${NODE_MAJOR}.x | bash - \
-    && apt-get update \
+RUN apt-get update \
     && apt-get -y install --no-install-recommends \
         build-essential \
         libssl-dev \
@@ -37,10 +38,14 @@ RUN NODE_MAJOR=$(echo $NODE_VERSION | cut -d. -f1) \
         curl \
         ca-certificates \
         tmux \
-        nodejs \
-    && dpkg --compare-versions "$(node -p process.versions.node)" ge "$NODE_VERSION" \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+COPY --from=node /usr/local/bin/node /usr/local/bin/node
+COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
+RUN ln -s ../lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm \
+    && ln -s ../lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx \
+    && test "$(node -p process.versions.node)" = "$NODE_VERSION"
 
 # Install rbenv and ruby for root user first
 RUN git clone --depth 1 https://github.com/rbenv/rbenv.git ~/.rbenv \
