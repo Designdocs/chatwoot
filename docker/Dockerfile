@@ -1,6 +1,6 @@
 # pre-build stage
-FROM node:24.22.1-alpine AS node
-FROM ruby:3.4.4-alpine3.21 AS pre-builder
+FROM node:24.22.1-alpine3.24 AS node
+FROM ruby:3.4.11-alpine3.24 AS pre-builder
 
 ARG NODE_VERSION="24.22.1"
 ARG PNPM_VERSION="10.2.0"
@@ -24,7 +24,7 @@ ENV NODE_OPTIONS=${NODE_OPTIONS}
 
 ENV BUNDLE_PATH="/gems"
 
-RUN apk update && apk add --no-cache \
+RUN apk upgrade --no-cache && apk add --no-cache \
   openssl \
   tar \
   build-base \
@@ -83,7 +83,7 @@ RUN mkdir -p /app/log
 # generate production assets if production environment
 RUN if [ "$RAILS_ENV" = "production" ]; then \
   SECRET_KEY_BASE=precompile_placeholder RAILS_LOG_TO_STDOUT=enabled bundle exec rake assets:precompile \
-  && rm -rf spec node_modules tmp/cache; \
+  && rm -rf spec test tests node_modules tmp/cache; \
   fi
 
 # Generate .git_sha file with current commit hash
@@ -96,7 +96,7 @@ RUN rm -rf /gems/ruby/3.4.0/cache/*.gem \
   && rm .gitignore
 
 # final build stage
-FROM ruby:3.4.4-alpine3.21
+FROM ruby:3.4.11-alpine3.24
 
 ARG NODE_VERSION="24.22.1"
 ARG PNPM_VERSION="10.2.0"
@@ -120,13 +120,11 @@ ARG RAILS_ENV=production
 ENV RAILS_ENV=${RAILS_ENV}
 ENV BUNDLE_PATH="/gems"
 
-RUN apk update && apk add --no-cache \
-  build-base \
+RUN apk upgrade --no-cache && apk add --no-cache \
+  libstdc++ \
   openssl \
   tzdata \
   postgresql-client \
-  imagemagick \
-  git \
   vips \
   && gem install bundler -v "$BUNDLER_VERSION"
 
@@ -134,10 +132,11 @@ RUN apk update && apk add --no-cache \
 ENV VIPS_BLOCK_UNTRUSTED=1
 
 COPY --from=node /usr/local/bin/node /usr/local/bin/
-COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
 
-RUN if [ "$RAILS_ENV" != "production" ]; then \
-  apk add --no-cache curl \
+RUN --mount=type=bind,from=node,source=/usr/local/lib/node_modules,target=/tmp/node_modules \
+  if [ "$RAILS_ENV" != "production" ]; then \
+  cp -a /tmp/node_modules /usr/local/lib/node_modules \
+  && apk add --no-cache build-base curl git imagemagick \
   && ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm \
   && ln -s /usr/local/lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx \
   && npm install -g pnpm@${PNPM_VERSION} \

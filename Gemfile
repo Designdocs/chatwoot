@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-ruby '3.4.4'
+ruby '3.4.11'
 
 ##-- base gems for rails --##
 
 gem 'rack-cors', '2.0.0', require: 'rack/cors'
-gem 'rails', '7.2.3.1'
+gem 'rails', '7.2.3.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
@@ -57,6 +57,7 @@ gem 'aws-sdk-sesv2', require: false
 gem 'azure-blob', require: false
 gem 'google-cloud-storage', '>= 1.48.0', require: false
 gem 'image_processing'
+gem 'ruby-vips', '~> 2.2.1', require: false
 
 ##-- for actionmailbox --##
 gem 'aws-actionmailbox-ses', '~> 0'
@@ -128,7 +129,7 @@ gem 'datadog', '~> 2.0', require: false
 gem 'elastic-apm', require: false
 gem 'newrelic_rpm', require: false
 gem 'newrelic-sidekiq-metrics', '>= 1.6.2', require: false
-gem 'scout_apm', require: false
+gem 'scout_apm', '~> 5.7.0', require: false
 gem 'sentry-rails', '>= 5.19.0', require: false
 gem 'sentry-ruby', require: false
 gem 'sentry-sidekiq', '>= 5.19.0', require: false
