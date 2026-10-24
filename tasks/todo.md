@@ -1,3 +1,29 @@
+# Publish the image with public legal pages (2026-10-24)
+
+## Plan
+
+- [x] Confirm the committed source, existing production architecture, remote image baseline, and unrelated local changes.
+- [x] Build an immutable source snapshot as a local production candidate, preserving the existing runtime updates and required native package validation.
+- [x] Verify the image includes the public documents, production CSS, expected source revision, and working runtime components.
+- [x] Publish the existing image tag, verify its remote digest, and record deployment handoff.
+
+## Review
+
+- Build source: `e17b7ecb11`, exported from Git without the unrelated development-container edits or untracked lessons. No branch will be created.
+- Destination: existing `smusiczz/chatwoot:release-4.19.0`, `linux/amd64`. Remote baseline is `sha256:6922f7895ac547ca2d5ffb932b2818aeba83ed900a772585cd986a30430da75a`.
+- The committed Dockerfile also contains existing native runtime maintenance work. Preserve its checks; if the documented build-environment limitation requires selective build-time checks, complete the full native suite in the isolated validation target and match the installed library before publication.
+- The first production asset build exhausted the local builder's memory while another asset build ran concurrently. After that build exited, retrying the same immutable source with cached dependencies passed. No Dockerfile or application change was needed. The snapshot uses valid shallow detached Git metadata and contains none of the unrelated local edits.
+- Candidate image ID: `sha256:fa79c57b34094a99654cae13836cd4cb2ef1f5e5be0d0e296da55a31dd03ec9f`; build manifest: `sha256:9c26f63d0a74a67eba60a87ecb4277cb5917692b900dff706c4b1b1d5fdcf67c`. The complete SDK, Rails asset, and Vite production build passed, including the 15,598-byte legal stylesheet.
+- The complete upstream curl suite ran in the isolated check container without build-time selectors: 1,682 of 1,682 runnable checks passed out of 2,138 considered tests. Upstream conditional skips and flaky-test handling were preserved. The packaged libcurl and installed production library have identical SHA-256 `58b7d2e8e69e879d223e2596539db68043cbac24c313a66b9884816e65243a2d`.
+- Network-disabled, read-only candidate validation passed all 12 source/lockfile/customization checksums and the embedded source revision. Ruby 3.4.12, JSON 2.21.2, Node 24.22.1, gRPC, Scout, Vips, and the native libraries loaded. Palette PNG encoding/decoding, resizing, and JPEG conversion passed; the SDK checksum matches the previous published image. Ordinary, Unicode, and fixed-size streaming JSON round trips passed in regular Ruby, disabled-RubyGems, and Bundler modes.
+- Actual production-image GET/HEAD requests to `/privacy` and `/terms` passed anonymously, with server-rendered English documents, correct production CSS, stable query handling, no session cookies, and no request-time database queries. The validation script's initial image-library name was corrected from an assumed filename to the package's actual SONAME; the affected check then passed. As in source validation, unrelated eager loading/rate limiting were disabled and the optional AI initializer logged its caught database connection failure. Full database/cache-backed deployment startup remains unverified.
+- Fresh Scout scans indexed 531 baseline packages and 528 candidate packages. Records fell from 47 to 21, with 26 removed and no added advisory/package identities. Remaining records concern musl, libxml2, Cairo, CFITSIO, OpenEXR, Devise, and rack-cors; this publication does not claim that all vulnerabilities are fixed. Baseline/candidate scan artifacts and the comparison are retained with the local build artifacts.
+- Published `smusiczz/chatwoot:release-4.19.0` with remote manifest digest `sha256:818f2e05e597f5cb77a403d8ce1aa6b19d327b70ec33eccbd531c7e7ae473098`. The remote configuration digest matches the tested candidate image ID above, and registry metadata confirms `linux/amd64`. The publication digest and local build-export digest are recorded separately; the verified configuration identity is unchanged.
+- Deployment handoff: pull the updated image and recreate the application and worker containers. Merely restarting an existing container does not select the new image. These pages require no database migration. After deployment, verify the public `/privacy` and `/terms` URLs and enter them in Google Console Branding.
+- The user will update their deployment. Do not deploy the application or claim the public domain already serves the new pages.
+
+---
+
 # Public personal-use legal pages (2026-10-24)
 
 ## Plan
