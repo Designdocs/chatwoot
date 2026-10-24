@@ -1,3 +1,26 @@
+# Alpine 3.24 maintenance: Ruby 3.4.12 (2026-10-24)
+
+## Plan
+
+- [x] Check official Alpine package indexes and platform-specific base image digests.
+- [x] Record the published image baseline and align Ruby runtime metadata with the compatible patch release.
+- [x] Review the scoped change and build a fresh linux/amd64 production candidate.
+- [x] Validate runtime loading, ordinary image processing, protected source checksums, and vulnerability differences.
+- [x] Push the scoped source update and tested image; verify the remote digest.
+
+## Review
+
+- Official Ruby 3.4.12 on Alpine 3.24 is available with amd64 manifest sha256:f0f7f9344f7c20e2f00d30bcce0e18444bd60b8976c9a212d8cee11493014f8c. Node 24.22.1 is unchanged. Alpine's current curl/libcurl, libxml2, Vips, OpenEXR, CFITSIO, Cairo, and libimagequant versions are unchanged.
+- The Ruby release includes regular-expression compilation fixes and other bug fixes. This is a compatible Ruby 3.4 patch update within the user's existing Alpine 3.24 maintenance authorization.
+- Updated only the Ruby version declarations in .ruby-version, Gemfile, Gemfile.lock, and both Dockerfile Ruby stages to 3.4.12 (lockfile patch level p148). All locked gem versions, Node, Rails, Scout, Vips, and application customizations remain unchanged. Independent source review found no blocking issues; Dockerfile checks passed without warnings.
+- Source commit d7c8614b2c544dfb4e42af6e46d8bc8bb1fb131b was built with --pull and --no-cache for linux/amd64. Bundler installed 305 gems; SDK and Vite production builds completed successfully. Existing Husky, Browserslist, and chunk-size messages were non-blocking.
+- Network-disabled validation loaded Ruby 3.4.12p148, Rails 7.2.3.2, gRPC 1.72.0, Scout 5.7.1, ruby-vips 2.2.5/libvips 8.18.2, JSON 2.21.2, and Node 24.22.1. PNG decoding, resizing, and JPEG encoding passed. Nine embedded source/dependency checksums and the source commit matched the workspace; the production asset manifest parsed; the 22,548-byte SDK checksum matched the previous published image. All 7,844 protected local source files were unchanged.
+- Fresh scans of the previous immutable image and the candidate each found 47 records across 10 package identities (531 indexed packages), with no added, removed, or changed advisory/package records. This Ruby update does not clear the existing curl/libcurl or system libxml2 findings; those Alpine package versions are unchanged. Prior triage evidence about incorrect version ranges and existing mitigations remains relevant, and no exceptions were added.
+- Published smusiczz/chatwoot:release-4.19.0 with manifest digest sha256:6922f7895ac547ca2d5ffb932b2818aeba83ed900a772585cd986a30430da75a. Registry and Hub metadata confirm linux/amd64 and config digest sha256:83e3e811733a1f839624c3e79163c2150bd99450ccc859916fe98850f4bc1153, identical to the tested candidate. The source update is pushed to origin/release-4.19.0.
+- No application deployment, database-backed tests, or live conversation test was performed. Pre-existing development-container changes, the separate vulnerability-remediation plan, and untracked lessons were preserved.
+
+---
+
 # Rebuild and publish release-4.19.0
 
 ## Plan
