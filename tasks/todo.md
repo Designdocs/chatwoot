@@ -61,6 +61,7 @@
 - Default JSON 2.9.1 crashed in a resource-limited isolated streaming check while the ordinary small-input control passed. The prototype replaces the Ruby files, native extensions and accurate default gem specification with the application's existing JSON 2.21.2. Normal, boundary-size and Unicode controls passed with ordinary Ruby, disabled RubyGems and Bundler.
 - Fresh read-only candidate review found no actionable source issues. Ruby, APKBUILD and Dockerfile static checks passed; native ABI, complete upstream curl checks, final runtime validation and scan comparison remain required before publication.
 - The unchanged published image reproduced IPv6-loopback connection failures inside BuildKit but passed in an ordinary isolated container. Preserve IPv6 support, run supported checks during the build, and require the full upstream suite against the same compiled libcurl outside BuildKit before publication.
+- Two upstream name-resolution tests also received a gateway response instead of a DNS failure in the build network. Separate dependency fetching/compilation from checks, run checks with external networking disabled, and retain the compiled test target for complete isolated validation. The first containerized RuboCop run identified one modifier-style issue in the build helper; correct it and rerun that check before publication.
 - No authentication framework major upgrade, interface/SDK change, scanner exception, or metadata-only suppression is planned. The 7,844 protected application and customization files match the pre-change snapshot.
 
 ---

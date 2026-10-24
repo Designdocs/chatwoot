@@ -17,6 +17,8 @@ These packages bridge security updates that are not yet available in the Alpine
 The Dockerfile signs these packages with an ephemeral build key and verifies
 their signatures during installation. Only runtime packages enter the final
 image; build tools, signing keys and package archives stay in build stages.
+Curl's checks run with external networking disabled so DNS interception or proxy
+configuration cannot change the upstream tests' expected name-resolution errors.
 
 When Alpine 3.24 supplies these fixes, compare the versions and remove the
 corresponding local recipe after checking compatibility. Until then, keep source

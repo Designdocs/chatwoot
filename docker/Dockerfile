@@ -11,7 +11,9 @@ FROM apk-builder AS curl-packages
 ARG CURL_TEST_FLAGS=""
 COPY docker/packages/curl /build/curl
 WORKDIR /build/curl
-RUN abuild -F -r -K -P /packages \
+RUN abuild -F -r -K -P /packages deps fetch unpack prepare build
+RUN --network=none abuild -F -K check
+RUN abuild -F -K -P /packages rootpkg \
   && mkdir /runtime-apks \
   && find /packages -type f \( -name 'curl-[0-9]*.apk' -o -name 'libcurl-[0-9]*.apk' \) -exec cp '{}' /runtime-apks/ \;
 

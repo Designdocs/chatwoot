@@ -13,9 +13,7 @@ native_library = RbConfig::CONFIG.fetch('archdir')
 extension = RbConfig::CONFIG.fetch('DLEXT')
 native_files = Dir[File.join(source, 'json', '**', "*.#{extension}")]
 required_extensions = %w[generator parser].map { |name| "/#{name}.#{extension}" }
-unless required_extensions.all? { |name| native_files.any? { |path| path.end_with?(name) } }
-  raise 'Compiled JSON extensions are missing'
-end
+raise 'Compiled JSON extensions are missing' unless required_extensions.all? { |name| native_files.any? { |path| path.end_with?(name) } }
 
 FileUtils.rm_f(File.join(ruby_library, 'json.rb'))
 FileUtils.rm_rf(File.join(ruby_library, 'json'))
