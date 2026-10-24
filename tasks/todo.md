@@ -4,8 +4,8 @@
 
 - [x] Inspect public controllers, asset entrypoints, theme utilities, Google publishing requirements, and existing legal settings.
 - [x] Add anonymous, server-rendered privacy and terms pages for the personal Gmail workspace with shared layout and existing Tailwind tokens.
-- [ ] Validate public routing, rendered documents, asset compilation, accessibility, and responsive light/dark layouts.
-- [ ] Review the scoped source changes, commit, and push the existing tracking branch without including unrelated work.
+- [x] Validate public routing, rendered documents, asset compilation, accessibility, and responsive light/dark layouts.
+- [x] Review the scoped source changes and commit them on the existing tracking branch; push after final checks without including unrelated working changes.
 
 ## Review
 
@@ -13,6 +13,11 @@
 - Existing application/login behavior, credentials, and saved branding settings remain outside this change. No database migration is required.
 - Baseline: `6cc3f344a1`; the checkout has no main branch. Continue on the existing `release-4.19.0` tracking branch without creating a branch. Pre-existing development-container edits and untracked lessons must remain untouched.
 - Deployment to the public domain is separate from source validation; do not claim the new URLs are live before the updated application is deployed.
+- Implementation commit: `39d37284e0`, reviewed against its actual parent `8b37c78947` because independent maintenance work advanced the branch during this task. Standards and Spec reviews both approved with zero findings.
+- Production Vite build passed. The page-specific Tailwind entrypoint generates 15,598 bytes of CSS and reuses the existing theme. Ruby syntax, RuboCop, ESLint, SCSS lint, translation parsing, formatting, and whitespace checks passed. Local Ruby 3.4.4 supplied lint tools; the isolated runtime used the existing Ruby 3.4.12 production image.
+- Actual application routes, controllers, layouts, translations, and compiled CSS passed anonymous GET/HEAD checks without cookies, redirects, JavaScript, or request-time database queries. Validation disabled unrelated eager loading and rate limiting; the isolated startup logged the existing optional AI configuration database connection failure. Full deployment startup with database/cache services remains unverified.
+- Playwright verified desktop and 390px mobile rendering, light and system-dark display (`#121415`), 44px navigation targets, active-document indication, visible keyboard focus, skip navigation, and cross-page navigation without horizontal overflow. Screenshots were inspected. The preview-only missing favicon did not affect document or stylesheet loading.
+- CI push triggers were checked; no workflow was manually started, and scoped commits use `[skip ci]`. Existing application credentials, saved legal URL settings, unrelated development-container changes, and untracked lessons remain untouched. No production image publication or live-domain deployment was performed.
 
 ---
 
