@@ -6,6 +6,12 @@
 - For these release updates, use the existing user-authorized `release-4.19.0` branch without creating a branch. After appropriate compatibility checks and comparison with the current image's vulnerability scan, commit and push only the update's source changes, build a fresh `linux/amd64` production image, publish `smusiczz/chatwoot:release-4.19.0`, and verify its remote digest. Report remaining findings accurately; do not treat a successful rebuild as proof that all vulnerabilities are fixed.
 - The local BuildKit environment has a reproduced IPv6-loopback limitation, including with the unchanged published image. If it persists, use `--build-arg CURL_TEST_FLAGS='!feat:ipv6'` only for build-time checks, then build and run the `curl-checks` target in an ordinary isolated container before publishing. That target runs the full upstream suite without build-time selectors. Verify its compiled libcurl matches the production candidate; never disable curl's IPv6 support or report partial checks as complete. See `docker/packages/README.md`.
 
+## Public Legal Pages: Preserve During Upgrades
+
+- The `/privacy` and `/terms` pages added on 2026-10-24 are intentional fork customizations for the operator's personal Gmail workspace. Preserve their public access, content, shared views, and production stylesheet when pulling or merging upstream changes.
+- Keep the legal controller, templates, stylesheet entrypoint, and Tailwind configuration, plus the two route entries and `en.legal_pages` translations. Merge shared files such as `config/routes.rb` and `config/locales/en.yml`; do not overwrite them with upstream copies that remove local functionality.
+- Before publishing an upgraded image, verify both pages and their compiled CSS work without signing in. Existing customization checks alone do not cover these legal pages. See `docs/local-legal-pages.md` for the file inventory, release evidence, and deployment instructions.
+
 ## Build / Test / Lint
 
 - **Setup**: `bundle install && pnpm install`
