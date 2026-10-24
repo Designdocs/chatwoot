@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '3.4.11'
+ruby '3.4.12'
 
 ##-- base gems for rails --##
 
