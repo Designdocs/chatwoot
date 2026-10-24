@@ -43,6 +43,28 @@
 
 ---
 
+# Patch fixable remaining image vulnerabilities (2026-10-24)
+
+## Plan
+
+- [x] Establish the immutable 47-record baseline, preserve protected source checksums, and independently investigate security and compatibility boundaries.
+- [x] Reproduce the default JSON streaming failure and validate a complete implementation replacement in isolation.
+- [ ] Build patched curl and the minimum libimagequant Rust dependency updates from official sources on Alpine 3.24; preserve native features and ABI.
+- [ ] Integrate only validated changes and review the candidate for bypasses and regressions.
+- [ ] Build a fresh production candidate; verify security triggers, ordinary behavior, protected customizations, and vulnerability differences.
+- [ ] Commit and push the scoped changes and tested release image; verify its immutable remote digest.
+
+## Review
+
+- Baseline: release-4.19.0 at sha256:6922f7895ac547ca2d5ffb932b2818aeba83ed900a772585cd986a30430da75a, Ruby 3.4.12, with 47 scanner records. Preserve unrelated development-container edits and untracked lessons.
+- Independent investigation confirmed libxml2 2.14+ changes SONAME from .so.2 to .so.16; a direct upgrade is incompatible with current consumers. Several older-branch fixes need nontrivial porting; no complete, validated compatible patch set is available for this task. CFITSIO's latest release remains affected, and Cairo's newer release has not been established to fix the supplied assertion finding. Keep existing Vips untrusted-loader protection and report these gaps.
+- Default JSON 2.9.1 crashed in a resource-limited isolated streaming check while the ordinary small-input control passed. The prototype replaces the Ruby files, native extensions and accurate default gem specification with the application's existing JSON 2.21.2. Normal, boundary-size and Unicode controls passed with ordinary Ruby, disabled RubyGems and Bundler.
+- Fresh read-only candidate review found no actionable source issues. Ruby, APKBUILD and Dockerfile static checks passed; native ABI, complete upstream curl checks, final runtime validation and scan comparison remain required before publication.
+- The unchanged published image reproduced IPv6-loopback connection failures inside BuildKit but passed in an ordinary isolated container. Preserve IPv6 support, run supported checks during the build, and require the full upstream suite against the same compiled libcurl outside BuildKit before publication.
+- No authentication framework major upgrade, interface/SDK change, scanner exception, or metadata-only suppression is planned. The 7,844 protected application and customization files match the pre-change snapshot.
+
+---
+
 # Enable Captain for self-hosted testing
 
 ## Plan

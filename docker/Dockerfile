@@ -1,3 +1,35 @@
+FROM alpine:3.24 AS apk-builder
+ENV SUDO_APK=apk
+RUN apk add --no-cache abuild build-base cargo cargo-auditable cargo-c ca-certificates curl \
+  && apk update \
+  && abuild-keygen -a -n \
+  && cp /root/.abuild/*.pub /etc/apk/keys/ \
+  && mkdir /package-keys \
+  && cp /root/.abuild/*.pub /package-keys/
+
+FROM apk-builder AS curl-packages
+ARG CURL_TEST_FLAGS=""
+COPY docker/packages/curl /build/curl
+WORKDIR /build/curl
+RUN abuild -F -r -K -P /packages \
+  && mkdir /runtime-apks \
+  && find /packages -type f \( -name 'curl-[0-9]*.apk' -o -name 'libcurl-[0-9]*.apk' \) -exec cp '{}' /runtime-apks/ \;
+
+FROM curl-packages AS curl-checks
+CMD ["abuild", "-F", "check"]
+
+FROM apk-builder AS imagequant-packages
+COPY docker/packages/libimagequant /build/libimagequant
+WORKDIR /build/libimagequant
+RUN abuild -F -r -P /packages \
+  && mkdir /runtime-apks \
+  && find /packages -type f -name 'libimagequant-[0-9]*.apk' -exec cp '{}' /runtime-apks/ \;
+
+FROM scratch AS security-packages
+COPY --from=apk-builder /package-keys/ /keys/
+COPY --from=curl-packages /runtime-apks/ /packages/
+COPY --from=imagequant-packages /runtime-apks/ /packages/
+
 # pre-build stage
 FROM node:24.22.1-alpine3.24 AS node
 FROM ruby:3.4.12-alpine3.24 AS pre-builder
@@ -63,6 +95,8 @@ COPY Gemfile Gemfile.lock ./
 # adding xz as nokogiri was failing to build libxml
 # https://github.com/chatwoot/chatwoot/issues/4045
 RUN apk update && apk add --no-cache build-base musl ruby-full ruby-dev gcc make musl-dev openssl openssl-dev g++ linux-headers xz vips
+RUN --mount=type=bind,from=security-packages,target=/tmp/security-packages \
+  apk add --no-network --keys-dir /tmp/security-packages/keys /tmp/security-packages/packages/*.apk
 RUN bundle config set --local force_ruby_platform true
 
 # Do not install development or test gems in production
@@ -120,12 +154,15 @@ ARG RAILS_ENV=production
 ENV RAILS_ENV=${RAILS_ENV}
 ENV BUNDLE_PATH="/gems"
 
-RUN apk upgrade --no-cache && apk add --no-cache \
+RUN --mount=type=bind,from=security-packages,target=/tmp/security-packages \
+  apk upgrade --no-cache && apk add --no-cache \
   libstdc++ \
   openssl \
   tzdata \
   postgresql-client \
   vips \
+  && apk add --no-network --keys-dir /tmp/security-packages/keys \
+    /tmp/security-packages/packages/libcurl-*.apk /tmp/security-packages/packages/libimagequant-*.apk \
   && gem install bundler -v "$BUNDLER_VERSION"
 
 # Restrict libvips to its trusted image loaders when generating variants
@@ -134,9 +171,11 @@ ENV VIPS_BLOCK_UNTRUSTED=1
 COPY --from=node /usr/local/bin/node /usr/local/bin/
 
 RUN --mount=type=bind,from=node,source=/usr/local/lib/node_modules,target=/tmp/node_modules \
+  --mount=type=bind,from=security-packages,target=/tmp/security-packages \
   if [ "$RAILS_ENV" != "production" ]; then \
   cp -a /tmp/node_modules /usr/local/lib/node_modules \
-  && apk add --no-cache build-base curl git imagemagick \
+  && apk add --no-cache build-base git imagemagick \
+  && apk add --no-network --keys-dir /tmp/security-packages/keys /tmp/security-packages/packages/curl-*.apk \
   && ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm \
   && ln -s /usr/local/lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx \
   && npm install -g pnpm@${PNPM_VERSION} \
@@ -144,6 +183,8 @@ RUN --mount=type=bind,from=node,source=/usr/local/lib/node_modules,target=/tmp/n
   fi
 
 COPY --from=pre-builder /gems/ /gems/
+RUN --mount=type=bind,source=docker/build/update_default_json.rb,target=/tmp/update_default_json.rb \
+  ruby /tmp/update_default_json.rb
 COPY --from=pre-builder /app /app
 
 # Copy .git_sha file from pre-builder stage

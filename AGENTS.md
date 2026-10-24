@@ -4,6 +4,7 @@
 
 - Standing user authorization (2026-10-22): when official Alpine 3.24 repositories or compatible Ruby/Node base images on Alpine 3.24 provide updates, apply compatible updates directly without requesting confirmation again. Keep this maintenance within the Alpine 3.24 release series and preserve existing application customizations and unrelated working changes.
 - For these release updates, use the existing user-authorized `release-4.19.0` branch without creating a branch. After appropriate compatibility checks and comparison with the current image's vulnerability scan, commit and push only the update's source changes, build a fresh `linux/amd64` production image, publish `smusiczz/chatwoot:release-4.19.0`, and verify its remote digest. Report remaining findings accurately; do not treat a successful rebuild as proof that all vulnerabilities are fixed.
+- The local BuildKit environment has a reproduced IPv6-loopback limitation, including with the unchanged published image. If it persists, use `--build-arg CURL_TEST_FLAGS='!feat:ipv6'` only for build-time checks, then build and run the `curl-checks` target in an ordinary isolated container before publishing. That target runs the full upstream suite without build-time selectors. Verify its compiled libcurl matches the production candidate; never disable curl's IPv6 support or report partial checks as complete. See `docker/packages/README.md`.
 
 ## Build / Test / Lint
 
