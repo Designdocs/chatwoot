@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="description" content="<%= @document.fetch(:description) %>">
+    <title><%= @document.fetch(:title) %> · <%= @legal.fetch(:app_name) %></title>
+    <%= vite_client_tag %>
+    <%= vite_stylesheet_tag 'legal.scss' %>
+  </head>
+  <body class="min-h-screen bg-n-background font-sans text-n-slate-12 antialiased [@media(prefers-color-scheme:dark)]:bg-[#121415] [@media(prefers-color-scheme:dark)]:text-white/90">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-4 focus:z-10 focus:rounded-lg focus:bg-white focus:p-3 focus:text-n-slate-12">
+      <%= @legal.fetch(:skip_to_content) %>
+    </a>
+    <header class="border-b border-n-container [@media(prefers-color-scheme:dark)]:border-white/10">
+      <div class="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-6 py-4 sm:px-8">
+        <%= link_to @legal.fetch(:app_name), root_path, class: 'inline-flex min-h-11 items-center rounded-lg text-lg font-semibold tracking-tight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4' %>
+        <nav aria-label="<%= @legal.fetch(:navigation_label) %>" class="flex flex-wrap gap-x-4">
+          <%= link_to @legal.fetch(:privacy).fetch(:title), privacy_path, aria: { current: action_name == 'privacy' ? 'page' : nil }, class: 'inline-flex min-h-11 items-center rounded-lg text-sm underline-offset-4 hover:underline aria-[current=page]:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4' %>
+          <%= link_to @legal.fetch(:terms).fetch(:title), terms_path, aria: { current: action_name == 'terms' ? 'page' : nil }, class: 'inline-flex min-h-11 items-center rounded-lg text-sm underline-offset-4 hover:underline aria-[current=page]:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4' %>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content" tabindex="-1" class="mx-auto max-w-3xl px-6 py-12 sm:px-8 sm:py-16">
+      <%= yield %>
+    </main>
+    <footer class="border-t border-n-container [@media(prefers-color-scheme:dark)]:border-white/10">
+      <div class="mx-auto flex max-w-3xl flex-col gap-3 px-6 py-8 text-sm leading-6 sm:px-8">
+        <p><%= @legal.fetch(:contact_label) %></p>
+        <%= mail_to @legal.fetch(:contact_email), nil, class: 'w-fit break-all rounded underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4' %>
+        <%= link_to @legal.fetch(:google_connections_label), 'https://myaccount.google.com/connections', class: 'w-fit rounded underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4' %>
+      </div>
+    </footer>
+  </body>
+</html>

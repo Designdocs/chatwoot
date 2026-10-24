@@ -1,3 +1,21 @@
+# Public personal-use legal pages (2026-10-24)
+
+## Plan
+
+- [x] Inspect public controllers, asset entrypoints, theme utilities, Google publishing requirements, and existing legal settings.
+- [x] Add anonymous, server-rendered privacy and terms pages for the personal Gmail workspace with shared layout and existing Tailwind tokens.
+- [ ] Validate public routing, rendered documents, asset compilation, accessibility, and responsive light/dark layouts.
+- [ ] Review the scoped source changes, commit, and push the existing tracking branch without including unrelated work.
+
+## Review
+
+- Scope: `/privacy` and `/terms`, with English documents describing personal use, the broad Gmail permission, storage, optional integrations, revocation, and local deletion. The contact email follows the user-provided Google Console support address.
+- Existing application/login behavior, credentials, and saved branding settings remain outside this change. No database migration is required.
+- Baseline: `6cc3f344a1`; the checkout has no main branch. Continue on the existing `release-4.19.0` tracking branch without creating a branch. Pre-existing development-container edits and untracked lessons must remain untouched.
+- Deployment to the public domain is separate from source validation; do not claim the new URLs are live before the updated application is deployed.
+
+---
+
 # Alpine 3.24 maintenance: Ruby 3.4.12 (2026-10-24)
 
 ## Plan

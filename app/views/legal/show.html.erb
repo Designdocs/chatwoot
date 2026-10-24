@@ -1,0 +1,23 @@
+<article class="space-y-10">
+  <header class="space-y-4">
+    <p class="text-sm font-medium"><%= @legal.fetch(:personal_use_label) %></p>
+    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl"><%= @document.fetch(:title) %></h1>
+    <p class="text-base leading-7"><%= @document.fetch(:description) %></p>
+    <p class="text-sm">
+      <%= @legal.fetch(:updated_label) %>
+      <time datetime="<%= @legal.fetch(:updated_on) %>"><%= @legal.fetch(:updated_date) %></time>
+    </p>
+  </header>
+
+  <% @document.fetch(:sections).each do |section| %>
+    <section aria-labelledby="<%= section.fetch(:id) %>" class="space-y-3">
+      <h2 id="<%= section.fetch(:id) %>" class="text-lg font-semibold tracking-tight"><%= section.fetch(:title) %></h2>
+      <% section.fetch(:paragraphs).each do |paragraph| %>
+        <p class="break-words text-base leading-7"><%= paragraph %></p>
+      <% end %>
+      <% if section[:link_url] %>
+        <%= link_to section.fetch(:link_label), section.fetch(:link_url), class: 'inline-block rounded text-base leading-7 underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4' %>
+      <% end %>
+    </section>
+  <% end %>
+</article>

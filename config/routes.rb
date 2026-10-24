@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get '/privacy', to: 'legal#privacy', as: :privacy
+  get '/terms', to: 'legal#terms', as: :terms
+
   # AUTH STARTS
   mount_devise_token_auth_for 'User', at: 'auth', controllers: {
     confirmations: 'devise_overrides/confirmations',

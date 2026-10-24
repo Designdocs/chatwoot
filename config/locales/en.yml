@@ -30,6 +30,96 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  legal_pages:
+    app_name: 'chatooos'
+    personal_use_label: 'A private workspace for personal Gmail accounts'
+    navigation_label: 'Legal documents'
+    skip_to_content: 'Skip to content'
+    updated_label: 'Last updated:'
+    updated_on: '2026-10-24'
+    updated_date: 'October 24, 2026'
+    contact_label: 'For privacy questions, data deletion, or support, contact the operator:'
+    contact_email: 'pinterestdupl@gmail.com'
+    google_connections_label: 'Manage access in your Google Account'
+    privacy:
+      title: 'Privacy Policy'
+      description: 'How chatooos handles Google account information and email in this privately operated, self-hosted workspace.'
+      sections:
+        - id: 'personal-use'
+          title: '1. Personal use and operator'
+          paragraphs:
+            - 'chatooos is a privately operated Chatwoot installation at chatooos.com. It is intended for the operator to connect and manage a small number of their own Gmail accounts. It is not offered as a public email service or a service for unrelated users to connect their Google accounts.'
+            - 'The operator is responsible for this installation and its handling of data. The contact address at the bottom of this page is available for questions about privacy and data deletion.'
+        - id: 'data-accessed'
+          title: '2. Information accessed'
+          paragraphs:
+            - 'When a Google account is connected, the application receives the account information made available during authorization, such as its name and email address, together with OAuth access and refresh tokens. Google handles authentication; the Gmail connection does not ask for or store the Google account password.'
+            - 'For connected mailboxes, the application processes email headers, sender and recipient addresses, message content, attachments, and associated timestamps needed to synchronize and display conversations and send replies. The server may also process IP addresses and technical logs for operation, security, and troubleshooting.'
+        - id: 'purpose-and-permissions'
+          title: '3. Purpose and Google permissions'
+          paragraphs:
+            - 'Google account data is used to identify the connected account, synchronize and organize its messages, display conversations and attachments, and send email replies requested by the operator. Refresh tokens allow synchronization to continue without signing in for each request.'
+            - 'The current Gmail connection uses IMAP and SMTP with OAuth and requests the https://mail.google.com/ permission, which grants broad mailbox access. This policy limits the intended use of that access to the personal email functions described here; it does not change the technical breadth of the permission granted by Google.'
+        - id: 'storage-and-retention'
+          title: '4. Storage, retention, and security'
+          paragraphs:
+            - 'Synchronized messages, attachments, account details, and authorization tokens are stored in the database and file storage configured for this self-hosted installation. Hosting, storage, and any backups are managed by the operator and their selected infrastructure providers.'
+            - 'This installation does not promise a fixed automatic retention period. Data is retained while needed for the personal workspace and until the operator removes it. The operator is responsible for access controls, updates, and backup management; this policy does not claim a particular encryption-at-rest setup or security certification.'
+        - id: 'sharing-and-integrations'
+          title: '5. Sharing and optional integrations'
+          paragraphs:
+            - 'Google processes authentication and mail delivery, and messages sent by the operator are delivered to their chosen recipients. Infrastructure providers may process stored data as necessary to host and operate the installation. Data may also be disclosed when required by law or necessary to investigate security incidents.'
+            - 'If the operator enables optional AI features, webhooks, automations, or other external integrations, relevant message content may be sent to the configured providers to perform those features. Such features are not required for basic Gmail synchronization. Before enabling them, the operator must review their data practices and ensure any transfer is disclosed, authorized, and consistent with Google policies.'
+            - 'Google user data must not be sold, used for advertising or profiling for advertising, or used to train general-purpose AI models. Human access is limited to the operator and access specifically authorized by the account owner, necessary for security, or required by law.'
+        - id: 'google-limited-use'
+          title: '6. Google user data and Limited Use'
+          paragraphs:
+            - 'Use and transfer of Google user data must comply with the Google API Services User Data Policy, including its Limited Use requirements. Data access is limited to the personal email functions disclosed in this policy and any separately disclosed, authorized integrations.'
+          link_label: 'Google API Services User Data Policy'
+          link_url: 'https://developers.google.com/terms/api-services-user-data-policy'
+        - id: 'revoke-and-delete'
+          title: '7. Revoking access and deleting data'
+          paragraphs:
+            - 'The operator can revoke the application access from the Google Account connections page linked below. Revocation prevents future authorized access but does not automatically erase messages, attachments, or account information already copied into this installation.'
+            - 'To remove local copies, the operator must also delete the relevant data from the workspace and its storage, or request deletion using the contact address below. Backup copies must be handled separately under the backup procedures managed by the operator; immediate removal from every backup is not promised. Removing local copies does not itself delete the original messages held by Google.'
+        - id: 'policy-changes'
+          title: '8. Changes and contact'
+          paragraphs:
+            - 'The operator will update this page when the described data practices change. Any expanded access or new use of Google data requires the relevant disclosures and authorization before it begins. The date above identifies the current version. Questions and deletion requests can be sent to the contact address below.'
+    terms:
+      title: 'Terms of Service'
+      description: 'Conditions for using this private chatooos workspace to manage Gmail accounts owned by its operator.'
+      sections:
+        - id: 'scope'
+          title: '1. Scope of the workspace'
+          paragraphs:
+            - 'chatooos is a personal, self-hosted Chatwoot workspace operated at chatooos.com. Access is intended only for the operator to manage their own Gmail accounts. Public access to these documents does not grant access to the application, create an account, or offer a public subscription service.'
+            - 'These terms describe the intended use of this installation. Google and the underlying open-source software are provided by their respective owners; chatooos does not claim endorsement or verification by Google.'
+        - id: 'authorized-accounts'
+          title: '2. Accounts and permitted use'
+          paragraphs:
+            - 'Only connect Google accounts owned and controlled by the operator. Keep workspace credentials, OAuth client secrets, and authorization tokens confidential. Review the permissions requested by Google before authorizing a connection.'
+            - 'Use the workspace lawfully to read, organize, and reply to personal email. Do not use it to access an account belonging to someone else without permission, send spam or abusive messages, distribute unlawful content, or evade Google restrictions.'
+        - id: 'google-services'
+          title: '3. Google authorization and third-party services'
+          paragraphs:
+            - 'Gmail access depends on Google authorization, service availability, and applicable Google terms and policies. Access may expire, be revoked, or require authorization again. Publishing an OAuth application does not guarantee approval, permanent access, or uninterrupted synchronization.'
+            - 'Optional AI features, external integrations, and infrastructure services remain subject to the terms set by their providers. The operator is responsible for deciding which features to enable and for ensuring that any disclosure of Google data complies with the Privacy Policy and applicable Google requirements.'
+        - id: 'data-responsibilities'
+          title: '4. Data and operator responsibilities'
+          paragraphs:
+            - 'The Privacy Policy explains the information this installation accesses and how it is used, stored, shared, and removed. The operator is responsible for securing the deployment, limiting access, maintaining software, managing retention, and keeping appropriate backups.'
+            - 'Review recipients and message content before sending email. Revoke Google access when a mailbox should no longer be connected. If local data must also be removed, deletion from the workspace, file storage, and backups is a separate step.'
+        - id: 'availability'
+          title: '5. Availability and ending use'
+          paragraphs:
+            - 'This personal installation has no service-level commitment or guarantee of continuous availability. Software errors, provider restrictions, maintenance, or configuration changes can affect message synchronization and delivery.'
+            - 'The operator may stop using or operating the workspace at any time. Disconnect the relevant Google accounts, revoke authorization, and manage retained copies and backups according to the Privacy Policy.'
+        - id: 'terms-changes'
+          title: '6. Changes and contact'
+          paragraphs:
+            - 'These terms may be updated to reflect changes in this personal installation. The date above identifies the current version. If the service is later opened to other users or given a new purpose, its terms, privacy disclosures, and OAuth configuration must be reviewed before that change.'
+            - 'For questions about these terms or the workspace, use the operator contact address below.'
   hello: 'Hello world'
   administrator_notifications:
     captain:
