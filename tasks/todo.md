@@ -1,3 +1,23 @@
+# Alpine 3.24 Node patch maintenance (2026-10-29)
+
+## Plan
+
+- [x] Compare the immutable published image with official Alpine 3.24 repositories and compatible Ruby/Node base images.
+- [x] Pin the compatible Node patch, preserve all unrelated source/customizations, and complete static checks and independent review.
+- [ ] Build a fresh linux/amd64 production candidate with updated bases and no build cache; complete native, runtime, asset, legal-page and vulnerability comparisons.
+- [ ] Push only the scoped source changes and verified release image, confirm the remote digest, and record validation limits.
+
+## Review
+
+- Baseline: `smusiczz/chatwoot@sha256:818f2e05e597f5cb77a403d8ce1aa6b19d327b70ec33eccbd531c7e7ae473098`, configuration `sha256:fa79c57b34094a99654cae13836cd4cb2ef1f5e5be0d0e296da55a31dd03ec9f`.
+- Node 24.22.2 on Alpine 3.24 is the available compatible patch; the package engine constraint already permits it. Ruby 3.4.12 and the installed Alpine packages have no higher compatible repository versions. The local libimagequant revision remains ahead of the official repository.
+- Change only the Node image/default arguments and local Node pin. Preserve dependency locks, customizations, public legal pages, and unrelated development-container edits, deleted guidance file, and untracked lessons. Continue on the existing user-authorized `release-4.19.0` branch.
+- The local Docker engine was stopped; starting Docker Desktop restored the existing builder. Publication remains gated on the complete candidate checks.
+- Dockerfile static validation passed without warnings. The official amd64 Node 24.22.2 image passed isolated read-only, network-disabled version, crypto, JSON and async-context checks. Source customization checks passed all 15 assertions, and the independent scoped source review reported no actionable findings.
+- A fresh scan of the immutable published image reports 22 records across 8 vulnerable package identities (528 indexed packages). This is the comparison baseline for this run; the older 21-record report used an earlier advisory database.
+
+---
+
 # Publish the image with public legal pages (2026-10-24)
 
 ## Plan
