@@ -1,3 +1,24 @@
+# Alpine 3.24.4 image publication (2026-11-09)
+
+## Plan
+
+- [x] Compare the immutable published image with Alpine 3.24 repositories and current compatible base images.
+- [x] Build a fresh production candidate from the reviewed Node patch and validate compatibility and scan differences.
+- [x] Push the scoped source commit and tested image, then verify the registry digest.
+
+## Review
+
+- Previous published manifest `sha256:818f2e05e597f5cb77a403d8ce1aa6b19d327b70ec33eccbd531c7e7ae473098`. The full current comparison found nine newer installed Alpine package versions and new amd64 Ruby and Node base manifests. The Ruby runtime stays on 3.4.12, Node advances to 24.22.2, and Alpine advances to 3.24.4.
+- The release uses the already reviewed source commit `ed980390dc84d0c6215aac91e7e5545c0a1db1a1` from a clean detached snapshot. The build pulled current bases and disabled build caching. The SDK, Rails assets, and production Vite build completed. Buildx static checks reported no warnings. The source commit was pushed to `origin/release-4.19.0`.
+- The earlier diagnostic crash reproduced on both October images in QEMU when the test borrowed its synthetic Ruby pixel buffer. Copying the buffer was the only change needed for both controls to pass. Both controls also passed a normal file input test. The November candidate passed file input in Rosetta and QEMU and the copied-buffer test in QEMU. JPEG, PNG, palette PNG, GIF, and WebP encoding, decoding, and resizing passed. Existing SVG and FITS loader protection and local HTTP and HTTPS checks passed.
+- The isolated curl target ran the full upstream suite without selectors. All 1,682 runnable checks passed out of 2,138 considered. Its packaged libcurl SHA-256 `d713cca9c5e56ae424ff1a0eb1de9dcd9f20b8be693a4bff88e314f7305359ce` matches the installed candidate library. The libimagequant build ran all four upstream checks successfully.
+- Candidate checks verified 7,900 committed source files, the source revision, the exact existing SDK bytes, Ruby and Node versions, native component loading, and JSON stream round trips in ordinary, disabled-RubyGems, and Bundler modes. Anonymous GET and HEAD passed for `/privacy`, `/terms`, and their 15,598-byte production stylesheet. The page checks generated no session cookies or request-time database queries. Rails ran in isolation with eager loading and rate limiting disabled for that check. A full deployment with a database and cache was outside this verification.
+- Scout indexed 528 packages in both images. Findings fell from 27 to 22 with no added advisory and package identities. Expat 2.10.0-r0 removes four high-severity records and zlib 1.4-r0 removes one critical record. Both fixes are listed in the Alpine 3.24 packaging records. [Expat](https://github.com/alpinelinux/aports/blob/3.24-stable/main/expat/APKBUILD) and [zlib](https://github.com/alpinelinux/aports/blob/3.24-stable/main/zlib/APKBUILD).
+- The remaining scan records cover libxml2 (11), Cairo (1), CFITSIO (2), crass (1), Devise (2), OpenEXR (3), musl (1), and rack-cors (1). The Alpine package already backports the reported musl fix. The installed OpenEXR and rack-cors releases are outside the affected ranges for their reported records. These records remain visible in the unfiltered scan. The other records carry forward from the baseline and were not resolved by this base update. [Alpine musl](https://github.com/alpinelinux/aports/blob/3.24-stable/main/musl/APKBUILD), [OpenEXR security policy](https://github.com/AcademySoftwareFoundation/openexr/blob/main/SECURITY.md), and [RubySec rack-cors advisory](https://rubysec.com/advisories/CVE-2024-27456/).
+- Published `smusiczz/chatwoot:release-4.19.0` for `linux/amd64` at `sha256:9e166c925ed5e812dbeaec7ed70c78d8bc5cc715e082407ee9af5dd9b1e42d9f`. The registry digest matches the push result and the image configuration `sha256:289f930d2885c04399c0f1f5244e86b9d0ad451e8936cf741d84c11c2ec78469` matches the tested candidate. The older October candidate is superseded by this verified build.
+
+---
+
 # Alpine 3.24 Node patch maintenance (2026-10-29)
 
 ## Plan
