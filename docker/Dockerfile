@@ -63,7 +63,7 @@ RUN apk upgrade --no-cache && apk add --no-cache \
   tar \
   build-base \
   tzdata \
-  postgresql-dev \
+  libpq-dev \
   postgresql-client \
   git \
   curl \
