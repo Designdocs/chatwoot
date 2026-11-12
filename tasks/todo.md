@@ -1,3 +1,23 @@
+# Alpine 3.24 Node security update (2026-11-13)
+
+## Plan
+
+- [x] Recheck installed Alpine packages and official base images against the immutable published image.
+- [x] Pin the Node security release, resolve the build dependency failure, and build from a clean source snapshot.
+- [x] Validate the candidate in isolation, compare its unfiltered scan, then publish and verify the remote image.
+
+## Review
+
+- The 123 installed Alpine packages present in the official repository indexes had no available upgrades. The local libimagequant revision remains ahead of the official version. Ruby remains 3.4.12 on Alpine 3.24.4; Node moves from 24.22.2 to the [24.22.3 LTS security release](https://nodejs.org/en/blog/release/v24.22.3/).
+- An Alpine CDN transfer failed while downloading the LLVM tools pulled by the PostgreSQL server development package. The build stage now installs the official [libpq client development package](https://raw.githubusercontent.com/alpinelinux/aports/3.24-stable/main/postgresql18/APKBUILD). An isolated build of the locked pg 1.5.3 gem confirmed the PostgreSQL 18.6 client ABI, and the production candidate connected to an isolated PostgreSQL 16 server and ran a query. The production package inventory changed only in the Node version.
+- Buildx static validation passed without warnings. A clean snapshot at `aae34635c2dd7e498af04868f8b9fe4f44658204` built for linux/amd64 using updated base resolution and no build cache. Build provenance matches the official base digests. SDK and Rails/Vite assets compiled, 8,505 source file checksums matched, and the SDK bytes matched the previous release.
+- Isolated Node HTTP/2, Ruby native libraries, image conversions, and JSON streaming checks passed. Both public legal pages and their compiled stylesheet passed anonymous GET and HEAD without session cookies or request-time SQL. The isolated database check did not use the live deployment.
+- The full isolated curl suite passed all 1,682 runnable tests out of 2,138 considered. The tested libcurl hash matched the candidate library. All four libimagequant upstream tests passed.
+- The unfiltered Scout comparison indexed 528 packages in each image and reported the same 23 records. The Node security fixes are confirmed by the binary version and official release, with no Node records in either Scout scan. The remaining records cover libxml2 (11), OpenEXR (3), CFITSIO (2), Devise (2), Cairo (1), crass (1), OmniAuth (1), musl (1), and rack-cors (1). The [Alpine musl fix](https://github.com/alpinelinux/aports/blob/3.24-stable/main/musl/APKBUILD) is already backported, and the installed [OpenEXR](https://github.com/AcademySoftwareFoundation/openexr/blob/main/SECURITY.md) and [rack-cors](https://rubysec.com/advisories/CVE-2024-27456/) versions are outside the reported affected ranges. The OmniAuth version is within the advisory range; the application uses the [documented fixed-host mitigation](https://github.com/omniauth/omniauth/security/advisories/GHSA-m27g-v28p-f9fx). No scan exceptions were applied.
+- Previous manifest: `sha256:9e166c925ed5e812dbeaec7ed70c78d8bc5cc715e082407ee9af5dd9b1e42d9f`. Published `smusiczz/chatwoot:release-4.19.0` manifest: `sha256:9eaea42481a7b59bc3412e8ebcc2048f408c77f410b81d3bf0ec8d77d0492820`. The registry manifest matches the push, its configuration matches the validated candidate `sha256:9dca57f53f7ac4dc87a92f6234bd5609684395c5f7c9835cf62b8fe941d0a06e`, and its platform is linux/amd64.
+
+---
+
 # Alpine 3.24.4 image publication (2026-11-09)
 
 ## Plan
